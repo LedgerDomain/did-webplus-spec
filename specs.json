@@ -8,7 +8,7 @@
       "logo_link": "https://github.com/decentralized-identity/spec-up",
       "source": {
         "host": "github",
-        "account": "learningproof",
+        "account": "LedgerDomain",
         "repo": "did-webplus-spec"
       },
       "external_specs": [

@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft V0.1
+**Specification Status:** Draft v0.1
 
 **Latest Draft:**
   [https://identity.foundation/spec-up](https://identity.foundation/spec-up)
@@ -14,9 +14,9 @@ Editors:
 ~ [Juan Caballero](https://github.com/bumblefudge/)
 
 Participate:
-~ [GitHub repo](https://github.com/learningproof/did-webplus-spec)
-~ [File a bug](https://github.com/learningproof/did-webplus-spec/issues)
-~ [Commit history](https://github.com/learningproof/did-webplus-spec/commits/master)
+~ [GitHub repo](https://github.com/LedgerDomain/did-webplus-spec)
+~ [File a bug](https://github.com/LedgerDomain/did-webplus-spec/issues)
+~ [Commit history](https://github.com/LedgerDomain/did-webplus-spec/commits/main)
 
 ------------------------------------
 
