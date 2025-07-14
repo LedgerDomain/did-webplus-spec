@@ -579,9 +579,16 @@ sequenceDiagram
 </li>
 </ul>
 <p>Notably, the Thin DID resolver does not use a DID document store.  Instead, it outsources that functionality to the VDG.</p>
-<h3 id="did-authorization"><a class="toc-anchor" href="#did-authorization" >§</a> DID Authorization</h3>
-<p>At minimum, each DID document contains at least one public key at inception, and updates to it can be authorized only by the matching private key.
-Additional controllers (in the form of additional public keys) can be added at inception or by any valid update; see the update section above.</p>
+<h3 id="security-and-privacy-considerations"><a class="toc-anchor" href="#security-and-privacy-considerations" >§</a> Security and Privacy Considerations</h3>
+<p>Refer to the <a path-0="w3c-ccg.github.io"path-1="did-method-web"path-2="#security-and-privacy-considerations"href="https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations" ><code>did:web</code> spec</a> for security and privacy considerations, generally.</p>
+<h4 id="authentication-and-authorization-for-did-operations"><a class="toc-anchor" href="#authentication-and-authorization-for-did-operations" >§</a> Authentication and Authorization for DID Operations</h4>
+<p>As in <a path-0="w3c-ccg.github.io"path-1="did-method-web"path-2="#authentication-and-authorization"href="https://w3c-ccg.github.io/did-method-web/#authentication-and-authorization" ><code>did:web</code></a>, <code>did:webplus</code> does not specify any <strong>authentication</strong> requirements for <a class="term-reference" href="#term:vdr">VDR</a>s or <a class="term-reference" href="#term:vdg">VDG</a>s, leaving it up to specific implementations to provide appropriate authentication mechanisms.</p>
+<p>Note however, that <strong>authorization</strong> for <code>did:webplus</code> DID operations is defined purely in terms of cryptographically verifiable relationships, and is specified in <a href="#did-document" >this section</a>.</p>
+<h4 id="personally-identifying-information-pii-considerations"><a class="toc-anchor" href="#personally-identifying-information-pii-considerations" >§</a> Personally-Identifying Information (PII) Considerations</h4>
+<p>Because <code>did:webplus</code> DIDs and DID documents are intended to be immutable, long-lived, and stored in many places, complete deletion of DIDs and DID documents is not feasible (and is not even defined by this specification).  Thus, users and systems must take measures to either ensure that PII is not stored in DIDs and DID documents, or knowingly consent to the included PII being effectively un-deletable.</p>
+<p>For example, a DID could be <code>did:webplus:bob.lablaugh.law:EgYivDi_xAi2kETdFw1o36-jZWkYkxg0ayMhSBjODPmQ</code>, which contains the name “Bob LaBlaugh”, which is technically PII.  However, if the name is already in a domain name, then perhaps the person has already accepted the consequences of having publicized their name.</p>
+<p>A more subtle example would be a DID like <code>did:webplus:example.com:bob.lablaugh:EgYivDi_xAi2kETdFw1o36-jZWkYkxg0ayMhSBjODPmQ</code>, say where the DID corresponds to the user account, and in this case of PII (the user’s real name).  This would be a specific policy of the VDR that hosts the DID, and the VDR would need to gain the consent of the user regarding this potential publication of PII.</p>
+<p>Other examples would be where the DID document contains PII, such as in a service endpoint, or in a “linked Verifiable Presentation”.  In these cases, because the DID controller is responsible for the content of the DID document, the DID controller is responsible for ensuring that PII is not stored in the DID document, or accepting the consequences of having published it.</p>
 <h3 id="example-creating-and-updating-a-did"><a class="toc-anchor" href="#example-creating-and-updating-a-did" >§</a> Example: Creating and Updating a DID</h3>
 <p>This example can be run using the Rust implementation of <code>did:webplus</code>; see <a path-0="github.com"path-1="LedgerDomain"path-2="did-webplus"path-3="blob"path-4="main"path-5="doc"path-6="example-creating-and-updating-a-did.md"href="https://github.com/LedgerDomain/did-webplus/blob/main/doc/example-creating-and-updating-a-did.md" >example-creating-and-updating-a-did.md</a>.</p>
 <h4 id="creating-a-did"><a class="toc-anchor" href="#creating-a-did" >§</a> Creating a DID</h4>
@@ -1351,11 +1358,6 @@ graph TD
 <ul>
 <li>Rust: <a path-0="github.com"path-1="LedgerDomain"path-2="selfsign"href="https://github.com/LedgerDomain/selfsign" >selfsign</a> crate.</li>
 </ul>
-<h3 id="security-considerations"><a class="toc-anchor" href="#security-considerations" >§</a> Security Considerations</h3>
-<p>Refer to the <a path-0="w3c-ccg.github.io"path-1="did-method-web"path-2="#security-and-privacy-considerations"href="https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations" ><code>did:web</code> spec</a> for security and privacy considerations, generally.</p>
-<h4 id="authentication-and-authorization-for-did-operations"><a class="toc-anchor" href="#authentication-and-authorization-for-did-operations" >§</a> Authentication and Authorization for DID Operations</h4>
-<p>As in <a path-0="w3c-ccg.github.io"path-1="did-method-web"path-2="#authentication-and-authorization"href="https://w3c-ccg.github.io/did-method-web/#authentication-and-authorization" ><code>did:web</code></a>, <code>did:webplus</code> does not specify any <strong>authentication</strong> requirements for <a class="term-reference" href="#term:vdr">VDR</a>s or <a class="term-reference" href="#term:vdg">VDG</a>s, leaving it up to specific implementations to provide appropriate authentication mechanisms.</p>
-<p>Note however, that <strong>authorization</strong> for <code>did:webplus</code> DID operations is defined purely in terms of cryptographically verifiable relationships, and is specified in <a href="#did-document" >this section</a>.</p>
 <h3 id="keri-based-encodings"><a class="toc-anchor" href="#keri-based-encodings" >§</a> KERI-Based Encodings</h3>
 <p>Note that <code>did:webplus</code> is likely to transition to a multibase-encoded <a path-0="github.com"path-1="multiformats"path-2="multiformats"href="https://github.com/multiformats/multiformats" >multiformat</a> for its cryptographic data encodings.  However, for now, <code>did:webplus</code> uses KERI-based encodings for its cryptographic data.</p>
 <h4 id="keri-encoded-hashes"><a class="toc-anchor" href="#keri-encoded-hashes" >§</a> KERI-Encoded Hashes</h4>
@@ -1487,7 +1489,12 @@ graph TD
 </ul>
 </li>
 <li><a href="#did-document-store" >DID Document Store</a></li>
-<li><a href="#did-authorization" >DID Authorization</a></li>
+<li><a href="#security-and-privacy-considerations" >Security and Privacy Considerations</a>
+<ul>
+<li><a href="#authentication-and-authorization-for-did-operations" >Authentication and Authorization for DID Operations</a></li>
+<li><a href="#personally-identifying-information-pii-considerations" >Personally-Identifying Information (PII) Considerations</a></li>
+</ul>
+</li>
 <li><a href="#example-creating-and-updating-a-did" >Example: Creating and Updating a DID</a>
 <ul>
 <li><a href="#creating-a-did" >Creating a DID</a></li>
@@ -1529,11 +1536,6 @@ graph TD
 <li><a href="#what-is-self-signed-and-hashed-data" >What Is Self-Signed-and-Hashed Data?</a></li>
 <li><a href="#self-signature-and-self-signature-verifier-slots" >Self-Signature and Self-Signature-Verifier Slots</a></li>
 <li><a href="#implementations-3" >Implementations</a></li>
-</ul>
-</li>
-<li><a href="#security-considerations" >Security Considerations</a>
-<ul>
-<li><a href="#authentication-and-authorization-for-did-operations" >Authentication and Authorization for DID Operations</a></li>
 </ul>
 </li>
 <li><a href="#keri-based-encodings" >KERI-Based Encodings</a>

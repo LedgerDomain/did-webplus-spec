@@ -680,10 +680,25 @@ Many components of `did:webplus` use a DID document store in some form in order 
 
 Notably, the Thin DID resolver does not use a DID document store.  Instead, it outsources that functionality to the VDG.
 
-### DID Authorization
+### Security and Privacy Considerations
 
-At minimum, each DID document contains at least one public key at inception, and updates to it can be authorized only by the matching private key.
-Additional controllers (in the form of additional public keys) can be added at inception or by any valid update; see the update section above.
+Refer to the [`did:web` spec](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations) for security and privacy considerations, generally.
+
+#### Authentication and Authorization for DID Operations
+
+As in [`did:web`](https://w3c-ccg.github.io/did-method-web/#authentication-and-authorization), `did:webplus` does not specify any **authentication** requirements for [[ref: VDR]]s or [[ref: VDG]]s, leaving it up to specific implementations to provide appropriate authentication mechanisms.
+
+Note however, that **authorization** for `did:webplus` DID operations is defined purely in terms of cryptographically verifiable relationships, and is specified in [this section](#did-document).
+
+#### Personally-Identifying Information (PII) Considerations
+
+Because `did:webplus` DIDs and DID documents are intended to be immutable, long-lived, and stored in many places, complete deletion of DIDs and DID documents is not feasible (and is not even defined by this specification).  Thus, users and systems must take measures to either ensure that PII is not stored in DIDs and DID documents, or knowingly consent to the included PII being effectively un-deletable.
+
+For example, a DID could be `did:webplus:bob.lablaugh.law:EgYivDi_xAi2kETdFw1o36-jZWkYkxg0ayMhSBjODPmQ`, which contains the name "Bob LaBlaugh", which is technically PII.  However, if the name is already in a domain name, then perhaps the person has already accepted the consequences of having publicized their name.
+
+A more subtle example would be a DID like `did:webplus:example.com:bob.lablaugh:EgYivDi_xAi2kETdFw1o36-jZWkYkxg0ayMhSBjODPmQ`, say where the DID corresponds to the user account, and in this case of PII (the user's real name).  This would be a specific policy of the VDR that hosts the DID, and the VDR would need to gain the consent of the user regarding this potential publication of PII.
+
+Other examples would be where the DID document contains PII, such as in a service endpoint, or in a "linked Verifiable Presentation".  In these cases, because the DID controller is responsible for the content of the DID document, the DID controller is responsible for ensuring that PII is not stored in the DID document, or accepting the consequences of having published it.
 
 ### Example: Creating and Updating a DID
 
@@ -1592,16 +1607,6 @@ graph TD
 #### Implementations
 
 -   Rust: [selfsign](https://github.com/LedgerDomain/selfsign) crate.
-
-### Security Considerations
-
-Refer to the [`did:web` spec](https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations) for security and privacy considerations, generally.
-
-#### Authentication and Authorization for DID Operations
-
-As in [`did:web`](https://w3c-ccg.github.io/did-method-web/#authentication-and-authorization), `did:webplus` does not specify any **authentication** requirements for [[ref: VDR]]s or [[ref: VDG]]s, leaving it up to specific implementations to provide appropriate authentication mechanisms.
-
-Note however, that **authorization** for `did:webplus` DID operations is defined purely in terms of cryptographically verifiable relationships, and is specified in [this section](#did-document).
 
 ### KERI-Based Encodings
 
