@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.2
+**Specification Status:** Draft v0.3
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -39,7 +39,7 @@ This document is intended for:
 -   Digital identity ecosystem stakeholders who wish to understand the purposes and capabilities of `did:webplus`.
 -   Policy/compliance reviewers in regulated deployments.
 
-It is assumed that the reader is familiar with the concepts in the [DID spec](https://www.w3.org/TR/did-1.1/).  A familiarity with the [`did:web`](https://w3c-ccg.github.io/did-method-web/) method is useful to understand the context and motivation for `did:webplus`.
+It is assumed that the reader is familiar with the concepts in the [DID spec](https://www.w3.org/TR/did-1.0/).  A familiarity with the [`did:web`](https://w3c-ccg.github.io/did-method-web/) method is useful to understand the context and motivation for `did:webplus`.
 
 ### Key Word Usage
 
@@ -60,7 +60,7 @@ The `did:web` method makes straightforward use of familiar tools across a wide r
 
 ### Terminology
 
-Generally, refer to the [DID core specification](https://www.w3.org/TR/did-1.1/) for terminology general to DIDs.  In addition to `did:webplus`-specific terms, some existing terms will be described here explicitly to illustrate their importance to `did:webplus`.
+Generally, refer to the [DID core specification](https://www.w3.org/TR/did-1.0/) for terminology general to DIDs.  In addition to `did:webplus`-specific terms, some existing terms will be described here explicitly to illustrate their importance to `did:webplus`.
 
 [[def: DID Controller]]
 
@@ -68,7 +68,7 @@ Generally, refer to the [DID core specification](https://www.w3.org/TR/did-1.1/)
 
 [[def: DID Document]]
 
-~ A `did:webplus` [DID Document](#did-document-data-model) conforms to that of the [DID core specification](https://www.w3.org/TR/did-1.1/#dfn-did-documents), and has a few additional `did:webplus`-specific fields and constraints, defined in [this section](#did-document).
+~ A `did:webplus` [DID Document](#did-document-data-model) conforms to that of the [DID core specification](https://www.w3.org/TR/did-1.0/#dfn-did-documents), and has a few additional `did:webplus`-specific fields and constraints, defined in [this section](#did-document).
 
 [[def: DID Resolver]]
 
@@ -175,7 +175,7 @@ Note that in the case where the domain is `localhost`, the HTTP scheme is `http`
 
 ### DID Controller
 
-A [DID controller](https://www.w3.org/TR/did-1.1/#dfn-did-controllers) is an entity capable of making valid changes to a DID document.  A DID might have more than one controller (e.g. Alice's laptop and Alice's smartphone, or Bob's smartphone and Charlie's smartphone).  For `did:webplus`, the controllers are defined by the content of the [`updateRules` field](#update-rules) of the DID document, which defines specific rules for possible sets of signatures that are defined to authorize a DID update.
+A [DID controller](https://www.w3.org/TR/did-1.0/#dfn-did-controllers) is an entity capable of making valid changes to a DID document.  A DID might have more than one controller (e.g. Alice's laptop and Alice's smartphone, or Bob's smartphone and Charlie's smartphone).  For `did:webplus`, the controllers are defined by the content of the [`updateRules` field](#update-rules) of the DID document, which defines specific rules for possible sets of signatures that are defined to authorize a DID update.
 
 Here are the actions that a DID controller can take:
 
@@ -259,7 +259,7 @@ If the DID is `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHM
 
 A DID Resolver is used to fetch the appropriate data, perform the appropriate validation, and return the requested DID document.  Common resolution patterns are:
 -   Resolve the latest DID document.  This corresponds to a query of the DID itself (in the above example, `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA`).  In order to do this, the DID Resolver must fetch any new updates from the VDR, and then serve the last DID document in that DID's microledger.  The query
--   Resolve a specific DID document, identified by `selfHash` and/or `versionId` query parameters (using the DID in the above example, `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?selfHash=uHiC6qUSqrRAoQnfHjurPindtTxx7T7HNqP79FNW9YQVOYA`, or `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?versionId=3`, or providing both query parameters).  If the requested DID document is already present in the DID Resolver's [DID Document Store](#did-document-store) and is not the latest DID document present in that [DID Document Store](#did-document-store), then it can be returned without contacting the VDR.  Otherwise, updates must be fetched from the VDR in order to retrieve the appropriate DID Document and to be able to produce the DID Document Metadata and DID Resolution Metadata (TODO: Elaborate on this).
+-   Resolve a specific DID document, identified by `selfHash` and/or `versionId` query parameters (using the DID in the above example, `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?selfHash=uHiC6qUSqrRAoQnfHjurPindtTxx7T7HNqP79FNW9YQVOYA`, or `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?versionId=3`, or providing both query parameters).  If the requested DID document is already present in the DID Resolver's [DID Document Store](#did-document-store) and is not the latest DID document present in that [DID Document Store](#did-document-store), then it can be returned without contacting the VDR.  Otherwise, updates must be fetched from the VDR in order to retrieve the appropriate DID Document and to be able to produce the [DID Document Metadata](#did-document-metadata) and [DID Resolution Metadata](#did-resolution-metadata).
 
 To illustrate, Bob resolves a DID to obtain the latest version of its DID document.  This is done simply via HTTP GET to the [resolution URL for the DID](#did-to-url-mapping), and is precisely analogous to the process for `did:web`.
 
@@ -295,10 +295,6 @@ sequenceDiagram
     Note over Bob: I validate and store each DID Document in microledger
     Note over Bob: I use the DID Document with versionId 0
 ```
-
-##### DID Document Metadata
-
-TODO
 
 #### DID Update
 
@@ -471,7 +467,7 @@ sequenceDiagram
 
 If Bob resolves the same DID before that DID has been updated, then the sequence diagram is the same, but the VDG's HTTP Range-Based GET to the VDR eg.co will return 0 bytes of updates, no verification needs to be done, and then the VDG will return the same DID document as in the previous example.
 
-If Bob were to resolve a DID with specific query parameters, such as `versionId=1`, then the VDG could return it immediately.  TODO: Need to describe how the DID Document Metadata and DID Resolution Metadata require some constraints here
+If Bob were to resolve a DID with specific query parameters, such as `versionId=1`, then the VDG could return it immediately (See [DID Resolution Options](#did-resolution-options) and [DID Resolution Metadata](#did-resolution-metadata)).
 
 ```mermaid
 sequenceDiagram
@@ -600,6 +596,30 @@ sequenceDiagram
     VDG->>Bob: HTTP 200 Success (DID Document with versionId: 3)
 ```
 
+#### HTTP API for VDG
+
+A VDG MUST offer the following HTTP API, logically grouped into sections:
+
+[DID Microledger](#did-microledger) Fetch:
+-   `GET /webplus/v1/fetch/{did}/did-documents.jsonl`: Fetch the `did-documents.jsonl` (i.e. microledger) file for a DID.  If the VDG does not have the microledger for the DID, then it will fetch it from the VDR and verify it before returning it, and will store it in its own DID document store.  This endpoint MUST support HTTP Range-Based GET requests so that Full DID Resolvers can fetch only the updates for a given DID relative to what they already have in their DID document store.
+
+DID Resolution for use by the [Thin DID Resolver](#thin-did-resolver):
+-   `GET /webplus/v1/resolve/{did}`: Resolve the latest DID document for a DID.
+-   `GET /webplus/v1/resolve/{did}?{query}`: Resolve a specific DID document for a DID using query parameters.
+
+Both of the `resolve` endpoints MUST accept HTTP headers indicating the desired [DID Resolution Options](#did-resolution-options), as follows:
+-   `accept`: The media type of the desired representation of the DID document.  MAY be omitted.  Note that this parameter is ignored by `did:webplus`, as the DID Document has a canonical form and will always be returned in that form.
+-   `X-DID-Request-Creation-Metadata`: If true, attempt to populate the "Creation" fields of the [DID Document Metadata](#did-document-metadata), subject to the value of the `X-DID-Local-Resolution-Only` header.  MAY be omitted.  If omitted, defaults to `false`.
+-   `X-DID-Request-Next-Metadata`: If true, attempt to populate the "Next Update" fields of the [DID Document Metadata](#did-document-metadata), subject to the value of the `X-DID-Local-Resolution-Only` header.  MAY be omitted.  If omitted, defaults to `false`.
+-   `X-DID-Request-Latest-Metadata`: If true, attempt to populate the "Latest Update" fields of the [DID Document Metadata](#did-document-metadata), subject to the value of the `X-DID-Local-Resolution-Only` header.  MAY be omitted.  If omitted, defaults to `false`.
+-   `X-DID-Request-Deactivated-Metadata`: If true, attempt to populate the "Deactivated" field of the [DID Document Metadata](#did-document-metadata), subject to the value of the `X-DID-Local-Resolution-Only` header.  MAY be omitted.  If omitted, defaults to `false`.
+-   `X-DID-Local-Resolution-Only`: If true, then DID resolution will be attempted purely from [locally-known data](#did-document-store); no network requests will be made in the process of resolving the DID document and DID document metadata.  Note that this means that some cases may not be resolvable, and in those situations, will return an error.  MAY be omitted.  If omitted, defaults to `false` (i.e. network requests will be allowed).
+
+DID Update for [VDRs](#verifiable-data-registry) to notify of DID updates.
+-   `POST /webplus/v1/update/{did}`: This is used by a VDR upon DID Update to notify VDG(s) that the specified DID has been updated, and that the VDG SHOULD pre-emptively fetch, verify, and store the updates.  There should be no body in this HTTP POST request.  This process serves two purposes:
+    -   It allows the VDG to pre-emptively fetch, verify, and store the updates, so that when a DID resolution or did-documents.jsonl fetch request is made, the VDG can return the appropriate data immediately.  This is what allows the Thin DID Resolver to operate in constant time.
+    -   It commits DIDs to their updates within the scope of agreement of the VDG, and any attempt to delete, alter, or fork a DID will be detected and rejected.
+
 ### DID Document Store
 
 The unit of data in `did:webplus` is the DID Document, from which the rest of the data model is derived (e.g. DID document metadata, the microledger).  DID documents contain their own identifiers in the form of their `selfHash` field, and they link to their predecessors via the `prevDIDDocumentSelfHash` field.  The DID Document Store is what provides the basic logic behind the `did:webplus` data model -- verifying, archiving, and performing queries on `did:webplus` DID documents.
@@ -608,11 +628,11 @@ Many components of `did:webplus` use a DID document store in some form in order 
 -   DID controller: Keeps its own copy of the controlled DID's microledger -- the entire history of DID documents.
 -   VDR: Keeps a copy of the microledger for each DID it serves.
 -   VDG: Keeps a copy of the microledger for each DID it witnesses and serves.
--   Full DID resolver: Keeps a copy of the microledger for each DID it resolves, so that:
+-   Full DID resolver: Keeps a local copy of the microledger for each DID it resolves, so that:
     -   It can keep its own copy of the microledger for historical DID document resolution and audit.
-    -   It can service some DID resolution requests fully offline.
+    -   It can service certain DID resolution requests fully offline.
 
-Notably, the Thin DID resolver does not use a DID document store.  Instead, it outsources that functionality to the VDG.
+Notably, the Thin DID resolver does not use a DID document store.  Instead, it outsources that functionality to the [Verifiable Data Gateway](#verifiable-data-gateway).
 
 ### Security and Privacy Considerations
 
@@ -646,38 +666,38 @@ For now, let's generate a single Ed25519 key to use in all the verification meth
 {
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4",
-  "d": "UmBDdU_9oHmb05riF8X-_bruTOvQHjUm5fNH_e_sV_s"
+  "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY",
+  "d": "fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"
 }
 ```
 
 We'll also need a key that is authorized to update the DID document.  In publicKeyMultibase format, the public key is:
 
 ```
-u7QFEfNa-IIxpxs1thps4nLKtOrXylS7ObhaSJzNmePsg2Q
+u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw
 ```
 
 Creating a DID produces the root DID document (represented in 'pretty' JSON for readability; actual DID document is compact JSON):
 
 ```json
 {
-  "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
-  "selfHash": "uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+  "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
+  "selfHash": "uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
   "updateRules": {
-    "key": "u7QFEfNa-IIxpxs1thps4nLKtOrXylS7ObhaSJzNmePsg2Q"
+    "key": "u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw"
   },
-  "validFrom": "2025-10-03T03:24:07.372913003Z",
+  "validFrom": "2025-10-03T18:58:13.971Z",
   "versionId": 0,
   "verificationMethod": [
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4"
+        "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"
       }
     }
   ],
@@ -705,10 +725,10 @@ The associated DID document metadata (at the time of DID creation) is:
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
+  "created": "2025-10-03T18:58:13.971Z",
   "nextUpdate": null,
   "nextVersionId": null,
-  "updated": "2025-10-03T03:24:07.372913003Z",
+  "updated": "2025-10-03T18:58:13.971Z",
   "versionId": 0
 }
 ```
@@ -717,11 +737,11 @@ We set the private JWK's `kid` field (key ID) to include the query params and fr
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg&versionId=0#0",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ&versionId=0#0",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4",
-  "d": "UmBDdU_9oHmb05riF8X-_bruTOvQHjUm5fNH_e_sV_s"
+  "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY",
+  "d": "fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"
 }
 ```
 
@@ -733,53 +753,53 @@ Let's generate another key to rotate in for some verification methods.  In JWK f
 {
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "eyvv0Rmvr8SFkv0mSKGai_ZWQpSv5APmPY1s0OwQo9k",
-  "d": "H0iD_50oSOukrGxHfjwYyoG-uLVTVvE1BMkg-lJbkuc"
+  "x": "FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4",
+  "d": "gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"
 }
 ```
 
 A new update key is also needed.  In publicKeyMultibase format, the new public key is:
 
 ```
-u7QGqH3MzfA4cTIaDEnmum-YXEaCnIvejDzVAnMP160tcbg
+u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg
 ```
 
 Updating a DID produces the next DID document (represented in 'pretty' JSON for readability; actual DID document is compact JSON):
 
 ```json
 {
-  "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
-  "selfHash": "uHiCGrkkj7tWJ5F00DHLmyLtJszjRFjSICIcQlbrAdGVNog",
-  "prevDIDDocumentSelfHash": "uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+  "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
+  "selfHash": "uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw",
+  "prevDIDDocumentSelfHash": "uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
   "updateRules": {
-    "key": "u7QGqH3MzfA4cTIaDEnmum-YXEaCnIvejDzVAnMP160tcbg"
+    "key": "u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg"
   },
   "proofs": [
-    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRkVmTmEtSUl4cHhzMXRocHM0bkxLdE9yWHlsUzdPYmhhU0p6Tm1lUHNnMlEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..2owPha5M5xR3PRjLUmIKXqRfBJoGYVeM4Hs835m54sifIrrl5bDogEmGfWX4ZL4dCE2aHQ0Y20qzZy0xEPcLDA"
+    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRSGpNeVUxLTk0ZC03UE5idGlxVVo1SDNaeTA3UDVJYXhGWEdQVEt1SFdnZHciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..WxADtzj4sWspqNIyoe5zQC5P41Bf2OF8cLPuWH1tzlMKiLc2phGWWjCQfN1UzDK0YxfFaSuFt2vYIpfR87U2Bw"
   ],
-  "validFrom": "2025-10-03T03:24:07.380981642Z",
+  "validFrom": "2025-10-03T18:58:13.978Z",
   "versionId": 1,
   "verificationMethod": [
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4"
+        "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"
       }
     },
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#1",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#1",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "eyvv0Rmvr8SFkv0mSKGai_ZWQpSv5APmPY1s0OwQo9k"
+        "x": "FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"
       }
     }
   ],
@@ -812,10 +832,10 @@ Note that the `proofs` field contains signatures (in JWS format) that are to be 
     "crit": [
       "b64"
     ],
-    "kid": "u7QFEfNa-IIxpxs1thps4nLKtOrXylS7ObhaSJzNmePsg2Q"
+    "kid": "u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw"
   },
   "payload": null,
-  "signature": "2owPha5M5xR3PRjLUmIKXqRfBJoGYVeM4Hs835m54sifIrrl5bDogEmGfWX4ZL4dCE2aHQ0Y20qzZy0xEPcLDA"
+  "signature": "WxADtzj4sWspqNIyoe5zQC5P41Bf2OF8cLPuWH1tzlMKiLc2phGWWjCQfN1UzDK0YxfFaSuFt2vYIpfR87U2Bw"
 }
 ```
 
@@ -823,10 +843,10 @@ The associated DID document metadata (at the time of DID update) is:
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
+  "created": "2025-10-03T18:58:13.971Z",
   "nextUpdate": null,
   "nextVersionId": null,
-  "updated": "2025-10-03T03:24:07.380981642Z",
+  "updated": "2025-10-03T18:58:13.978Z",
   "versionId": 1
 }
 ```
@@ -835,10 +855,10 @@ However, the DID document metadata associated with the root DID document has now
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
-  "nextUpdate": "2025-10-03T03:24:07.380981642Z",
+  "created": "2025-10-03T18:58:13.971Z",
+  "nextUpdate": "2025-10-03T18:58:13.978Z",
   "nextVersionId": 1,
-  "updated": "2025-10-03T03:24:07.380981642Z",
+  "updated": "2025-10-03T18:58:13.978Z",
   "versionId": 1
 }
 ```
@@ -847,21 +867,21 @@ We set the `kid` field of each private JWK to point to the current DID document:
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiCGrkkj7tWJ5F00DHLmyLtJszjRFjSICIcQlbrAdGVNog&versionId=1#0",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw&versionId=1#0",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4",
-  "d": "UmBDdU_9oHmb05riF8X-_bruTOvQHjUm5fNH_e_sV_s"
+  "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY",
+  "d": "fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"
 }
 ```
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiCGrkkj7tWJ5F00DHLmyLtJszjRFjSICIcQlbrAdGVNog&versionId=1#1",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw&versionId=1#1",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "eyvv0Rmvr8SFkv0mSKGai_ZWQpSv5APmPY1s0OwQo9k",
-  "d": "H0iD_50oSOukrGxHfjwYyoG-uLVTVvE1BMkg-lJbkuc"
+  "x": "FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4",
+  "d": "gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"
 }
 ```
 
@@ -873,8 +893,8 @@ Let's generate a third key to rotate in for some verification methods.  In JWK f
 {
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "py1OHje9GMGdHPap0r-1gcMq0OOUFiDKjDrQxZfV80U",
-  "d": "maWiBh51R5N6e4wCiPt-TEFYuzvK1__fx3l22ZafLUM"
+  "x": "xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo",
+  "d": "jrezMR2brpp4c3Vq8rWx7mhwiDevqkq2ShZXBdFKtEs"
 }
 ```
 
@@ -882,49 +902,49 @@ Updated DID document (represented in 'pretty' JSON for readability; actual DID d
 
 ```json
 {
-  "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
-  "selfHash": "uHiC9fL7JkWa2rkm6MelJGxTlAXFcwuJuJ4l0gq_FaJH5aA",
-  "prevDIDDocumentSelfHash": "uHiCGrkkj7tWJ5F00DHLmyLtJszjRFjSICIcQlbrAdGVNog",
+  "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
+  "selfHash": "uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ",
+  "prevDIDDocumentSelfHash": "uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw",
   "updateRules": {
-    "key": "u7QGSG5ZpQrL6TeCsKNgsKWGFVoA0rKhImymHIuJzeJM-_w"
+    "key": "u7QFGzX5sMj792KhdJs7e9r3OJ6KpOy6WtBk7MfE1QTEkTQ"
   },
   "proofs": [
-    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRR3FIM016ZkE0Y1RJYURFbm11bS1ZWEVhQ25JdmVqRHpWQW5NUDE2MHRjYmciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..BFsXOEYzzcXl416IVfZl52drKpPBWJWj0T-WkuNchcJNT-0hGdQAGvlcmEtqrV5lYSOF5ZobbZgmFcptAoMsDw"
+    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRR2x4eGtMdkhyREw4bWNtMXB3cjJROXBOUllFQTRaMHRtX09CUTJMM0xXeWciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..qIJSY9dkmrConVc5lEx4ArHasiz5AB4eRQzrFn15Y22BI4MiC3qchn-8RPUVTMyzEjHIC_wHCLafh2lQPoTvAw"
   ],
-  "validFrom": "2025-10-03T03:24:07.458363778Z",
+  "validFrom": "2025-10-03T18:58:14.032Z",
   "versionId": 2,
   "verificationMethod": [
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#2",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#0",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#2",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4"
+        "x": "xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo"
       }
     },
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#2",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#2",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "py1OHje9GMGdHPap0r-1gcMq0OOUFiDKjDrQxZfV80U"
+        "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"
       }
     },
     {
-      "id": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#1",
+      "id": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg",
+      "controller": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg#1",
+        "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "eyvv0Rmvr8SFkv0mSKGai_ZWQpSv5APmPY1s0OwQo9k"
+        "x": "FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"
       }
     }
   ],
@@ -957,10 +977,10 @@ Note that the `proofs` field contains signatures (in JWS format) that are to be 
     "crit": [
       "b64"
     ],
-    "kid": "u7QGqH3MzfA4cTIaDEnmum-YXEaCnIvejDzVAnMP160tcbg"
+    "kid": "u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg"
   },
   "payload": null,
-  "signature": "BFsXOEYzzcXl416IVfZl52drKpPBWJWj0T-WkuNchcJNT-0hGdQAGvlcmEtqrV5lYSOF5ZobbZgmFcptAoMsDw"
+  "signature": "qIJSY9dkmrConVc5lEx4ArHasiz5AB4eRQzrFn15Y22BI4MiC3qchn-8RPUVTMyzEjHIC_wHCLafh2lQPoTvAw"
 }
 ```
 
@@ -968,10 +988,10 @@ The associated DID document metadata (at the time of DID update) is:
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
+  "created": "2025-10-03T18:58:13.971Z",
   "nextUpdate": null,
   "nextVersionId": null,
-  "updated": "2025-10-03T03:24:07.458363778Z",
+  "updated": "2025-10-03T18:58:14.032Z",
   "versionId": 2
 }
 ```
@@ -980,10 +1000,10 @@ Similarly, the DID document metadata associated with the previous DID document h
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
-  "nextUpdate": "2025-10-03T03:24:07.458363778Z",
+  "created": "2025-10-03T18:58:13.971Z",
+  "nextUpdate": "2025-10-03T18:58:14.032Z",
   "nextVersionId": 2,
-  "updated": "2025-10-03T03:24:07.458363778Z",
+  "updated": "2025-10-03T18:58:14.032Z",
   "versionId": 2
 }
 ```
@@ -992,10 +1012,10 @@ However, the DID document metadata associated with the root DID document has now
 
 ```json
 {
-  "created": "2025-10-03T03:24:07.372913003Z",
-  "nextUpdate": "2025-10-03T03:24:07.380981642Z",
+  "created": "2025-10-03T18:58:13.971Z",
+  "nextUpdate": "2025-10-03T18:58:13.978Z",
   "nextVersionId": 1,
-  "updated": "2025-10-03T03:24:07.458363778Z",
+  "updated": "2025-10-03T18:58:14.032Z",
   "versionId": 2
 }
 ```
@@ -1004,31 +1024,31 @@ We set the `kid` field of each private JWK to point to the current DID document:
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiC9fL7JkWa2rkm6MelJGxTlAXFcwuJuJ4l0gq_FaJH5aA&versionId=2#0",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&versionId=2#0",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "m7AuUCD1LhpiPhAOvNZyvbpM75PgUhdQqFKLCkSiXT4",
-  "d": "UmBDdU_9oHmb05riF8X-_bruTOvQHjUm5fNH_e_sV_s"
+  "x": "Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY",
+  "d": "fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"
 }
 ```
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiC9fL7JkWa2rkm6MelJGxTlAXFcwuJuJ4l0gq_FaJH5aA&versionId=2#1",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&versionId=2#1",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "eyvv0Rmvr8SFkv0mSKGai_ZWQpSv5APmPY1s0OwQo9k",
-  "d": "H0iD_50oSOukrGxHfjwYyoG-uLVTVvE1BMkg-lJbkuc"
+  "x": "FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4",
+  "d": "gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"
 }
 ```
 
 ```json
 {
-  "kid": "did:webplus:example.com:hey:uHiDGDMhFBQmegii_Efm15eegRyDVLL_X5VUrm6xi-e46xg?selfHash=uHiC9fL7JkWa2rkm6MelJGxTlAXFcwuJuJ4l0gq_FaJH5aA&versionId=2#2",
+  "kid": "did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&versionId=2#2",
   "kty": "OKP",
   "crv": "Ed25519",
-  "x": "py1OHje9GMGdHPap0r-1gcMq0OOUFiDKjDrQxZfV80U",
-  "d": "maWiBh51R5N6e4wCiPt-TEFYuzvK1__fx3l22ZafLUM"
+  "x": "xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo",
+  "d": "jrezMR2brpp4c3Vq8rWx7mhwiDevqkq2ShZXBdFKtEs"
 }
 ```
 
@@ -1060,7 +1080,7 @@ graph TD
 
 #### DID Document
 
-In `did:webplus`, the DID document is represented directly as a JSON object that conforms to the following data model.  It is meant to conform to the [DID spec](https://www.w3.org/TR/did-1.1/).  In addition, it has several fields that are specific to `did:webplus`.
+In `did:webplus`, the DID document MUST be represented as the [JSON Canonicalization Scheme (JCS)](https://www.rfc-editor.org/rfc/rfc8785) representation of a JSON object that conforms to the following data model.  It is meant to conform to the [DID spec](https://www.w3.org/TR/did-1.0/).  In addition, it has several fields that are specific to `did:webplus`.
 
 ##### DID Document Data Model
 
@@ -1069,15 +1089,15 @@ In `did:webplus`, the DID document is represented directly as a JSON object that
 -   `prevDIDDocumentSelfHash`: MUST be `null` or a valid self-hash in [MBHash](#mbhash-values) format.
 -   `updateRules`: MUST be a valid [UpdateRules](#update-rules).
 -   `proofs`: MUST be `null` or an array of JWS proofs as described in [Self-Hashed Signed Data](#self-hashed-signed-data).
--   `validFrom`: MUST be a valid [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) timestamp.
+-   `validFrom`: MUST be a valid [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) timestamp having precision no greater than milliseconds (in order to achieve interoperability with Javascript implementations).
 -   `versionId`: MUST be an unsigned integer.
--   `verificationMethod`: If present, MUST be an array of [verification methods](https://www.w3.org/TR/did-1.1/#verification-methods).
--   Fields for [Verification Relationships](https://www.w3.org/TR/did-1.1/#verification-relationships), if present, MUST be:
-    -   [`authentication`](https://www.w3.org/TR/did-1.1/#authentication)
-    -   [`assertionMethod`](https://www.w3.org/TR/did-1.1/#assertion)
-    -   [`keyAgreement`](https://www.w3.org/TR/did-1.1/#key-agreement)
-    -   [`capabilityInvocation`](https://www.w3.org/TR/did-1.1/#capability-invocation)
-    -   [`capabilityDelegation`](https://www.w3.org/TR/did-1.1/#capability-delegation)
+-   `verificationMethod`: If present, MUST be an array of [verification methods](https://www.w3.org/TR/did-1.0/#verification-methods).
+-   Fields for [Verification Relationships](https://www.w3.org/TR/did-1.0/#verification-relationships), if present, MUST be:
+    -   [`authentication`](https://www.w3.org/TR/did-1.0/#authentication)
+    -   [`assertionMethod`](https://www.w3.org/TR/did-1.0/#assertion)
+    -   [`keyAgreement`](https://www.w3.org/TR/did-1.0/#key-agreement)
+    -   [`capabilityInvocation`](https://www.w3.org/TR/did-1.0/#capability-invocation)
+    -   [`capabilityDelegation`](https://www.w3.org/TR/did-1.0/#capability-delegation)
 
 There are additional constraints that depend on if a DID document is a root DID document or a non-root DID document.
 
@@ -1092,34 +1112,34 @@ A root DID document is the first DID document in a DID's microledger.  It has th
 A non-root DID document is any DID document that is not a root DID document.  It has the following additional constraints:
 -   `prevDIDDocumentSelfHash` MUST be the `selfHash` of the previous DID document.
 -   `updateRules` MAY differ from the `updateRules` of the previous DID document (and in some cases, e.g. when any pre-rotation keys have been used in proofs, it is RECOMMENDED to differ in order to rotate those keys).
--   `validFrom` MUST be later than the `validFrom` of the previous DID document.
+-   `validFrom` MUST be strictly later than the `validFrom` of the previous DID document.
 -   `versionId` MUST be exactly one greater than the `versionId` of the previous DID document.
 
 ##### Example DID Documents
 
-Here is an example of the first two DID documents in the microledger for a DID.
+Here is an example of the DID documents in the microledger for a DID.
 
 Root DID document (`versionId` 0):
 
 ```json
 {
-  "id": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
-  "selfHash": "uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
+  "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
+  "selfHash": "uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
   "updateRules": {
-    "key": "u7QFyetaSaPlqGbW3dBuWf_SvNLEZgqIfdYzqQY3V-XGvZg"
+    "hashedKey": "uHiALDuivdNdHulnKNQCnF7_btEO2pn8pejIc4xKPLBUyzA"
   },
-  "validFrom": "2025-09-24T11:38:02.066356196Z",
+  "validFrom": "2025-10-03T19:26:29.56Z",
   "versionId": 0,
   "verificationMethod": [
     {
-      "id": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#0",
+      "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
+      "controller": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#0",
+        "kid": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "wulqq2rTmnJwoW6mNzyLvVR5KclMyDpeQump9zl4NLk"
+        "x": "jUBNyWh6vrvC551iYR9g6R0awx1eGxDDlHfR3gG2V1g"
       }
     }
   ],
@@ -1141,85 +1161,118 @@ Root DID document (`versionId` 0):
 }
 ```
 
-Note that the `proofs` field is omitted (i.e. `null`), since no proofs are required for the root DID document.  However, they MAY be present.
+Note that the `proofs` field is omitted since no proofs are required for the root DID document.  However, they MAY be present.
 
-DID Document with `versionId` 1
+Next DID Document (`versionId` 1), in particular having new `updateRules`:
 
 ```json
 {
-  "id": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
-  "selfHash": "uHiAacxaz1yMIGHvQU7CWzUG0UuyWY1jZHYmqzyEYiAEWTQ",
-  "prevDIDDocumentSelfHash": "uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
+  "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
+  "selfHash": "uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA",
+  "prevDIDDocumentSelfHash": "uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
   "updateRules": {
-    "key": "u7QEdqI8zJjjA_Wz0tqiLYl8sJoNhEv20HjzzOozuPAEPZA"
+    "key": "u7QGNAb4V8rfeWgnKBFlOg-hNpyvRdhneRnI8aUKPziqKbA"
   },
   "proofs": [
-    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRnlldGFTYVBscUdiVzNkQnVXZl9Tdk5MRVpncUlmZFl6cVFZM1YtWEd2WmciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..StWtzMNwlTd6vd59Sr9l_IR7wUBL73odHF_kafFf6O45GCvnf_tpXXQKVh9owaR9v0Zp70ACgszfPJB_Vs9YCQ"
+    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRSERjOGNUSFlqTEVZOUx0QTZzczdyN1BqWGRmSEZyOTB5SUo3Y3pfSEYxakEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..lgQjZvV52dqKqM59tx6qMopeiSTU6mU4X11bpe5MzGK1xLljcoQT8qWYk2UyV6eKWkYI3UNWRL7piKxVfIWJBQ"
   ],
-  "validFrom": "2025-09-24T11:38:02.076323325Z",
+  "validFrom": "2025-10-03T19:26:29.567Z",
   "versionId": 1,
   "verificationMethod": [
     {
-      "id": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#1",
+      "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#1",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
+      "controller": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#1",
+        "kid": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#1",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "179XytBi3gxnMrhkAd3xQb0y7JMqwV8jxJrrp9NMp4Y"
+        "x": "jUBNyWh6vrvC551iYR9g6R0awx1eGxDDlHfR3gG2V1g"
       }
     },
     {
-      "id": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#0",
+      "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0",
       "type": "JsonWebKey2020",
-      "controller": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw",
+      "controller": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
       "publicKeyJwk": {
-        "kid": "did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw#0",
+        "kid": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0",
         "kty": "OKP",
         "crv": "Ed25519",
-        "x": "wulqq2rTmnJwoW6mNzyLvVR5KclMyDpeQump9zl4NLk"
+        "x": "G8fiCRSTe7yTuI8gVM4qcUJ-KsNdQb53eMwCfCtMwmE"
       }
     }
   ],
   "authentication": [
-    "#0",
-    "#1"
+    "#0"
   ],
   "assertionMethod": [
-    "#0"
-  ],
-  "keyAgreement": [
-    "#0"
-  ],
-  "capabilityInvocation": [
     "#1"
   ],
-  "capabilityDelegation": [
+  "keyAgreement": [
+    "#1"
+  ],
+  "capabilityInvocation": [
     "#0"
+  ],
+  "capabilityDelegation": [
+    "#1"
   ]
 }
 ```
 
-Note that the element in the `proofs` field is a JWS that decodes as:
+Note that the element in the `proofs` field is a JWS whose header decodes as:
+
 ```json
 {
-  "header": {
-    "alg": "Ed25519",
-    "kid": "u7QFyetaSaPlqGbW3dBuWf_SvNLEZgqIfdYzqQY3V-XGvZg",
-    "crit": [
-      "b64"
-    ],
-    "b64": false
-  },
-  "payload": null,
-  "signature": "StWtzMNwlTd6vd59Sr9l_IR7wUBL73odHF_kafFf6O45GCvnf_tpXXQKVh9owaR9v0Zp70ACgszfPJB_Vs9YCQ"
+  "alg": "Ed25519",
+  "kid": "u7QHDc8cTHYjLEY9LtA6ss7r7PjXdfHFr90yIJ7cz_HF1jA",
+  "crit": [
+    "b64"
+  ],
+  "b64": false
 }
 ```
 
-Note that the `kid` field, which specifies the [MBPubKey](#mbpubkey-values) of the key that signed the proof, is present in the `updateRules` field of the previous DID document.  The JWS is valid, so the update rules are satisfied, and therefore the DID update is authorized.
+Note that the hash of the `kid` field of the JWS header is `uHiALDuivdNdHulnKNQCnF7_btEO2pn8pejIc4xKPLBUyzA` which should match the `hashedKey` field of the previous DID Document's `updateRules`.
 
-#### Addressability of DID Documents
+Next DID Document (`versionId` 2), which shows how to deactivate a DID by setting `updateRules` to `{}`:
+
+```json
+{
+  "id": "did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA",
+  "selfHash": "uHiBbvcmeBatdxnlQHvdojNtFqC57lAoTSmnZvr8UmatXdA",
+  "prevDIDDocumentSelfHash": "uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA",
+  "updateRules": {},
+  "proofs": [
+    "eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRR05BYjRWOHJmZVdnbktCRmxPZy1oTnB5dlJkaG5lUm5JOGFVS1B6aXFLYkEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..5pro_jMfX9ZJL4Ki76PniiH1HwErmbJNEC6lerQSH3j77tOlQKxHM1cL2WjWOxyFTW4fOLLgkNWXP6x5BsISAg"
+  ],
+  "validFrom": "2025-10-03T19:26:29.61Z",
+  "versionId": 2,
+  "verificationMethod": [],
+  "authentication": [],
+  "assertionMethod": [],
+  "keyAgreement": [],
+  "capabilityInvocation": [],
+  "capabilityDelegation": []
+}
+```
+
+Removing all verification methods from a deactivated DID is RECOMMENDED so that no unrevocable keys are left in the DID document, but is not required.  Note that the element in the `proofs` field is a JWS whose header decodes as:
+
+```json
+{
+  "alg": "Ed25519",
+  "kid": "u7QGNAb4V8rfeWgnKBFlOg-hNpyvRdhneRnI8aUKPziqKbA",
+  "crit": [
+    "b64"
+  ],
+  "b64": false
+}
+```
+
+Note that the `kid` field of the JWS header matches the `key` field of the previous DID Document's `updateRules`.
+
+##### Addressability of DID Documents
 
 A crucial feature of `did:webplus` is that each DID document in a DID's entire history can be addressed by its `selfHash` or `versionId`.  This allows the DID resolution process to resolve a specific DID document.
 
@@ -1227,16 +1280,101 @@ A crucial feature of `did:webplus` is that each DID document in a DID's entire h
     -   If the root DID document (i.e. that with `versionId` 0) is current at time of signing, and the key being used is `#0`, then the key id of the signature is:
 
         ```
-        did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw?selfHash=uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw&versionId=0#0
+        did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA?selfHash=uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA&versionId=0#0
         ```
 
     -   If the DID document with `versionId` 1 is current at time of signing, and the key being used is `#0`, then the key id of the signature is:
 
         ```
-        did:webplus:example.com:hey:uHiBsXgY6Qr35DC9JjDx8afZopsTquSZxbj12VbZ4488ziw?selfHash=uHiAacxaz1yMIGHvQU7CWzUG0UuyWY1jZHYmqzyEYiAEWTQ&versionId=1#0
+        did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA?selfHash=uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA&versionId=1#0
         ```
 
 -   When a Verifying Party verifies a signature that includes the fully-qualified key id, it can resolve the addressed DID document directly.  In the case where the addressed DID document already exists in the Verifying Party's Full DID resolver's archive, then this DID resolution can happen fully offline, and therefore will be very fast.  If the addressed DID document does not exist in the Verifying Party's archive, then the Verifying Party MUST fetch the addressed DID document, as well as any unfetched DID updates, from the VDR.
+
+#### Validation of DID Documents
+
+The validation of DID documents is critical to the security of `did:webplus`.  While a VDR is the origin for a DID's DID documents (by serving the `did-documents.jsonl` file), the validation of the DID documents is defined purely based on its data model, and therefore can be performed by any party.
+
+While the entire microledger for the DID is served by the VDR as a single `did-documents.jsonl` file (a newline-delimited concatenation of JCS-serialized DID documents), each DID document is the logical unit of validation.  However, the validity of a DID document depends on the validity of its predecessor, and by transitivity, its entire history.
+
+DID documents MUST be validated upon receipt into any system.  If a DID document is invalid, it MUST be rejected and an error MUST be returned.
+
+The following specifies the validation process for a DID document.  All validations MUST succeed in order for a DID document to be considered valid.  The validation process differs slightly depending on if the DID document being validated is a root DID document or a non-root DID document.
+
+1.  Verify that the DID document is exactly equal to its JCS-serialized form.
+1.  Verify that the DID document deserializes into a JSON object that conforms to [the DID document data model](#did-document-data-model).  Extra fields not specified in the data model are allowed.  The following rules will refer to fields in the DID document.
+1.  Verify that the `validFrom` field has precision no greater than milliseconds.
+1.  Verify that the `validFrom` field is not before the UNIX epoch (i.e. `1970-01-01T00:00:00.000Z`).
+1.  Verify that the DID document is validly [self-hashed signed data](#self-hashed-signed-data).  If ANY of the proofs are invalid, the DID document MUST be rejected as invalid.  The self-hash slots for the DID document depend on if this is a root DID document or a non-root DID document.
+    1.  If this is a root DID document:
+        1.  The self-hash slots are:
+            -   The last path element of the DID in the `id` field (e.g. the `uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q` substring at the end of `did:webplus:example.com:uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q`)
+            -   The `selfHash` field.
+            -   For each verification method in the `verificationMethod` field, the following slots:
+                -   The last path element of the `id` field (i.e. the `uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q` substring before the `#` in `did:webplus:example.com:uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q#0`).
+                -   If the controller of this verification method is this DID document's DID itself, then:
+                    -   The last path element of the DID in the `controller` field.
+    1.  If this is a non-root DID document:
+        1.  Verify that the self-hash slots are the same as the `prevDIDDocumentSelfHash` field.
+1.  Determine if this is a root DID document or a non-root DID document; if there is a `prevDIDDocumentSelfHash` field, then this is a non-root DID document, otherwise it is a root DID document.  If this is a non-root DID document, then recursively validate the predecessor DID document.
+    1.  If this is a root DID document:
+        1.  Verify that `versionId` is 0 (a numeric value, not a string).
+    1.  If this is a non-root DID document:
+        1.  Verify that the `id` field is identical to the `id` field of the predecessor DID document.
+        1.  Verify that the `prevDIDDocumentSelfHash` field is identical to the `selfHash` field of the predecessor DID document.  This ensures that all checks are done regardless of if the predecessor DID document was retrieved by `selfHash` or `versionId`.
+        1.  Verify that the `validFrom` field is strictly later than the `validFrom` field of the predecessor DID document.
+        1.  Verify that `versionId` is a numeric value exactly equal to 1 plus the `versionId` of the predecessor DID document.
+        1.  Verify that the proofs satisfy the `updateRules` of the predecessor DID document.
+
+Note that extraneous proofs -- not directly used in the `updateRules` validation -- are allowed and are simply ignored for the purposes of DID document validation.  They can be used for other purposes beyond the scope of this specification.
+
+#### DID Document Metadata
+
+DID Document Metadata is a JSON object, conforming to the [DID spec](https://www.w3.org/TR/did-1.0/#did-document-metadata), that contains the following fields.  For purposes of `did:webplus` resolution mechanics, they are logically grouped into the following sections:
+
+Creation Metadata
+-   `created`: DID document metadata SHOULD include a `created` property to indicate the timestamp of the Create operation. The value of the property MUST be a string formatted as an XML Datetime normalized to UTC 00:00:00 and without sub-second decimal precision. For example: 2020-12-20T19:17:47Z.
+-   `createdMilliseconds`: `did:webplus`-specific extension which represents the `created` timestamp with milliseconds precision.  This field is present so that it can be used in relation with the `validFrom` field of the DID document (using only the `created` field would give inaccurate results due to lack of precision).
+
+Next Update Metadata
+-   `nextUpdate`: DID document metadata MAY include a `nextUpdate` property if the resolved document version is not the latest version of the document. It indicates the timestamp of the next Update operation. The value of the property MUST follow the same formatting rules as the `created` property.
+-   `nextUpdateMilliseconds`: `did:webplus`-specific extension which represents the `nextUpdate` timestamp with milliseconds precision.  This field is present so that it can be used in relation with the `validFrom` field of the DID document (using only the `nextUpdate` field would give inaccurate results due to lack of precision).
+-   `nextVersionId`: DID document metadata MAY include a `nextVersionId` property if the resolved document version is not the latest version of the document. It indicates the version of the next Update operation. The value of the property MUST be an ASCII string.
+
+Latest Update Metadata
+-   `updated`: DID document metadata SHOULD include an `updated` property to indicate the timestamp of the last Update operation for the document version which was resolved. The value of the property MUST follow the same formatting rules as the `created` property. The `updated` property is omitted if an Update operation has never been performed on the DID document. If an `updated` property exists, it can be the same value as the `created` property when the difference between the two timestamps is less than one second.
+-   `updatedMilliseconds`: `did:webplus`-specific extension which represents the `updated` timestamp with milliseconds precision.  This field is present so that it can be used in relation with the `validFrom` field of the DID document (using only the `updated` field would give inaccurate results due to lack of precision).
+-   `versionId`: DID document metadata SHOULD include a versionId property to indicate the version of the last Update operation for the document version which was resolved. The value of the property MUST be an ASCII string.
+
+Deactivated Metadata
+-   `deactivated`: If a DID has been deactivated, DID document metadata MUST include this property with the boolean value true. If a DID has not been deactivated, this property is OPTIONAL, but if included, MUST have the boolean value `false`.
+
+#### DID Resolution Options
+
+Producing the various fields of the DID Document Metadata each require additional queries of local and/or non-local data.  These extra queries are wasted if this metadata is not needed.  Thus, the DID Resolution Options provide fields to specify which fields of the DID Document Metadata are desired.
+
+For each field of the DID Document Metadata, there are conditions under which it can be produced purely from [locally-known data](#did-document-store), and an implementation SHOULD attempt to use only locally-known data whenever possible.  These conditions will not be specified in this document.
+
+[DID Resolution Options](https://www.w3.org/TR/did-1.0/#did-resolution-options) is a JSON object that contains the following fields.
+-   `accept`: This parameter is ignored by `did:webplus`, as the DID Document has a canonical form and will always be returned in that form.
+
+`did:webplus`-specific fields:
+-   `requestCreate`: If true, attempt to populate the "Creation" fields of the [DID Document Metadata](#did-document-metadata), subject to the `localResolutionOnly` flag.  If omitted, defaults to `false`.
+-   `requestNext`: If true, attempt to populate the "Next Update" fields of the [DID Document Metadata](#did-document-metadata), subject to the `localResolutionOnly` flag.  If omitted, defaults to `false`.
+-   `requestLatest`: If true, attempt to populate the "Latest Update" fields of the [DID Document Metadata](#did-document-metadata), subject to the `localResolutionOnly` flag.  If omitted, defaults to `false`.
+-   `requestDeactivated`: If true, attempt to populate the "Deactivated" field of the [DID Document Metadata](#did-document-metadata), subject to the `localResolutionOnly` flag.  If omitted, defaults to `false`.
+-   `localResolutionOnly`: If true, then DID resolution will be attempted purely from locally-known data; no network requests will be made in the process of resolving the DID document and DID document metadata.  Note that this means that some cases may not be resolvable, and in those situations, will return an error.  If omitted, defaults to `false` (i.e. network requests will be allowed).
+
+#### DID Resolution Metadata
+
+DID Resolution Metadata is a JSON object, conforming to the [DID spec](https://www.w3.org/TR/did-1.0/#did-resolution-metadata), that contains the following fields.
+-   `contentType`: The Media Type of the returned didDocumentStream. This property is REQUIRED if resolution is successful and if the resolveRepresentation function was called. This property MUST NOT be present if the resolve function was called. The value of this property MUST be an ASCII string that is the Media Type of the conformant representations. The caller of the resolveRepresentation function MUST use this value when determining how to parse and process the didDocumentStream returned by this function into the data model.
+-   `error`: The error code from the resolution process. This property is REQUIRED when there is an error in the resolution process. The value of this property MUST be a single keyword ASCII string. The possible property values of this field SHOULD be registered in the [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/).
+
+`did:webplus`-specific fields:
+-   `fetchedUpdatesFromVDR`: This will be `true` if the resolution process involved attempting to fetch updates from the VDR for the DID, even if there were no new updates returned by the VDR.  Otherwise `false`.
+-   `didDocumentResolvedLocally`: This will be `true` if the resolved DID document was already present in [locally-known data](#did-document-store).  Otherwise `false`.  Note that this and `fetchedUpdatesFromVDR` can be true simultaneously if metadata was requested that required fetching updates from VDR.
+-   `didDocumentMetadataResolvedLocally`: This will be `true` if the DID Document Metadata was able to be produced purely from locally-known data.  Otherwise `false`.
 
 #### Summary
 
