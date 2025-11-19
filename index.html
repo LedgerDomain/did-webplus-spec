@@ -143,7 +143,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
 <p>A <code>did:webplus</code> DID takes the following form, with <code>[]</code> brackets indicating optional components, and <code>&lt;&gt;</code> brackets indicating required, named components:</p>
 <pre><code>did:webplus:&lt;host&gt;[%3A&lt;port&gt;][:&lt;colon-delimited-path&gt;]:&lt;root-self-hash&gt;
 </code></pre>
-<p>The port number and path components are optional.  The <code>&lt;root-self-hash&gt;</code> component must be equal to the <code>selfHash</code> field value of the <a class="term-reference" href="#term:root-did-document">Root DID Document</a>, thereby cryptographically committing the DID to the contents of its Root DID Document.  Note that because the <code>selfHash</code> field is the value from the Root DID Document (NOT the latest DID document), the DID itself never changes, even upon update.</p>
+<p>The port number and path components are optional.  The <code>&lt;root-self-hash&gt;</code> component must be equal to the <code>selfHash</code> field of the <a class="term-reference" href="#term:root-did-document">Root DID Document</a>, thereby cryptographically committing the DID to the contents of its Root DID Document.  Note that because the <code>selfHash</code> field is the value from the Root DID Document (NOT the latest DID document), the DID itself never changes, even upon update.</p>
 <p>Examples:</p>
 <pre><code>did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA
 did:webplus:example.com:p1:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA
@@ -572,32 +572,32 @@ sequenceDiagram
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"QnHzhmP0Koud9_KZmJPBgx3liXD7hszwTpUKkYOxTbA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>We’ll also need a key that is authorized to update the DID document.  In publicKeyMultibase format, the public key is:</p>
-<pre><code>u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw
+<pre><code>u7QFCWKaWNQ5FsNShO8BlZwjHa5xkGleeETKwu-vjf1SZXg
 </code></pre>
 <p>Creating a DID produces the root DID document (represented in ‘pretty’ JSON for readability; actual DID document is compact JSON):</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw"</span>
+    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QFCWKaWNQ5FsNShO8BlZwjHa5xkGleeETKwu-vjf1SZXg"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w&amp;versionId=0#0"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w&amp;versionId=0#0"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -621,20 +621,21 @@ sequenceDiagram
 <p>Note that the <code>updateRules</code> field is what defines update authorization for this DID document.</p>
 <p>The associated DID document metadata (at the time of DID creation) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>We set the private JWK’s <code>kid</code> field (key ID) to include the query params and fragment, so that signatures produced by this private JWK identify which DID document was current as of signing, as well as identify which specific key was used to produce the signature (the alternative would be to attempt to verify the signature against all applicable public keys listed in the DID document).  The private JWK is now:</p>
+<p>We set the private JWK’s <code>kid</code> field (key ID) to match that of its public JWK’s <code>kid</code> field in the DID document (in particular, including the query params <code>selfHash</code> and <code>versionId</code>), so that signatures produced by this private JWK identify which DID document was current as of signing, as well as identify which specific key was used to produce the signature (the alternative would be to attempt to verify the signature against all applicable public keys listed in the DID document).  The private JWK is now:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ&amp;versionId=0#0"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w&amp;versionId=0#0"</span><span class="token punctuation">,</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"QnHzhmP0Koud9_KZmJPBgx3liXD7hszwTpUKkYOxTbA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="updating-the-did"><a class="toc-anchor" href="#updating-the-did" >§</a> Updating the DID</h4>
@@ -642,47 +643,47 @@ sequenceDiagram
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"g2AYHF11v8WZyWajLDVAhN5mfSrMaXFsKdApmLY6vBg"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"MpFvO25_pQbC3APLdNJi_-95mShEtaXG151Pardsy6s"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>A new update key is also needed.  In publicKeyMultibase format, the new public key is:</p>
-<pre><code>u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg
+<pre><code>u7QFNzTwiEH-gYlFQ_jb01lEFnWnyZPzq-rcehFEbF-rPFg
 </code></pre>
 <p>Updating a DID produces the next DID document (represented in ‘pretty’ JSON for readability; actual DID document is compact JSON):</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw"</span><span class="token punctuation">,</span>
-  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q"</span><span class="token punctuation">,</span>
+  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg"</span>
+    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QFNzTwiEH-gYlFQ_jb01lEFnWnyZPzq-rcehFEbF-rPFg"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"proofs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRSGpNeVUxLTk0ZC03UE5idGlxVVo1SDNaeTA3UDVJYXhGWEdQVEt1SFdnZHciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..WxADtzj4sWspqNIyoe5zQC5P41Bf2OF8cLPuWH1tzlMKiLc2phGWWjCQfN1UzDK0YxfFaSuFt2vYIpfR87U2Bw"</span>
+    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRkNXS2FXTlE1RnNOU2hPOEJsWndqSGE1eGtHbGVlRVRLd3UtdmpmMVNaWGciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..DlqKjcvzBqMk8fE0AMqOr1Lnj6NgiMTv6iZMFWxHHWYLRz2KFVs9uTCVUfRrEBS2FAqLWY2u2lve8TNopSUkBA"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.978Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#0"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#0"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#1"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#1"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"g2AYHF11v8WZyWajLDVAhN5mfSrMaXFsKdApmLY6vBg"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -712,45 +713,50 @@ sequenceDiagram
     <span class="token property">"crit"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
       <span class="token string">"b64"</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QHjMyU1-94d-7PNbtiqUZ5H3Zy07P5IaxFXGPTKuHWgdw"</span>
+    <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QFCWKaWNQ5FsNShO8BlZwjHa5xkGleeETKwu-vjf1SZXg"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"WxADtzj4sWspqNIyoe5zQC5P41Bf2OF8cLPuWH1tzlMKiLc2phGWWjCQfN1UzDK0YxfFaSuFt2vYIpfR87U2Bw"</span>
+  <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"DlqKjcvzBqMk8fE0AMqOr1Lnj6NgiMTv6iZMFWxHHWYLRz2KFVs9uTCVUfRrEBS2FAqLWY2u2lve8TNopSUkBA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>The associated DID document metadata (at the time of DID update) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.978Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>However, the DID document metadata associated with the root DID document has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.978Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.978Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>We set the <code>kid</code> field of each private JWK to point to the current DID document:</p>
+<p>We set/update the <code>kid</code> field of each private JWK to match that of the public JWK in the updated DID document:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw&amp;versionId=1#0"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#0"</span><span class="token punctuation">,</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"QnHzhmP0Koud9_KZmJPBgx3liXD7hszwTpUKkYOxTbA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw&amp;versionId=1#1"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q&amp;versionId=1#1"</span><span class="token punctuation">,</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"g2AYHF11v8WZyWajLDVAhN5mfSrMaXFsKdApmLY6vBg"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"MpFvO25_pQbC3APLdNJi_-95mShEtaXG151Pardsy6s"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h4 id="updating-the-did-again"><a class="toc-anchor" href="#updating-the-did-again" >§</a> Updating the DID Again</h4>
@@ -758,55 +764,55 @@ sequenceDiagram
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"jrezMR2brpp4c3Vq8rWx7mhwiDevqkq2ShZXBdFKtEs"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"yInsmsZAFa3-z16fj_jADU0jq22XIGLiJOKBWOL-9sw"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"ylSTkp5eckhJeGIdSijSjLP73PyP-LtQIugGbem9puQ"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Updated DID document (represented in ‘pretty’ JSON for readability; actual DID document is compact JSON):</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ"</span><span class="token punctuation">,</span>
-  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiANbuUyuO_zTwgo_k430cK0M_wGpHa8otX_7TgxIAFshw"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg"</span><span class="token punctuation">,</span>
+  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCB0zZPRtP5SRrRj-dHe8DxkVAhdUZqEaRZEJ7-rSaa5Q"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QFGzX5sMj792KhdJs7e9r3OJ6KpOy6WtBk7MfE1QTEkTQ"</span>
+    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QHRFrSIiqny7_FrLze0VF1xXgjHp0_5fzhlB2bfwLOYag"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"proofs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRR2x4eGtMdkhyREw4bWNtMXB3cjJROXBOUllFQTRaMHRtX09CUTJMM0xXeWciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..qIJSY9dkmrConVc5lEx4ArHasiz5AB4eRQzrFn15Y22BI4MiC3qchn-8RPUVTMyzEjHIC_wHCLafh2lQPoTvAw"</span>
+    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRk56VHdpRUgtZ1lsRlFfamIwMWxFRm5XbnlaUHpxLXJjZWhGRWJGLXJQRmciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..SjRoWc9NlZrjqHu_eECRaqk57VVVeenk6YQgo7FYtBrO66O9_YOdKYJAo2dHOhSLDpht92YmUfC0HsWMrOH1BQ"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:14.032Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#2"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#2"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#2"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#2"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"yInsmsZAFa3-z16fj_jADU0jq22XIGLiJOKBWOL-9sw"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#0"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#0"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#0"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#1"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ#1"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#1"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"g2AYHF11v8WZyWajLDVAhN5mfSrMaXFsKdApmLY6vBg"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -836,62 +842,71 @@ sequenceDiagram
     <span class="token property">"crit"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
       <span class="token string">"b64"</span>
     <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QGlxxkLvHrDL8mcm1pwr2Q9pNRYEA4Z0tm_OBQ2L3LWyg"</span>
+    <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QFNzTwiEH-gYlFQ_jb01lEFnWnyZPzq-rcehFEbF-rPFg"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"qIJSY9dkmrConVc5lEx4ArHasiz5AB4eRQzrFn15Y22BI4MiC3qchn-8RPUVTMyzEjHIC_wHCLafh2lQPoTvAw"</span>
+  <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"SjRoWc9NlZrjqHu_eECRaqk57VVVeenk6YQgo7FYtBrO66O9_YOdKYJAo2dHOhSLDpht92YmUfC0HsWMrOH1BQ"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>The associated DID document metadata (at the time of DID update) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:14.032Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">2</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Similarly, the DID document metadata associated with the previous DID document has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:14.032Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:14.032Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">2</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>However, the DID document metadata associated with the root DID document has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.971Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:13.978Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T18:58:14.032Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">2</span>
+  <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>We set the <code>kid</code> field of each private JWK to point to the current DID document:</p>
+<p>We set/update the <code>kid</code> field of each private JWK to match that of the public JWK in the updated DID document:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&amp;versionId=2#0"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#0"</span><span class="token punctuation">,</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"Uus_ouGx6QKMNS2WjjLs1ZLO-rRlJgBLTEU3WLJriJY"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"fHp0PHftult-W4AeCHOe7f7vApoG-YM2dC4JN9fotg0"</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&amp;versionId=2#1"</span><span class="token punctuation">,</span>
-  <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
-  <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"FaaB4vWtZCVvpWC7kXuzFctavbqASQO_6aQgEwj66H4"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"gh1Szcv5L4eu17B1n9vRRGyZ8WKTUsWGqsb3_0aDI0s"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"lZq_V0eF2PaFk07maitC6e-cMcCkYxkX1ugKRzFgodQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"QnHzhmP0Koud9_KZmJPBgx3liXD7hszwTpUKkYOxTbA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiDQLgfBCe9ZAQeBPiDJWO74YKI_QHtpFyAuIRFpsb6nPQ?selfHash=uHiDy7BDn0_-K4jYnhvUDJ38GmEaK2lESTVfwuiHemuXibQ&amp;versionId=2#2"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#1"</span><span class="token punctuation">,</span>
   <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
   <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"xtQxmVG5Iebooxl-QE1b0rCel8DoG_9N8ycnDsCUNXo"</span><span class="token punctuation">,</span>
-  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"jrezMR2brpp4c3Vq8rWx7mhwiDevqkq2ShZXBdFKtEs"</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"g2AYHF11v8WZyWajLDVAhN5mfSrMaXFsKdApmLY6vBg"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"MpFvO25_pQbC3APLdNJi_-95mShEtaXG151Pardsy6s"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:hey:uHiCa77-pRHbSiSIPSFO_EOlpw100j30VQnhWCXuwVMSA-w?selfHash=uHiBUjvHda3aTQVUPwTEvXqxOumNSd_aua0dTrjEBpZSelg&amp;versionId=2#2"</span><span class="token punctuation">,</span>
+  <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
+  <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
+  <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"yInsmsZAFa3-z16fj_jADU0jq22XIGLiJOKBWOL-9sw"</span><span class="token punctuation">,</span>
+  <span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"ylSTkp5eckhJeGIdSijSjLP73PyP-LtQIugGbem9puQ"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="appendices"><a class="toc-anchor" href="#appendices" >§</a> Appendices</h2>
@@ -953,23 +968,23 @@ graph TD
 <p>Here is an example of the DID documents in the microledger for a DID.</p>
 <p>Root DID document (<code>versionId</code> 0):</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"hashedKey"</span><span class="token operator">:</span> <span class="token string">"uHiALDuivdNdHulnKNQCnF7_btEO2pn8pejIc4xKPLBUyzA"</span>
+    <span class="token property">"hashedKey"</span><span class="token operator">:</span> <span class="token string">"uHiCMmFumKCTx6yxWPtoRM_VZj4DvdcHs2KEBK941pr8SXQ"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T19:26:29.56Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:43:26.979Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ&amp;versionId=0#0"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ&amp;versionId=0#0"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"jUBNyWh6vrvC551iYR9g6R0awx1eGxDDlHfR3gG2V1g"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"iR2bJQmYXszbiuW1yfeRmLtBkGsEczp99ZfEuQSPxwM"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -993,38 +1008,38 @@ graph TD
 <p>Note that the <code>proofs</code> field is omitted since no proofs are required for the root DID document.  However, they MAY be present.</p>
 <p>Next DID Document (<code>versionId</code> 1), in particular having new <code>updateRules</code>:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA"</span><span class="token punctuation">,</span>
-  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw"</span><span class="token punctuation">,</span>
+  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QGNAb4V8rfeWgnKBFlOg-hNpyvRdhneRnI8aUKPziqKbA"</span>
+    <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"u7QF0zsY-DxwlvuzDsosc0ZgD5drHhvNHXVkxwDDCMZHSIQ"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"proofs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRSERjOGNUSFlqTEVZOUx0QTZzczdyN1BqWGRmSEZyOTB5SUo3Y3pfSEYxakEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..lgQjZvV52dqKqM59tx6qMopeiSTU6mU4X11bpe5MzGK1xLljcoQT8qWYk2UyV6eKWkYI3UNWRL7piKxVfIWJBQ"</span>
+    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRzJPMlZtMjJlMWc0djZWUnhqWTlRZ205WHFKQUtmX2IzY0g2T2M0UjBiaHciLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..gjcKygeSmc9XC8h6Eosu1zPkjVF9_vPTI5Dm0PbNT7UZU4GvfvN1NsVEBWcXTEcCL22CW1ID5rb3SmjtsJnxBg"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T19:26:29.567Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:43:26.992Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#1"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw&amp;versionId=1#0"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#1"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw&amp;versionId=1#0"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"jUBNyWh6vrvC551iYR9g6R0awx1eGxDDlHfR3gG2V1g"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"I87S--BfzauBtdJ4FkYLj9-bOF8gwj6iOMIx_lE-vhM"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw&amp;versionId=1#1"</span><span class="token punctuation">,</span>
       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"JsonWebKey2020"</span><span class="token punctuation">,</span>
-      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
+      <span class="token property">"controller"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
       <span class="token property">"publicKeyJwk"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA#0"</span><span class="token punctuation">,</span>
+        <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ?selfHash=uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw&amp;versionId=1#1"</span><span class="token punctuation">,</span>
         <span class="token property">"kty"</span><span class="token operator">:</span> <span class="token string">"OKP"</span><span class="token punctuation">,</span>
         <span class="token property">"crv"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"G8fiCRSTe7yTuI8gVM4qcUJ-KsNdQb53eMwCfCtMwmE"</span>
+        <span class="token property">"x"</span><span class="token operator">:</span> <span class="token string">"iR2bJQmYXszbiuW1yfeRmLtBkGsEczp99ZfEuQSPxwM"</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -1048,24 +1063,24 @@ graph TD
 <p>Note that the element in the <code>proofs</code> field is a JWS whose header decodes as:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QHDc8cTHYjLEY9LtA6ss7r7PjXdfHFr90yIJ7cz_HF1jA"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QG2O2Vm22e1g4v6VRxjY9Qgm9XqJAKf_b3cH6Oc4R0bhw"</span><span class="token punctuation">,</span>
   <span class="token property">"crit"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token string">"b64"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"b64"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Note that the hash of the <code>kid</code> field of the JWS header is <code>uHiALDuivdNdHulnKNQCnF7_btEO2pn8pejIc4xKPLBUyzA</code> which should match the <code>hashedKey</code> field of the previous DID Document’s <code>updateRules</code>.</p>
+<p>Note that the hash of the <code>kid</code> field of the JWS header is <code>uHiCMmFumKCTx6yxWPtoRM_VZj4DvdcHs2KEBK941pr8SXQ</code> which should match the <code>hashedKey</code> field of the previous DID Document’s <code>updateRules</code>.</p>
 <p>Next DID Document (<code>versionId</code> 2), which shows how to deactivate a DID by setting <code>updateRules</code> to <code>{}</code>:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA"</span><span class="token punctuation">,</span>
-  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBbvcmeBatdxnlQHvdojNtFqC57lAoTSmnZvr8UmatXdA"</span><span class="token punctuation">,</span>
-  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA"</span><span class="token punctuation">,</span>
+  <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"did:webplus:example.com:uHiAgZ9Z9FJ38ZGeQRZoFxxXfbpvRsg2DuPXJ5vzR1Uy3HQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"selfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCrJkmyeDz01JHbmu-ft17Gwx11Les974G0BIV9fGWoDQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"prevDIDDocumentSelfHash"</span><span class="token operator">:</span> <span class="token string">"uHiCH05FmexvfpT8lxesItafqipzHvm_npUt4PRRCc8scEw"</span><span class="token punctuation">,</span>
   <span class="token property">"updateRules"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"proofs"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRR05BYjRWOHJmZVdnbktCRmxPZy1oTnB5dlJkaG5lUm5JOGFVS1B6aXFLYkEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..5pro_jMfX9ZJL4Ki76PniiH1HwErmbJNEC6lerQSH3j77tOlQKxHM1cL2WjWOxyFTW4fOLLgkNWXP6x5BsISAg"</span>
+    <span class="token string">"eyJhbGciOiJFZDI1NTE5Iiwia2lkIjoidTdRRjB6c1ktRHh3bHZ1ekRzb3NjMFpnRDVkckhodk5IWFZreHdERENNWkhTSVEiLCJjcml0IjpbImI2NCJdLCJiNjQiOmZhbHNlfQ..qBBCb1-4OHtnfyV_0KrUBpDE0aXhjBkYmCT5h7A0vtYtCGBVhfjUIRCrj3rJeO5h3N627uSdFcj2308Iaf6fAA"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-10-03T19:26:29.61Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"validFrom"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:43:27.032Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
   <span class="token property">"verificationMethod"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"authentication"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -1078,7 +1093,7 @@ graph TD
 <p>Removing all verification methods from a deactivated DID is RECOMMENDED so that no unrevocable keys are left in the DID document, but is not required.  Note that the element in the <code>proofs</code> field is a JWS whose header decodes as:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"Ed25519"</span><span class="token punctuation">,</span>
-  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QGNAb4V8rfeWgnKBFlOg-hNpyvRdhneRnI8aUKPziqKbA"</span><span class="token punctuation">,</span>
+  <span class="token property">"kid"</span><span class="token operator">:</span> <span class="token string">"u7QF0zsY-DxwlvuzDsosc0ZgD5drHhvNHXVkxwDDCMZHSIQ"</span><span class="token punctuation">,</span>
   <span class="token property">"crit"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token string">"b64"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -1118,31 +1133,49 @@ graph TD
 <li>Verify that the DID document deserializes into a JSON object that conforms to <a href="#did-document-data-model" >the DID document data model</a>.  Extra fields not specified in the data model are allowed.  The following rules will refer to fields in the DID document.</li>
 <li>Verify that the <code>validFrom</code> field has precision no greater than milliseconds.</li>
 <li>Verify that the <code>validFrom</code> field is not before the UNIX epoch (i.e. <code>1970-01-01T00:00:00.000Z</code>).</li>
+<li>For each verification method in the <code>verificationMethod</code> field, its <code>id</code> field MUST be a fully-qualified DID resource URL (for example, from <a href="#addressability-of-did-documents" >this</a>, <code>did:webplus:example.com:uHiBbwc0wsYWMlHZMw0FWia3tmMMaVqIGBME0MTzcbMn6gA?selfHash=uHiBel_fCXh6jHWrnLRL0TjR3VpgeEGh_ZAALu91bknParA&amp;versionId=1#0</code>), meaning that:
+<ol>
+<li>It MUST have both the <code>selfHash</code> and <code>versionId</code> query parameters specified, in that specific order (needed in order to have a canonical representation).</li>
+<li>Its <code>selfHash</code> query parameter value MUST be equal to the <code>selfHash</code> field of the DID document.</li>
+<li>Its <code>versionId</code> query parameter value MUST be equal to the <code>versionId</code> field of the DID document.</li>
+<li>It MUST have a URL fragment.  The fragment specifies the identifier for the verification method within the DID document, and can be used (as a relative URL) in the verification relationship fields (e.g. <code>authentication</code>, <code>assertionMethod</code>, etc.).</li>
+</ol>
+</li>
 <li>Verify that the DID document is validly <a href="#self-hashed-signed-data" >self-hashed signed data</a>.  If ANY of the proofs are invalid, the DID document MUST be rejected as invalid.  The self-hash slots for the DID document depend on if this is a root DID document or a non-root DID document.
 <ol>
 <li>If this is a root DID document:
 <ol>
 <li>The self-hash slots are:
-<ul>
+<ol>
 <li>The last path element of the DID in the <code>id</code> field (e.g. the <code>uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q</code> substring at the end of <code>did:webplus:example.com:uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q</code>)</li>
 <li>The <code>selfHash</code> field.</li>
 <li>For each verification method in the <code>verificationMethod</code> field, the following slots:
-<ul>
-<li>The last path element of the <code>id</code> field (i.e. the <code>uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q</code> substring before the <code>#</code> in <code>did:webplus:example.com:uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q#0</code>).</li>
+<ol>
+<li>The last path element of the <code>id</code> field (i.e. the <code>uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q</code> substring before the <code>?</code> in <code>did:webplus:example.com:uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q?selfHash=uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q&amp;versionId=0#0</code>).</li>
+<li>The value of the <code>selfHash</code> query parameter (i.e. the <code>uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q</code> substring after <code>?selfHash=</code> and before <code>&amp;</code>).  <em>Also note</em> that the <code>versionId</code> query parameter must be present in the <code>id</code> field, and must be equal to the <code>versionId</code> field of the DID document (which in the case of the root DID document is <code>0</code>).</li>
 <li>If the controller of this verification method is this DID document’s DID itself, then:
-<ul>
+<ol>
 <li>The last path element of the DID in the <code>controller</code> field.</li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
 </ol>
 </li>
 <li>If this is a non-root DID document:
 <ol>
-<li>Verify that the self-hash slots are the same as the <code>prevDIDDocumentSelfHash</code> field.</li>
+<li>The self-hash slots are:
+<ol>
+<li>The <code>selfHash</code> field.</li>
+<li>For each verification method in the <code>verificationMethod</code> field, the following slots:
+<ol>
+<li>The value of the <code>selfHash</code> query parameter.  <em>Also note</em> that the <code>versionId</code> query parameter must be present in the <code>id</code> field, and must be equal to the <code>versionId</code> field of the DID document.</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
