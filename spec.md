@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.3
+**Specification Status:** Draft v0.4
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -1666,28 +1666,54 @@ A MBHash value is a multibase-encoded multihash.
 Details and Rust implementation: https://github.com/LedgerDomain/mbx?tab=readme-ov-file#mbhash-and-mbhashstr
 
 The hash functions that MUST be supported by implementations of `did:webplus` are:
--   Blake3 -- RECOMMENDED
+-   Blake3
+-   From the SHA-2 family of hash functions:
+    -   SHA-224
+    -   SHA-256
+    -   SHA-384
+    -   SHA-512
+-   From the SHA-3 family of hash functions:
+    -   SHA3-224
+    -   SHA3-256
+    -   SHA3-384
+    -   SHA3-512
 
-The following hash functions MAY be supported by implementations of `did:webplus`:
--   SHA2-256
--   SHA2-512
+In principle, other hash functions MAY be supported by implementations of `did:webplus` if there are specific requirements for a particular use case in a particular ecosystem.
 
 The bases that MUST be supported by implementations of `did:webplus` are:
--   `base64url` -- RECOMMENDED
+-   `base64url` -- RECOMMENDED due to relative efficiency of encoding/decoding
 -   `base58btc`
 
 ##### MBHash Placeholder Values
 
-The placeholder values for the supported base and hash function are:
+The placeholder values for the supported bases and hash functions are:
 -   Blake3
     -   `base64url`: `uHiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
     -   `base58btc`: `zgVwffGvQHPgyjKpyzNtG58yEmCBbhSByS8omLpnxE9eqCT`
--   SHA2-256
+-   SHA-224
+    -   `base64url`: `ukyAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `z3F7sYe411PnTZHcZZrP3T6EEbFPWFszGNM3qK5UB2ab`
+-   SHA-256
     -   `base64url`: `uEiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
     -   `base58btc`: `zQmNLei78zWmzUdbeRB3CiUfAizWUrbeeZh5K1rhAQKCh51`
--   SHA2-512
+-   SHA-384
+    -   `base64url`: `uIDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `zQ18WUYBFdosad7BSJjDwvuh4Y9rTtLxDgTjChpUKpjecrYoGZH7iCYWp4b5tjzUxWGSb`
+-   SHA-512
     -   `base64url`: `uE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
     -   `base58btc`: `z8VsnXyGnRwJpnrQXB8KcLstvgFYGZ2f5BCm3DVndcNZ8NswtkCqsut69e7yd1FKNtettjgy669GNVt8VSTGxkAiJaB`
+-   SHA3-224 (part of the SHA-3 family of hash functions)
+    -   `base64url`: `uFxwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `z5dZzD13Qe6veChweRuDb69LkcMW8CQypspZxUtZm1`
+-   SHA3-256 (part of the SHA-3 family of hash functions)
+    -   `base64url`: `uFiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `zW1ZSzENtkokKZXg6GuetW2mC54QBoYVkrWKTnr4RgG257V`
+-   SHA3-384 (part of the SHA-3 family of hash functions)
+    -   `base64url`: `uFTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `zG9CFSu4FvjgNo4qstsmZZ7C47mTUio26eMJCCKyPe459rAtrYcGnvmr22Eeo7LbPuiMu`
+-   SHA3-512 (part of the SHA-3 family of hash functions)
+    -   `base64url`: `uFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
+    -   `base58btc`: `z8tU4TZ5YyMyQukgooosTdjEwxbsyHNKxcbDRvpcCPu3uxQTruyuAsMbnzt2Zbuivuq9e6joCNyuKrDMgi63UkuQ7S7`
 
 #### MBPubKey Values
 

@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.3</p>
+<p><strong>Specification Status:</strong> Draft v0.4</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -1464,20 +1464,32 @@ graph TD
 <p>Details and Rust implementation: <a path-0="github.com"path-1="LedgerDomain"path-2="mbx"href="https://github.com/LedgerDomain/mbx?tab=readme-ov-file#mbhash-and-mbhashstr" ><span>https://github.com/LedgerDomain/mbx?tab=readme-ov-file#mbhash-and-mbhashstr</span></a></p>
 <p>The hash functions that MUST be supported by implementations of <code>did:webplus</code> are:</p>
 <ul>
-<li>Blake3 – RECOMMENDED</li>
-</ul>
-<p>The following hash functions MAY be supported by implementations of <code>did:webplus</code>:</p>
+<li>Blake3</li>
+<li>From the SHA-2 family of hash functions:
 <ul>
-<li>SHA2-256</li>
-<li>SHA2-512</li>
+<li>SHA-224</li>
+<li>SHA-256</li>
+<li>SHA-384</li>
+<li>SHA-512</li>
 </ul>
+</li>
+<li>From the SHA-3 family of hash functions:
+<ul>
+<li>SHA3-224</li>
+<li>SHA3-256</li>
+<li>SHA3-384</li>
+<li>SHA3-512</li>
+</ul>
+</li>
+</ul>
+<p>In principle, other hash functions MAY be supported by implementations of <code>did:webplus</code> if there are specific requirements for a particular use case in a particular ecosystem.</p>
 <p>The bases that MUST be supported by implementations of <code>did:webplus</code> are:</p>
 <ul>
-<li><code>base64url</code> – RECOMMENDED</li>
+<li><code>base64url</code> – RECOMMENDED due to relative efficiency of encoding/decoding</li>
 <li><code>base58btc</code></li>
 </ul>
 <h5 id="mbhash-placeholder-values"><a class="toc-anchor" href="#mbhash-placeholder-values" >§</a> MBHash Placeholder Values</h5>
-<p>The placeholder values for the supported base and hash function are:</p>
+<p>The placeholder values for the supported bases and hash functions are:</p>
 <ul>
 <li>Blake3
 <ul>
@@ -1485,16 +1497,52 @@ graph TD
 <li><code>base58btc</code>: <code>zgVwffGvQHPgyjKpyzNtG58yEmCBbhSByS8omLpnxE9eqCT</code></li>
 </ul>
 </li>
-<li>SHA2-256
+<li>SHA-224
+<ul>
+<li><code>base64url</code>: <code>ukyAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>z3F7sYe411PnTZHcZZrP3T6EEbFPWFszGNM3qK5UB2ab</code></li>
+</ul>
+</li>
+<li>SHA-256
 <ul>
 <li><code>base64url</code>: <code>uEiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
 <li><code>base58btc</code>: <code>zQmNLei78zWmzUdbeRB3CiUfAizWUrbeeZh5K1rhAQKCh51</code></li>
 </ul>
 </li>
-<li>SHA2-512
+<li>SHA-384
+<ul>
+<li><code>base64url</code>: <code>uIDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>zQ18WUYBFdosad7BSJjDwvuh4Y9rTtLxDgTjChpUKpjecrYoGZH7iCYWp4b5tjzUxWGSb</code></li>
+</ul>
+</li>
+<li>SHA-512
 <ul>
 <li><code>base64url</code>: <code>uE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
 <li><code>base58btc</code>: <code>z8VsnXyGnRwJpnrQXB8KcLstvgFYGZ2f5BCm3DVndcNZ8NswtkCqsut69e7yd1FKNtettjgy669GNVt8VSTGxkAiJaB</code></li>
+</ul>
+</li>
+<li>SHA3-224 (part of the SHA-3 family of hash functions)
+<ul>
+<li><code>base64url</code>: <code>uFxwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>z5dZzD13Qe6veChweRuDb69LkcMW8CQypspZxUtZm1</code></li>
+</ul>
+</li>
+<li>SHA3-256 (part of the SHA-3 family of hash functions)
+<ul>
+<li><code>base64url</code>: <code>uFiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>zW1ZSzENtkokKZXg6GuetW2mC54QBoYVkrWKTnr4RgG257V</code></li>
+</ul>
+</li>
+<li>SHA3-384 (part of the SHA-3 family of hash functions)
+<ul>
+<li><code>base64url</code>: <code>uFTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>zG9CFSu4FvjgNo4qstsmZZ7C47mTUio26eMJCCKyPe459rAtrYcGnvmr22Eeo7LbPuiMu</code></li>
+</ul>
+</li>
+<li>SHA3-512 (part of the SHA-3 family of hash functions)
+<ul>
+<li><code>base64url</code>: <code>uFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code></li>
+<li><code>base58btc</code>: <code>z8tU4TZ5YyMyQukgooosTdjEwxbsyHNKxcbDRvpcCPu3uxQTruyuAsMbnzt2Zbuivuq9e6joCNyuKrDMgi63UkuQ7S7</code></li>
 </ul>
 </li>
 </ul>
