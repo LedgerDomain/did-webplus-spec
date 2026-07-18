@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.4
+**Specification Status:** Draft v0.5
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -1104,7 +1104,11 @@ In `did:webplus`, the DID document MUST be represented as the [JSON Canonicaliza
 -   `prevDIDDocumentSelfHash`: MUST be `null` or a valid self-hash in [MBHash](#mbhash-values) format.
 -   `updateRules`: MUST be a valid [UpdateRules](#update-rules).
 -   `proofs`: MUST be `null` or an array of JWS proofs as described in [Self-Hashed Signed Data](#self-hashed-signed-data).
--   `validFrom`: MUST be a valid [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) timestamp having precision no greater than milliseconds (in order to achieve interoperability with Javascript implementations).
+-   `validFrom`: MUST be a valid [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)-formatted timestamp string with the additional requirements:
+    -   Its precision MUST be no greater than milliseconds.  Trailing zeros in the fractional part are optional (e.g. `"2000-01-01T12:34:56.1Z"` and `"2000-01-01T12:34:56.10Z"`, which are both valid representations of the same timestamp), and if the fractional part is zero, then the period and trailing zeros may be omitted entirely (e.g. `"2000-01-01T12:34:56Z"` and `"2000-01-01T12:34:56.0Z"`, which are both valid representations of the same timestamp).
+    -   It MUST use the upper case `T` and `Z` signifiers; `T` to separate the date from the time, and `Z` to indicate a UTC offset of `00:00`.
+    -   It MUST be no earlier than the Unix Epoch, i.e. `"1970-01-01T00:00:00Z"`.
+    -   It MUST be treated as a string in the JCS serialization of a DID document.
 -   `versionId`: MUST be an unsigned integer.
 -   `verificationMethod`: If present, MUST be an array of [verification methods](https://www.w3.org/TR/did-1.0/#verification-methods).
 -   Fields for [Verification Relationships](https://www.w3.org/TR/did-1.0/#verification-relationships), if present, MUST be:

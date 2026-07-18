@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.4</p>
+<p><strong>Specification Status:</strong> Draft v0.5</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -936,7 +936,14 @@ graph TD
 <li><code>prevDIDDocumentSelfHash</code>: MUST be <code>null</code> or a valid self-hash in <a href="#mbhash-values" >MBHash</a> format.</li>
 <li><code>updateRules</code>: MUST be a valid <a href="#update-rules" >UpdateRules</a>.</li>
 <li><code>proofs</code>: MUST be <code>null</code> or an array of JWS proofs as described in <a href="#self-hashed-signed-data" >Self-Hashed Signed Data</a>.</li>
-<li><code>validFrom</code>: MUST be a valid <a path-0="www.rfc-editor.org"path-1="rfc"path-2="rfc3339"href="https://www.rfc-editor.org/rfc/rfc3339" >RFC 3339</a> timestamp having precision no greater than milliseconds (in order to achieve interoperability with Javascript implementations).</li>
+<li><code>validFrom</code>: MUST be a valid <a path-0="www.rfc-editor.org"path-1="rfc"path-2="rfc3339"href="https://www.rfc-editor.org/rfc/rfc3339" >RFC 3339</a>-formatted timestamp string with the additional requirements:
+<ul>
+<li>Its precision MUST be no greater than milliseconds.  Trailing zeros in the fractional part are optional (e.g. <code>&quot;2000-01-01T12:34:56.1Z&quot;</code> and <code>&quot;2000-01-01T12:34:56.10Z&quot;</code>, which are both valid representations of the same timestamp), and if the fractional part is zero, then the period and trailing zeros may be omitted entirely (e.g. <code>&quot;2000-01-01T12:34:56Z&quot;</code> and <code>&quot;2000-01-01T12:34:56.0Z&quot;</code>, which are both valid representations of the same timestamp).</li>
+<li>It MUST use the upper case <code>T</code> and <code>Z</code> signifiers; <code>T</code> to separate the date from the time, and <code>Z</code> to indicate a UTC offset of <code>00:00</code>.</li>
+<li>It MUST be no earlier than the Unix Epoch, i.e. <code>&quot;1970-01-01T00:00:00Z&quot;</code>.</li>
+<li>It MUST be treated as a string in the JCS serialization of a DID document.</li>
+</ul>
+</li>
 <li><code>versionId</code>: MUST be an unsigned integer.</li>
 <li><code>verificationMethod</code>: If present, MUST be an array of <a path-0="www.w3.org"path-1="TR"path-2="did-1.0"path-3="#verification-methods"href="https://www.w3.org/TR/did-1.0/#verification-methods" >verification methods</a>.</li>
 <li>Fields for <a path-0="www.w3.org"path-1="TR"path-2="did-1.0"path-3="#verification-relationships"href="https://www.w3.org/TR/did-1.0/#verification-relationships" >Verification Relationships</a>, if present, MUST be:
