@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.5
+**Specification Status:** Draft v0.6
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -253,7 +253,7 @@ sequenceDiagram
 
 The DID resolution process is intended to be used by a Verifying Party to obtain a specific version of a DID document for a given DID.  The DID document contains the public keys of the DID controller, and is used to verify signatures on artifacts signed by the DID controller.
 
-With respect to DID resolution, the VDR has a simple job -- simply serve the `did-documents.jsonl` file of each DID at the [resolution URL for the DID](#did-to-url-mapping).  `did-documents.jsonl` is simply a newline-delimited concatenation of the ordered sequence of JCS-serialized DID documents.
+With respect to DID resolution, the VDR has a simple job -- simply serve the `did-documents.jsonl` file of each DID at the [resolution URL for the DID](#did-to-url-mapping).  `did-documents.jsonl` is simply a newline-delimited concatenation of the ordered sequence of JCS-serialized DID documents.  A VDR MUST support range-based HTTP GET requests in order to be compliant.  This requirement is needed to guarantee the efficiency properties of the Full DID Resolver.  Note that, in particular, Github pages and Apache web servers support range-based HTTP GET requests of static content by default, but the Python `http.server` module does NOT and therefore can't be considered a compliant VDR.  There are other Python modules that do support range-based HTTP GET requests, and those should be used instead.
 
 If the DID is `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA` then the DID resolution URL is `https://example.com/uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q/did-documents.jsonl`.
 
@@ -341,6 +341,13 @@ The Full DID Resolver can also optionally use a trusted VDG to
 
 Note that a Full DID Resolver that uses a VDG is still verifying every single DID document it fetches.
 
+An implementation of a Full DID Resolver MUST meet the following criteria:
+-   There MUST be a [DID Document Store](#did-document-store) containing only verified DID documents for each microledger it has resolved (i.e. a local copy of each resolved DID's microledger).  It MUST NOT archive unverified or invalid DID documents in that DID Document Store.  This requirement is necessary for inductive verification to be sound.  The Full DID Resolver MAY keep unverified or invalid DID documents in a separate store.
+    -   NOTE: The DID Document Store SHOULD persist across process runs of the Full DID Resolver (e.g. in a database).  An only-in-memory DID Document Store MAY be acceptable in some scenarios.
+-   When resolution requires DID documents not yet archived in the DID Document Store (for example, when resolving the latest DID document, or when the requested DID document is not yet present), the Full DID Resolver MUST fetch the unfetched portion of that DID's microledger (`did-documents.jsonl`) using an HTTP Range-Based GET request.
+    -   The HTTP Range-Based GET request MUST use a byte range starting at 0 if the DID Document Store has no archived documents for that DID (equivalent to an ordinary, non-range-based HTTP GET); otherwise it MUST start immediately after the JCS serialization of the last archived DID document for that DID (i.e. after that document's final `}`).  This ensures that `did-documents.jsonl` files that lack a trailing newline are accepted.
+-   Each newly fetched DID document MUST be validated inductively against its predecessor per [Validation of DID Documents](#validation-of-did-documents), starting from the latest archived DID document in the DID Document Store (or as a root DID document if none have been archived), and MUST be archived in the DID Document Store only if validation succeeds.
+
 #### Thin DID Resolver
 
 The "Thin" DID Resolver does not need to keep its own copy of the microledger for each DID it resolves.  Instead, it uses a trusted VDG to resolve a DID, thereby outsourcing the work of fetching, verifying, and archiving DID documents to the VDG.  It simply issues a resolution request to the VDG, and the VDG returns the appropriate, pre-verified DID document (noting that the VDG fetches, verifies, and archives any DID documents it doesn't yet have).
@@ -352,6 +359,9 @@ Advantages of the Thin DID Resolver:
 Disadvantages of the Thin DID Resolver:
 -   It requires trusting an external service (the VDG).
 -   It requires a network connection to operate.
+
+An implementation of a Thin DID Resolver MUST meet the following criteria:
+-   It MUST use a VDG to perform DID resolution.
 
 #### DID Resolver Operations
 

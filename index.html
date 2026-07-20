@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.5</p>
+<p><strong>Specification Status:</strong> Draft v0.6</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -237,7 +237,7 @@ sequenceDiagram
 </div>
 <h4 id="did-resolve"><a class="toc-anchor" href="#did-resolve" >§</a> DID Resolve</h4>
 <p>The DID resolution process is intended to be used by a Verifying Party to obtain a specific version of a DID document for a given DID.  The DID document contains the public keys of the DID controller, and is used to verify signatures on artifacts signed by the DID controller.</p>
-<p>With respect to DID resolution, the VDR has a simple job – simply serve the <code>did-documents.jsonl</code> file of each DID at the <a href="#did-to-url-mapping" >resolution URL for the DID</a>.  <code>did-documents.jsonl</code> is simply a newline-delimited concatenation of the ordered sequence of JCS-serialized DID documents.</p>
+<p>With respect to DID resolution, the VDR has a simple job – simply serve the <code>did-documents.jsonl</code> file of each DID at the <a href="#did-to-url-mapping" >resolution URL for the DID</a>.  <code>did-documents.jsonl</code> is simply a newline-delimited concatenation of the ordered sequence of JCS-serialized DID documents.  A VDR MUST support range-based HTTP GET requests in order to be compliant.  This requirement is needed to guarantee the efficiency properties of the Full DID Resolver.  Note that, in particular, Github pages and Apache web servers support range-based HTTP GET requests of static content by default, but the Python <code>http.server</code> module does NOT and therefore can’t be considered a compliant VDR.  There are other Python modules that do support range-based HTTP GET requests, and those should be used instead.</p>
 <p>If the DID is <code>did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA</code> then the DID resolution URL is <code>https://example.com/uHiBAgZTMYe29bhacxcReklhgbWzSbVTd5c-jL62nfES-4Q/did-documents.jsonl</code>.</p>
 <p>A DID Resolver is used to fetch the appropriate data, perform the appropriate validation, and return the requested DID document.  Common resolution patterns are:</p>
 <ul>
@@ -306,6 +306,20 @@ sequenceDiagram
 <li>fetch the latest DID document quickly, so that it can begin to verify signed artifacts in one thread while it fetches and verifies the rest of the DID document history in another thread.</li>
 </ul>
 <p>Note that a Full DID Resolver that uses a VDG is still verifying every single DID document it fetches.</p>
+<p>An implementation of a Full DID Resolver MUST meet the following criteria:</p>
+<ul>
+<li>There MUST be a <a href="#did-document-store" >DID Document Store</a> containing only verified DID documents for each microledger it has resolved (i.e. a local copy of each resolved DID’s microledger).  It MUST NOT archive unverified or invalid DID documents in that DID Document Store.  This requirement is necessary for inductive verification to be sound.  The Full DID Resolver MAY keep unverified or invalid DID documents in a separate store.
+<ul>
+<li>NOTE: The DID Document Store SHOULD persist across process runs of the Full DID Resolver (e.g. in a database).  An only-in-memory DID Document Store MAY be acceptable in some scenarios.</li>
+</ul>
+</li>
+<li>When resolution requires DID documents not yet archived in the DID Document Store (for example, when resolving the latest DID document, or when the requested DID document is not yet present), the Full DID Resolver MUST fetch the unfetched portion of that DID’s microledger (<code>did-documents.jsonl</code>) using an HTTP Range-Based GET request.
+<ul>
+<li>The HTTP Range-Based GET request MUST use a byte range starting at 0 if the DID Document Store has no archived documents for that DID (equivalent to an ordinary, non-range-based HTTP GET); otherwise it MUST start immediately after the JCS serialization of the last archived DID document for that DID (i.e. after that document’s final <code>}</code>).  This ensures that <code>did-documents.jsonl</code> files that lack a trailing newline are accepted.</li>
+</ul>
+</li>
+<li>Each newly fetched DID document MUST be validated inductively against its predecessor per <a href="#validation-of-did-documents" >Validation of DID Documents</a>, starting from the latest archived DID document in the DID Document Store (or as a root DID document if none have been archived), and MUST be archived in the DID Document Store only if validation succeeds.</li>
+</ul>
 <h4 id="thin-did-resolver"><a class="toc-anchor" href="#thin-did-resolver" >§</a> Thin DID Resolver</h4>
 <p>The “Thin” DID Resolver does not need to keep its own copy of the microledger for each DID it resolves.  Instead, it uses a trusted VDG to resolve a DID, thereby outsourcing the work of fetching, verifying, and archiving DID documents to the VDG.  It simply issues a resolution request to the VDG, and the VDG returns the appropriate, pre-verified DID document (noting that the VDG fetches, verifies, and archives any DID documents it doesn’t yet have).</p>
 <p>Advantages of the Thin DID Resolver:</p>
@@ -317,6 +331,10 @@ sequenceDiagram
 <ul>
 <li>It requires trusting an external service (the VDG).</li>
 <li>It requires a network connection to operate.</li>
+</ul>
+<p>An implementation of a Thin DID Resolver MUST meet the following criteria:</p>
+<ul>
+<li>It MUST use a VDG to perform DID resolution.</li>
 </ul>
 <h4 id="did-resolver-operations"><a class="toc-anchor" href="#did-resolver-operations" >§</a> DID Resolver Operations</h4>
 <p>See the <a href="#did-resolution-mechanics" >DID Resolution Mechanics</a> section for the mechanics of DID resolution.</p>
