@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA5owogrlzCXvyzePEJfamy37OLLeqJMUIT8kXpkJizAg",
+  "name": "self-hash-wrong-root-did-suffix",
+  "category": "conformance",
+  "description": "Reject an incorrect root DID suffix.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "self-hash-mismatch",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

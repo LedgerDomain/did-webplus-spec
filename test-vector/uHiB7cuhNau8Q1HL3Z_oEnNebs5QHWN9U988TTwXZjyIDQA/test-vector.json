@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7cuhNau8Q1HL3Z_oEnNebs5QHWN9U988TTwXZjyIDQA",
+  "name": "matrix-ed448-blake3",
+  "category": "coverage-matrix",
+  "description": "Valid root and update using Ed448 keys and BLAKE3 self-hashes.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed448"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

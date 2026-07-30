@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBjmU6nwej2-WYXUTb8eTnbaysd2p4jegoL_XG5PkxLVA",
+  "name": "jsonl-blank-lines",
+  "category": "jsonl-structural",
+  "description": "Valid root followed by a blank jsonl line before the next document.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 3,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "malformed-jsonl-line",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

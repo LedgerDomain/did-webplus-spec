@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCheUjdrkw8qXbdqMI9GewSskB0N9NTHTwYjSvIHye81w",
+  "name": "valid-from-equivalent-no-fraction",
+  "category": "conformance",
+  "description": "Accept no-fraction timestamp spelling.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

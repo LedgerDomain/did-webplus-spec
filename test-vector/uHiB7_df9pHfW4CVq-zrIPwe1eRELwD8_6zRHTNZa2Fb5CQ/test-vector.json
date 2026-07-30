@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7_df9pHfW4CVq-zrIPwe1eRELwD8_6zRHTNZa2Fb5CQ",
+  "name": "stress-many-versions-100",
+  "category": "stress",
+  "description": "Valid microledger with 100 versions (bounded stress).",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 100,
+  "expected": {
+    "validDidDocumentCount": 100,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

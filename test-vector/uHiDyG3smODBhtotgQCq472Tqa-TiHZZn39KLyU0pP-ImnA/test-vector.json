@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDyG3smODBhtotgQCq472Tqa-TiHZZn39KLyU0pP-ImnA",
+  "name": "jsonl-duplicate-line",
+  "category": "jsonl-structural",
+  "description": "Valid root and update followed by a duplicate of the update line.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 3,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": false,
+    "errorCode": "version-id-not-incremented",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

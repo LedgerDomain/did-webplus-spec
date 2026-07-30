@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDjl2tsdmh3lY-qZEKMw9vsgBkvdb7FAnCGvw_IShlxBQ",
+  "name": "non-root-version-id-decrease",
+  "category": "conformance",
+  "description": "Reject a decreasing versionId.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 3,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": false,
+    "errorCode": "version-id-not-incremented",
+    "errorVersionId": 2
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC_d318pCO9LsTyj3eCQEnCkaZjfRTmvmQ8YEhov4czHg",
+  "name": "data-model-malformed-id",
+  "category": "conformance",
+  "description": "Reject a malformed DID id.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "malformed-id",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

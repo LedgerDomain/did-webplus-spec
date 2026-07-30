@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDcWgPFpjLXA00wIcmUYuaWVAnNUZoohl7OQzLNk4o-3w",
+  "name": "mixed-hash-history",
+  "category": "coverage-matrix",
+  "description": "Valid history changing self-hash functions from BLAKE3 to SHA-256 to SHA3-512.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 3,
+  "expected": {
+    "validDidDocumentCount": 3,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

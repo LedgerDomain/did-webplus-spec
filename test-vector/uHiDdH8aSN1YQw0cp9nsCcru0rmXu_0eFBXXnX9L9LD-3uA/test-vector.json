@@ -1,0 +1,29 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDdH8aSN1YQw0cp9nsCcru0rmXu_0eFBXXnX9L9LD-3uA",
+  "name": "update-rules-hashed-key-unauthorized",
+  "category": "conformance",
+  "description": "Reject a proof not satisfying hashedKey.",
+  "specRef": [
+    "#validation-of-did-documents",
+    "#update-rules"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "update-rules-not-satisfied",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

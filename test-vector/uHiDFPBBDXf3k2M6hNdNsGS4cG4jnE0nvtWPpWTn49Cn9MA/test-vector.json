@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDFPBBDXf3k2M6hNdNsGS4cG4jnE0nvtWPpWTn49Cn9MA",
+  "name": "resolution-port-mismatch",
+  "category": "resolution",
+  "description": "Valid microledger whose DID port differs from the VDR / catalog --port (content DID always includes a port) while host, path, and root self-hash match the resolution URL.",
+  "specRef": [
+    "#resolution-url"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "resolution-port-mismatch",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

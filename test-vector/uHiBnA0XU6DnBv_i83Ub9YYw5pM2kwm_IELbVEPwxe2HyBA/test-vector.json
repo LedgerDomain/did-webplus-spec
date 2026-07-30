@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBnA0XU6DnBv_i83Ub9YYw5pM2kwm_IELbVEPwxe2HyBA",
+  "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00026",
+  "category": "fuzz-lite",
+  "description": "Fuzz-lite single-field structured mutation: non-root-valid-from-earlier.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "valid-from-not-strictly-increasing",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD6I_zW7gNx8b4hlJwTC3y7w24KW79tODq97p9eYF6iiQ",
+  "name": "proofs-missing",
+  "category": "conformance",
+  "description": "Reject an update with no proofs.",
+  "specRef": [
+    "#validation-of-did-documents",
+    "#update-rules"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "update-rules-not-satisfied",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

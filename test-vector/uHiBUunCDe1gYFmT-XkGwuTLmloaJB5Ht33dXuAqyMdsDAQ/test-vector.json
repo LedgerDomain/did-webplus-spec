@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBUunCDe1gYFmT-XkGwuTLmloaJB5Ht33dXuAqyMdsDAQ",
+  "name": "jsonl-non-json-trailing-line",
+  "category": "jsonl-structural",
+  "description": "Valid root and update followed by a non-JSON trailing line.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 3,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": false,
+    "errorCode": "malformed-jsonl-line",
+    "errorVersionId": 2
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

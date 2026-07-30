@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFEBsn3lBWqsM9hucGgtFSojHbvCag9kCUXEm4QYX7s3fteo8lgnJczjumVpDLtoCEBcgSGw3OYElzisqDzew3U7S",
+  "name": "matrix-p256-sha3-512",
+  "category": "coverage-matrix",
+  "description": "Valid root and update using P256 keys and SHA3-512 self-hashes.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "P256"
+  ],
+  "hashFunctions": [
+    "SHA3-512"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

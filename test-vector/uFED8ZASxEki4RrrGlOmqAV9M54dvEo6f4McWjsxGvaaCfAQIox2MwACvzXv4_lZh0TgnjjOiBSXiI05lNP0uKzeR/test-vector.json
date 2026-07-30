@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFED8ZASxEki4RrrGlOmqAV9M54dvEo6f4McWjsxGvaaCfAQIox2MwACvzXv4_lZh0TgnjjOiBSXiI05lNP0uKzeR",
+  "name": "matrix-ed448-sha3-512",
+  "category": "coverage-matrix",
+  "description": "Valid root and update using Ed448 keys and SHA3-512 self-hashes.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed448"
+  ],
+  "hashFunctions": [
+    "SHA3-512"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

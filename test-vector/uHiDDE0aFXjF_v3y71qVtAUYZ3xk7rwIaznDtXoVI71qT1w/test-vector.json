@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDDE0aFXjF_v3y71qVtAUYZ3xk7rwIaznDtXoVI71qT1w",
+  "name": "resolution-path-content-has-extra",
+  "category": "resolution",
+  "description": "Valid microledger whose DID path has extra element(s) relative to the resolution URL (root self-hash matches).",
+  "specRef": [
+    "#resolution-url"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "resolution-path-mismatch",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

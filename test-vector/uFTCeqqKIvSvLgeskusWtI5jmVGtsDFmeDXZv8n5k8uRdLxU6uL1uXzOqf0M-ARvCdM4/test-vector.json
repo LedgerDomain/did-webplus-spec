@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTCeqqKIvSvLgeskusWtI5jmVGtsDFmeDXZv8n5k8uRdLxU6uL1uXzOqf0M-ARvCdM4",
+  "name": "matrix-p384-sha3-384",
+  "category": "coverage-matrix",
+  "description": "Valid root and update using P384 keys and SHA3-384 self-hashes.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "P384"
+  ],
+  "hashFunctions": [
+    "SHA3-384"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

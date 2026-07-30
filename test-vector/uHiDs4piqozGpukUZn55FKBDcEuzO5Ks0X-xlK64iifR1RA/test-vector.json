@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDs4piqozGpukUZn55FKBDcEuzO5Ks0X-xlK64iifR1RA",
+  "name": "resolution-host-mismatch",
+  "category": "resolution",
+  "description": "Valid microledger whose DID host differs from the VDR / catalog --host while path and root self-hash match the resolution URL.",
+  "specRef": [
+    "#resolution-url"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "resolution-host-mismatch",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

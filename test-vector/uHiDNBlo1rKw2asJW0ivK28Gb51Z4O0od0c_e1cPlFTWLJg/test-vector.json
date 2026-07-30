@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDNBlo1rKw2asJW0ivK28Gb51Z4O0od0c_e1cPlFTWLJg",
+  "name": "root-version-id-nonzero",
+  "category": "conformance",
+  "description": "Reject a root with nonzero versionId.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "root-version-id-nonzero",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

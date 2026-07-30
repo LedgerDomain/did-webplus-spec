@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBL2tST3kh6t21Lhb8XGlAbXD4xJzd0I3mrWQ_xSIINYA",
+  "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00089",
+  "category": "fuzz-lite",
+  "description": "Fuzz-lite single-field structured mutation: proof-malformed-kid.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "malformed-proof-kid",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

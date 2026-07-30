@@ -1,0 +1,27 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7O7L5Vg9Kjw2S8jU5VzmuopWVuvcwvIqturrkB-jQ4Q",
+  "name": "proofs-extraneous-ignored",
+  "category": "conformance",
+  "description": "Accept extra valid proofs not needed by key rules.",
+  "specRef": [
+    "#validation-of-did-documents",
+    "#update-rules"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

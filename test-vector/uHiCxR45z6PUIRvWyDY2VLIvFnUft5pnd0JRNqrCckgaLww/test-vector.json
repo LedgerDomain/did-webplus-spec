@@ -1,0 +1,29 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCxR45z6PUIRvWyDY2VLIvFnUft5pnd0JRNqrCckgaLww",
+  "name": "root-with-invalid-proof",
+  "category": "conformance",
+  "description": "Reject a root containing a cryptographically invalid proof.",
+  "specRef": [
+    "#validation-of-did-documents",
+    "#update-rules"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "invalid-proof-signature",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

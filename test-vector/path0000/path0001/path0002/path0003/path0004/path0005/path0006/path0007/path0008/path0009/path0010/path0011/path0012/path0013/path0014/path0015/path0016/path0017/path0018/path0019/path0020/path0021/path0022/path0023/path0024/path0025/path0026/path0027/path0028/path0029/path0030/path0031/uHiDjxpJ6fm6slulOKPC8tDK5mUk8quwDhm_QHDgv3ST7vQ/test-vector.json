@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:path0000:path0001:path0002:path0003:path0004:path0005:path0006:path0007:path0008:path0009:path0010:path0011:path0012:path0013:path0014:path0015:path0016:path0017:path0018:path0019:path0020:path0021:path0022:path0023:path0024:path0025:path0026:path0027:path0028:path0029:path0030:path0031:uHiDjxpJ6fm6slulOKPC8tDK5mUk8quwDhm_QHDgv3ST7vQ",
+  "name": "stress-long-did-path",
+  "category": "stress",
+  "description": "Valid DID with 32 additional method-specific path components under the base did-path.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

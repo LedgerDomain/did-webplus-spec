@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiCMS1CZc4QxjmadUUCuBOwavY_niTxCM1uKpM9ua4MXGQ",
+  "name": "matrix-secp256k1-sha256",
+  "category": "coverage-matrix",
+  "description": "Valid root and update using Secp256k1 keys and SHA-256 self-hashes.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 2,
+    "valid": true
+  },
+  "keyTypes": [
+    "Secp256k1"
+  ],
+  "hashFunctions": [
+    "SHA-256"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

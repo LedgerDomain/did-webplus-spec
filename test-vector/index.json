@@ -1,0 +1,1577 @@
+{
+  "format": "did-webplus-test-vector-index/2",
+  "vectors": {
+    "base-base58btc": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:zgW4XeYtKLLgzmUKQ3GaW8zc47pBQ6QZbp7YGpPKT2CM8zE",
+      "path": "zgW4XeYtKLLgzmUKQ3GaW8zc47pBQ6QZbp7YGpPKT2CM8zE"
+    },
+    "baseline-valid-root": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDqPJ0IoJIsS3qOysi-O4WckXfCAH29x5YMvC2j938qiQ",
+      "path": "uHiDqPJ0IoJIsS3qOysi-O4WckXfCAH29x5YMvC2j938qiQ"
+    },
+    "baseline-valid-update": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAecIXA-03b7mPcNOUv34w-nyRZr4-0gb2N7p007dKO2w",
+      "path": "uHiAecIXA-03b7mPcNOUv34w-nyRZr4-0gb2N7p007dKO2w"
+    },
+    "data-model-malformed-id": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC_d318pCO9LsTyj3eCQEnCkaZjfRTmvmQ8YEhov4czHg",
+      "path": "uHiC_d318pCO9LsTyj3eCQEnCkaZjfRTmvmQ8YEhov4czHg"
+    },
+    "data-model-missing-required-field": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDzrfpSt6YTi3VXpeQEnTmKLcLToH6prj7eCGwVdmCojA",
+      "path": "uHiDzrfpSt6YTi3VXpeQEnTmKLcLToH6prj7eCGwVdmCojA"
+    },
+    "data-model-version-id-string": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCdWkRghp9TL19yAhODpdZMM3BVVyUcg8Hp5uwPf8tK2A",
+      "path": "uHiCdWkRghp9TL19yAhODpdZMM3BVVyUcg8Hp5uwPf8tK2A"
+    },
+    "did-multi-path-components": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:teams:identity:alice:uHiDxgZZ5FBs-O_5XyK4vDdzqtnfQF4QhyplHs7_hNLEeGA",
+      "path": "teams/identity/alice/uHiDxgZZ5FBs-O_5XyK4vDdzqtnfQF4QhyplHs7_hNLEeGA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00000": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD1Jk4mBh8GZcVPlwJ2dtSktHFEDB57yUKZIC-MFg1sQg",
+      "path": "uHiD1Jk4mBh8GZcVPlwJ2dtSktHFEDB57yUKZIC-MFg1sQg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00001": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDqfQodynw2dSAsQGpr05uyyaqInxv4jpC4wiviS8ZbbQ",
+      "path": "uHiDqfQodynw2dSAsQGpr05uyyaqInxv4jpC4wiviS8ZbbQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00002": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAsA61QBeFfBkqu_PrgBgxqMbRHOdZnowQbrLocZOy37g",
+      "path": "uHiAsA61QBeFfBkqu_PrgBgxqMbRHOdZnowQbrLocZOy37g"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00003": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDGSni01nJRCXgAmZUbF00UwgTn3VatWBjbeJHOWaYyuA",
+      "path": "uHiDGSni01nJRCXgAmZUbF00UwgTn3VatWBjbeJHOWaYyuA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00004": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBkiuiABfYWAx6RbMf081OqD04uyCL3RFB7qRPkh7p05w",
+      "path": "uHiBkiuiABfYWAx6RbMf081OqD04uyCL3RFB7qRPkh7p05w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00005": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC52WA1qUylPFDA0tMEQwCTaq0dg983kefGcj3nl5wkRw",
+      "path": "uHiC52WA1qUylPFDA0tMEQwCTaq0dg983kefGcj3nl5wkRw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00006": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCJ5cvTitsRAqXhOybd33Fu86Ik3s7F2MreAdU5ZBvWWg",
+      "path": "uHiCJ5cvTitsRAqXhOybd33Fu86Ik3s7F2MreAdU5ZBvWWg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00007": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDjvw6KWOH_Svn40DXlR5abedR94enE70NG-nA6ozmZdA",
+      "path": "uHiDjvw6KWOH_Svn40DXlR5abedR94enE70NG-nA6ozmZdA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00008": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBCOXIY9gRUcl8UskB3Q2Ws1_gOfd7BtHmgUl_FehdmPw",
+      "path": "uHiBCOXIY9gRUcl8UskB3Q2Ws1_gOfd7BtHmgUl_FehdmPw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00009": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAjyKQxBRWCzdbP6MKyWeA038ifgPPMldQdQXFP2bVyew",
+      "path": "uHiAjyKQxBRWCzdbP6MKyWeA038ifgPPMldQdQXFP2bVyew"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00010": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBcbFBCb4fbKM95dhlz1izU_DDmeA0Y1I6Sl_wxV-ws7Q",
+      "path": "uHiBcbFBCb4fbKM95dhlz1izU_DDmeA0Y1I6Sl_wxV-ws7Q"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00011": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDK2YqvM4Nb8cqKlj7E3z9HDfs8UhjxVXfml7kzjfgmyA",
+      "path": "uHiDK2YqvM4Nb8cqKlj7E3z9HDfs8UhjxVXfml7kzjfgmyA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00012": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBCDbaH5xz171_gYp_2rLfOHE1msBHRADqJHVVkOWVLPg",
+      "path": "uHiBCDbaH5xz171_gYp_2rLfOHE1msBHRADqJHVVkOWVLPg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00013": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCjaysbf-8vO1_R-vbK_ZWn6kh3BZ48p_evq3RQd-pWxw",
+      "path": "uHiCjaysbf-8vO1_R-vbK_ZWn6kh3BZ48p_evq3RQd-pWxw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00014": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDi0-ARTk4CplFMcL9BjAfOui_VqocDrb3jBv0Mb58nhg",
+      "path": "uHiDi0-ARTk4CplFMcL9BjAfOui_VqocDrb3jBv0Mb58nhg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00015": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCWnh3Vu7xitAzl4pDtsOdSJmS4hkU_FgoVJR-1jJiADw",
+      "path": "uHiCWnh3Vu7xitAzl4pDtsOdSJmS4hkU_FgoVJR-1jJiADw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00016": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDaOr5i93KaP7i47OjXee_lq5tFLwjZrZHUVRF13ManXg",
+      "path": "uHiDaOr5i93KaP7i47OjXee_lq5tFLwjZrZHUVRF13ManXg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00017": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDjfTfC4S1AnEPJOxo25roKK74_MqqVwhekvjhzCxB5jw",
+      "path": "uHiDjfTfC4S1AnEPJOxo25roKK74_MqqVwhekvjhzCxB5jw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00018": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAPeCd7xJRJVWnV-WKqXp9pcAoCx9pkSaSKaa26BbciJQ",
+      "path": "uHiAPeCd7xJRJVWnV-WKqXp9pcAoCx9pkSaSKaa26BbciJQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00019": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAXdVRR_go1g-9MeLPQnz5WXjnlxnu9Ejhvr_lM8xlV2A",
+      "path": "uHiAXdVRR_go1g-9MeLPQnz5WXjnlxnu9Ejhvr_lM8xlV2A"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00020": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCOP28zC-jxwbOFa44jEXPbfBWtbeOaQ-fprF3KQGQQpA",
+      "path": "uHiCOP28zC-jxwbOFa44jEXPbfBWtbeOaQ-fprF3KQGQQpA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00021": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDmOkfmkDUNorsWpmMPkSSSc9Xcder1VO6zIHG_KYi2qA",
+      "path": "uHiDmOkfmkDUNorsWpmMPkSSSc9Xcder1VO6zIHG_KYi2qA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00022": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB52fr2Lr5r26OT3ydq2rCbcHfx53UVSf2PVcjQiPVfBw",
+      "path": "uHiB52fr2Lr5r26OT3ydq2rCbcHfx53UVSf2PVcjQiPVfBw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00023": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBg_zYVItQ2h0y8JIA50atYApXlfROTWMH9eN-U5woPSA",
+      "path": "uHiBg_zYVItQ2h0y8JIA50atYApXlfROTWMH9eN-U5woPSA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00024": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBhv6b_i_NK9F3LUd8RRs7IVetdWmDxrHnna36xo8KtIQ",
+      "path": "uHiBhv6b_i_NK9F3LUd8RRs7IVetdWmDxrHnna36xo8KtIQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00025": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBRyJ8I3XneNfqIxznwxbvmGBZ2t4YiOXb6f-2g2jjfhA",
+      "path": "uHiBRyJ8I3XneNfqIxznwxbvmGBZ2t4YiOXb6f-2g2jjfhA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00026": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBnA0XU6DnBv_i83Ub9YYw5pM2kwm_IELbVEPwxe2HyBA",
+      "path": "uHiBnA0XU6DnBv_i83Ub9YYw5pM2kwm_IELbVEPwxe2HyBA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00027": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB-mkEiVT0e4XlXJe0DcRz_vwOjkIppCY4vcQOTJmdYgg",
+      "path": "uHiB-mkEiVT0e4XlXJe0DcRz_vwOjkIppCY4vcQOTJmdYgg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00028": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBvk9nsYu4Bmy0g823wm220ndbHNaBgoWZaEovuJkECzQ",
+      "path": "uHiBvk9nsYu4Bmy0g823wm220ndbHNaBgoWZaEovuJkECzQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00029": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCHK4_p5fWLX8O1c9wwLr9HdXeM3h_Nc-fg9-kte3omSw",
+      "path": "uHiCHK4_p5fWLX8O1c9wwLr9HdXeM3h_Nc-fg9-kte3omSw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00030": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAJ7r-tcHTP_AiYbeQ2uGOGU1Xt-v-aODzG-Wt93HmMiw",
+      "path": "uHiAJ7r-tcHTP_AiYbeQ2uGOGU1Xt-v-aODzG-Wt93HmMiw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00031": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBr5IEYW0WmaXUyC-vSZhKk2DGSTrGew8_gHHcE_jmvTw",
+      "path": "uHiBr5IEYW0WmaXUyC-vSZhKk2DGSTrGew8_gHHcE_jmvTw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00032": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB_zANDFDpuYdyh8swdrCpg167InRJ6M1DfeX_Y4KIKkQ",
+      "path": "uHiB_zANDFDpuYdyh8swdrCpg167InRJ6M1DfeX_Y4KIKkQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00033": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAa7gQg4BeDTLR39-Cti00Fx7tlQcQ8Q1aO1mjcnZLCzA",
+      "path": "uHiAa7gQg4BeDTLR39-Cti00Fx7tlQcQ8Q1aO1mjcnZLCzA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00034": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDh77LGXki1vJ4g5XCOCf-anOiAqO-9Juof-4Ewx3jdkQ",
+      "path": "uHiDh77LGXki1vJ4g5XCOCf-anOiAqO-9Juof-4Ewx3jdkQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00035": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC6zJzaRFsDKFStHD9Fc5N3wiiLkcIX_wmRAMkgl2ZlVQ",
+      "path": "uHiC6zJzaRFsDKFStHD9Fc5N3wiiLkcIX_wmRAMkgl2ZlVQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00036": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC1jfhWAOILjy3sgks2ySZEjTgS66xwfCurT_md1ispkQ",
+      "path": "uHiC1jfhWAOILjy3sgks2ySZEjTgS66xwfCurT_md1ispkQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00037": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiACVhcI4We2zEEYd9wO_HirJT69_OyT0djuzEWtqdafXg",
+      "path": "uHiACVhcI4We2zEEYd9wO_HirJT69_OyT0djuzEWtqdafXg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00038": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBKKo8rqNZpqqflZI_OcXd6Wwtc0v4_Y3Jvv-AM3s63eQ",
+      "path": "uHiBKKo8rqNZpqqflZI_OcXd6Wwtc0v4_Y3Jvv-AM3s63eQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00039": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDuwqXvEhEQvENRbJo3Zbd7dHdcYoL-g6iLUT7r4x4row",
+      "path": "uHiDuwqXvEhEQvENRbJo3Zbd7dHdcYoL-g6iLUT7r4x4row"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00040": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAiemHN2Us2_ryLz1JLbYZLFLyUp0rN6V7IxfGP9NepcQ",
+      "path": "uHiAiemHN2Us2_ryLz1JLbYZLFLyUp0rN6V7IxfGP9NepcQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00041": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiByP-42DEdvVlMujiNjINS9P-CSLzZj8NbOo6PB08Pa_w",
+      "path": "uHiByP-42DEdvVlMujiNjINS9P-CSLzZj8NbOo6PB08Pa_w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00042": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBNw4WKJ8bLXFs79Pb7fmYasIalzlhV8Tv4QYHakYzvDg",
+      "path": "uHiBNw4WKJ8bLXFs79Pb7fmYasIalzlhV8Tv4QYHakYzvDg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00043": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDJrANWUTSsqOGzwnYWrGrPS2p6mV0CekQefrsMuQOpDA",
+      "path": "uHiDJrANWUTSsqOGzwnYWrGrPS2p6mV0CekQefrsMuQOpDA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00044": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCzeMlsAQhKm0JneSd04jCy7utp5f5vWd1lDYovrJBN0w",
+      "path": "uHiCzeMlsAQhKm0JneSd04jCy7utp5f5vWd1lDYovrJBN0w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00045": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBnWqc0hVz0crur94lcSdmdvwKRbVUrKRF9T3VRymKynQ",
+      "path": "uHiBnWqc0hVz0crur94lcSdmdvwKRbVUrKRF9T3VRymKynQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00046": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBkKodvCiaNvN7l-6OZqIXs5Pq4B2C7OZ2agwTFPn2iCg",
+      "path": "uHiBkKodvCiaNvN7l-6OZqIXs5Pq4B2C7OZ2agwTFPn2iCg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00047": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCxAcM0QGlAVX2gncK5yxGVRRyCVhbUnjwT-J-cMlmcIw",
+      "path": "uHiCxAcM0QGlAVX2gncK5yxGVRRyCVhbUnjwT-J-cMlmcIw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00048": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCrkzG5hd0g0u1vwniUrQUte8jfdFUI6h1CbYuYf4OE_A",
+      "path": "uHiCrkzG5hd0g0u1vwniUrQUte8jfdFUI6h1CbYuYf4OE_A"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00049": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCrQXzDk4JNwQUVh7Fb-_9Q-ch5aIHVsC2yIu5tczqiWQ",
+      "path": "uHiCrQXzDk4JNwQUVh7Fb-_9Q-ch5aIHVsC2yIu5tczqiWQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00050": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA16fShujsSgfNGVdwNQqIEJ38SNLdvz56VQHb9HYdVbQ",
+      "path": "uHiA16fShujsSgfNGVdwNQqIEJ38SNLdvz56VQHb9HYdVbQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00051": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC_SP3I1qxtJzf6rdNPIGli9hdKthKsCsWvxTeH7a47UA",
+      "path": "uHiC_SP3I1qxtJzf6rdNPIGli9hdKthKsCsWvxTeH7a47UA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00052": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBGUgn0Jz-fcg6eyC_TLdzgCbMSGtNmuJ-_VnliC497Yw",
+      "path": "uHiBGUgn0Jz-fcg6eyC_TLdzgCbMSGtNmuJ-_VnliC497Yw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00053": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBo3iGeJiao8tVbLyAck2CQfZYd2nzdDdbjeBv3iibvJQ",
+      "path": "uHiBo3iGeJiao8tVbLyAck2CQfZYd2nzdDdbjeBv3iibvJQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00054": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCl-BijagsB0ibjLxIEK-8eD6pEypzyxTfhvtQSt3M2BA",
+      "path": "uHiCl-BijagsB0ibjLxIEK-8eD6pEypzyxTfhvtQSt3M2BA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00055": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAtX9b_h81k-RnUYj3tib0rCwc3K50gQQHU7Itgu_sh-A",
+      "path": "uHiAtX9b_h81k-RnUYj3tib0rCwc3K50gQQHU7Itgu_sh-A"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00056": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAhro15ygZ-kbJH8JgCJrEuVkcMISaezy1oR3R0X5sU8w",
+      "path": "uHiAhro15ygZ-kbJH8JgCJrEuVkcMISaezy1oR3R0X5sU8w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00057": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBZIe2bsFzZQjDI-I7hSiTlAXwlcDFkIOi9g_Q2cJizSg",
+      "path": "uHiBZIe2bsFzZQjDI-I7hSiTlAXwlcDFkIOi9g_Q2cJizSg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00058": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCPKuCR5EmzdUwF9fNcd30bG2HkPXcLPs7oaU4G-aUGLQ",
+      "path": "uHiCPKuCR5EmzdUwF9fNcd30bG2HkPXcLPs7oaU4G-aUGLQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00059": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCDRm79u7SKCHC2JaRQRTgzY5HB7eO1uaXBYSb6aoejjA",
+      "path": "uHiCDRm79u7SKCHC2JaRQRTgzY5HB7eO1uaXBYSb6aoejjA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00060": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBBQ78C2cTNzndalVAAoAbyL77XBpPH1pw9wKISqFm14w",
+      "path": "uHiBBQ78C2cTNzndalVAAoAbyL77XBpPH1pw9wKISqFm14w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00061": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCe_Ytv6SHUFb-WUfk6rDvlnYTRmS8sZTUPNlxIgji3Uw",
+      "path": "uHiCe_Ytv6SHUFb-WUfk6rDvlnYTRmS8sZTUPNlxIgji3Uw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00062": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCpA_oncXqH3LbOnHKrLXJ1vxJv-R23Xx33tdoARHTdLQ",
+      "path": "uHiCpA_oncXqH3LbOnHKrLXJ1vxJv-R23Xx33tdoARHTdLQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00063": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAtAliP5UbPLBAqGio-WQ51mlaSb8VrLeyVeWMvSzfC8A",
+      "path": "uHiAtAliP5UbPLBAqGio-WQ51mlaSb8VrLeyVeWMvSzfC8A"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00064": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBg20yGbrij1lyYwhdm3uJyy_DOD43_KPiSyUnSEvCdcA",
+      "path": "uHiBg20yGbrij1lyYwhdm3uJyy_DOD43_KPiSyUnSEvCdcA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00065": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC0c_QNPUFF-Y6q4hX0TILD0CDORg-OQ7VowSh64ryKYw",
+      "path": "uHiC0c_QNPUFF-Y6q4hX0TILD0CDORg-OQ7VowSh64ryKYw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00066": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBUcgzD-SOQusA6YFoG21TVRZisuP1ZFQzi-0xls5AFpQ",
+      "path": "uHiBUcgzD-SOQusA6YFoG21TVRZisuP1ZFQzi-0xls5AFpQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00067": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC8Z0vR8-rOHah24o8F4L_67OYTeLbE06cuQ9ryvfP2BA",
+      "path": "uHiC8Z0vR8-rOHah24o8F4L_67OYTeLbE06cuQ9ryvfP2BA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00068": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDSvt1PZ4SbpLpNt-u-V8UV9ySjPk1aQjPOajHsULvB6w",
+      "path": "uHiDSvt1PZ4SbpLpNt-u-V8UV9ySjPk1aQjPOajHsULvB6w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00069": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD5NrlIgVjwpYWzhncQreqaoL3g-sJVKVZnXIVNo6PqSA",
+      "path": "uHiD5NrlIgVjwpYWzhncQreqaoL3g-sJVKVZnXIVNo6PqSA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00070": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiADMtgoIbb-mVEJXXy5Rp9aSW85WthXit1GEf1pzdA2tQ",
+      "path": "uHiADMtgoIbb-mVEJXXy5Rp9aSW85WthXit1GEf1pzdA2tQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00071": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBUwoLenUnVgSI4ghGgfZFowegHWOVbZdRDzd6fdm11XQ",
+      "path": "uHiBUwoLenUnVgSI4ghGgfZFowegHWOVbZdRDzd6fdm11XQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00072": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA7ChUGT3ZEmzl5ybrMBN_oAgOp5-6iSEo_uUSCoQPy_g",
+      "path": "uHiA7ChUGT3ZEmzl5ybrMBN_oAgOp5-6iSEo_uUSCoQPy_g"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00073": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBKKpEYb7DcGHA-54wKZD-R5ieups0rDAYtFd6qN-uRXQ",
+      "path": "uHiBKKpEYb7DcGHA-54wKZD-R5ieups0rDAYtFd6qN-uRXQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00074": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCLG794DFc-4BLPFRuG7Bl3axcxK5Zd2droKa4JkOFhSw",
+      "path": "uHiCLG794DFc-4BLPFRuG7Bl3axcxK5Zd2droKa4JkOFhSw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00075": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFDIWItCyZImZdRByJkx9aXoOBxXyG-sQL970BFA5Y0g",
+      "path": "uHiAFDIWItCyZImZdRByJkx9aXoOBxXyG-sQL970BFA5Y0g"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00076": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDAaM7Yi1DmPEAntFnNkbWs2ERgUz8wWHWxjlK-VDRlUA",
+      "path": "uHiDAaM7Yi1DmPEAntFnNkbWs2ERgUz8wWHWxjlK-VDRlUA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00077": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB84MC8hCjXrqh2I-S78JJ_lbutCjDJZ_H4a0HN5opsRQ",
+      "path": "uHiB84MC8hCjXrqh2I-S78JJ_lbutCjDJZ_H4a0HN5opsRQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00078": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBy_Irs7lH_ELH3ZtsHZP9mNvxWUc-SMA8jVZx4UwXRdw",
+      "path": "uHiBy_Irs7lH_ELH3ZtsHZP9mNvxWUc-SMA8jVZx4UwXRdw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00079": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCenocY4jmDnU-2leRx8BHV8IU71F0UaMdgaKGCr9OPTg",
+      "path": "uHiCenocY4jmDnU-2leRx8BHV8IU71F0UaMdgaKGCr9OPTg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00080": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD6jwya8KPwcxxJIC3U_y3Xqo6hQiZ6RyjovaM2l9TkYQ",
+      "path": "uHiD6jwya8KPwcxxJIC3U_y3Xqo6hQiZ6RyjovaM2l9TkYQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00081": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCB2Uu8mTRSjEZa5Fzk28FpglblH4U_n1C1GArCw-Tp0A",
+      "path": "uHiCB2Uu8mTRSjEZa5Fzk28FpglblH4U_n1C1GArCw-Tp0A"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00082": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAaTeOuDtLlgxfOl_kMGKq6pc8HhRXsWvTk7XMjE3QCFQ",
+      "path": "uHiAaTeOuDtLlgxfOl_kMGKq6pc8HhRXsWvTk7XMjE3QCFQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00083": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAIiByaQHMTS9ktU4kTuOxfID1QoCGsObBr8N434fnbjQ",
+      "path": "uHiAIiByaQHMTS9ktU4kTuOxfID1QoCGsObBr8N434fnbjQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00084": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAh_5ADw7zs4uidEVzlO8SEYrm5AnHUSJ0hSLmokojjSQ",
+      "path": "uHiAh_5ADw7zs4uidEVzlO8SEYrm5AnHUSJ0hSLmokojjSQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00085": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDmrJk0Ps6bWAv5P8tXuuvwVVgktHXndGeotrwAJ23DoQ",
+      "path": "uHiDmrJk0Ps6bWAv5P8tXuuvwVVgktHXndGeotrwAJ23DoQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00086": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDXXiSWS73S55zjitqSNVtcj7ZcgmKhWOUkcda7l1SJhQ",
+      "path": "uHiDXXiSWS73S55zjitqSNVtcj7ZcgmKhWOUkcda7l1SJhQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00087": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAGfEgdMpRLoG0viMNRJa0A4pfrcNQwKWp-p-e-TwShSw",
+      "path": "uHiAGfEgdMpRLoG0viMNRJa0A4pfrcNQwKWp-p-e-TwShSw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00088": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBT4VhN2KEPFao7Es4Lf5eVGDHkIPQ5ksPW4UmmHwo5ow",
+      "path": "uHiBT4VhN2KEPFao7Es4Lf5eVGDHkIPQ5ksPW4UmmHwo5ow"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00089": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBL2tST3kh6t21Lhb8XGlAbXD4xJzd0I3mrWQ_xSIINYA",
+      "path": "uHiBL2tST3kh6t21Lhb8XGlAbXD4xJzd0I3mrWQ_xSIINYA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00090": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDme0WiZ6myMWk9Z-Q5Lhh5aO9I3dJL5FDMCGfJT-2t2g",
+      "path": "uHiDme0WiZ6myMWk9Z-Q5Lhh5aO9I3dJL5FDMCGfJT-2t2g"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00091": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiASsMyLAMpsD9vZ-7nrrs4yhe_WVw110AqRhsXDEM9FeQ",
+      "path": "uHiASsMyLAMpsD9vZ-7nrrs4yhe_WVw110AqRhsXDEM9FeQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00092": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBiOtZvQGyJ2qaCSczXnohN6VpTz5A1n9-GRHrf9JIC9Q",
+      "path": "uHiBiOtZvQGyJ2qaCSczXnohN6VpTz5A1n9-GRHrf9JIC9Q"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00093": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiALayTeIXaFq8KuTWN3wuILcGUmowkShvGQM6seThmZVw",
+      "path": "uHiALayTeIXaFq8KuTWN3wuILcGUmowkShvGQM6seThmZVw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00094": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA7EVl_k9Zqrjs602ruyqi1lWAx0Jxa3LC3m-9LTYOs2w",
+      "path": "uHiA7EVl_k9Zqrjs602ruyqi1lWAx0Jxa3LC3m-9LTYOs2w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00095": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAhLu1E4BFh8DTKItmdnnKl38qg5N0OYWxWVY6k3lZoqw",
+      "path": "uHiAhLu1E4BFh8DTKItmdnnKl38qg5N0OYWxWVY6k3lZoqw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00096": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDeMVh3I61A9lpVm5PrLvA2QKm2Vf6jTDOjJZoBg24Hyw",
+      "path": "uHiDeMVh3I61A9lpVm5PrLvA2QKm2Vf6jTDOjJZoBg24Hyw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00097": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiACRgCyNqteq-diyV-Fc05SWI6tUevyYTKs6oBPwA8A6w",
+      "path": "uHiACRgCyNqteq-diyV-Fc05SWI6tUevyYTKs6oBPwA8A6w"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00098": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC5DHuspFNvTcgmzSAQzipbUQlxwCuQQLTnBTTRPHCxdw",
+      "path": "uHiC5DHuspFNvTcgmzSAQzipbUQlxwCuQQLTnBTTRPHCxdw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00099": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB552Wp8r7aqRXWtDHjgZ4wIW0_WH7-gYHAP-_YqdvjgA",
+      "path": "uHiB552Wp8r7aqRXWtDHjgZ4wIW0_WH7-gYHAP-_YqdvjgA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00100": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAUWXQdt6s7juGbMIC_n3OktsFbFOl6vHL-3MdNGk0IoA",
+      "path": "uHiAUWXQdt6s7juGbMIC_n3OktsFbFOl6vHL-3MdNGk0IoA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00101": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDH5b2nAgkXBFxZx_4IEJETi9td2O-ilN7VNi6ZwzUawQ",
+      "path": "uHiDH5b2nAgkXBFxZx_4IEJETi9td2O-ilN7VNi6ZwzUawQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00102": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD2oEUjYEZ6UiF-xVPLiH8_OrMy9u-VK-GUhZAobNnpBw",
+      "path": "uHiD2oEUjYEZ6UiF-xVPLiH8_OrMy9u-VK-GUhZAobNnpBw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00103": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDVaX_L4QXx3S_iL4W5Vnq6UTumXYrEgjSsQRBrJIYqLw",
+      "path": "uHiDVaX_L4QXx3S_iL4W5Vnq6UTumXYrEgjSsQRBrJIYqLw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00104": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDzcD3eWE4OWPH912oSAnKH39r7coVtT_4E30siBX1gtw",
+      "path": "uHiDzcD3eWE4OWPH912oSAnKH39r7coVtT_4E30siBX1gtw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00105": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA5kOq5FQW8FRFp7gcPVDaUVDOh31a8TrLNT2V7mU0FeA",
+      "path": "uHiA5kOq5FQW8FRFp7gcPVDaUVDOh31a8TrLNT2V7mU0FeA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00106": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCE-8nDV3IHnQWmIsaKxv2XOmeXhXIuuxKK1BJ7KyI7pA",
+      "path": "uHiCE-8nDV3IHnQWmIsaKxv2XOmeXhXIuuxKK1BJ7KyI7pA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00107": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDMp6DsIrrBlK94sA4qex1y0liWjKb4oxjZPYQsmVMRSg",
+      "path": "uHiDMp6DsIrrBlK94sA4qex1y0liWjKb4oxjZPYQsmVMRSg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00108": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiArSy1tk13ccRYUSGD02TDnLRxI3FeXX3PaDz4MHf7djg",
+      "path": "uHiArSy1tk13ccRYUSGD02TDnLRxI3FeXX3PaDz4MHf7djg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00109": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA_0_dAWV-nvglLZOeC63Xqt313cZ6_wqYB8sxi51AJCw",
+      "path": "uHiA_0_dAWV-nvglLZOeC63Xqt313cZ6_wqYB8sxi51AJCw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00110": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDcHOukUBh5-ZhCuDLtrNMXdU0wnfsphw9OgDy1yEXsrg",
+      "path": "uHiDcHOukUBh5-ZhCuDLtrNMXdU0wnfsphw9OgDy1yEXsrg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00111": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBCw8Y5erohNsvzz_qnxehgv0niXkfPMlgikH3q5JiSNA",
+      "path": "uHiBCw8Y5erohNsvzz_qnxehgv0niXkfPMlgikH3q5JiSNA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00112": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCWhTzpoKJFZeo5ar1MxbUo3ESJjtOmNNw4m0bJhArZHg",
+      "path": "uHiCWhTzpoKJFZeo5ar1MxbUo3ESJjtOmNNw4m0bJhArZHg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00113": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBEC87eqj8RK_ocFBibFUmxZwQVyWP59JJ51wyWCBhOFQ",
+      "path": "uHiBEC87eqj8RK_ocFBibFUmxZwQVyWP59JJ51wyWCBhOFQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00114": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCtI57yZZQyrEBoOZECG2qu9x0o7tCtQfGL-KyF6C3ZyQ",
+      "path": "uHiCtI57yZZQyrEBoOZECG2qu9x0o7tCtQfGL-KyF6C3ZyQ"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00115": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDBNfyqbclAm-ieJfT1pb2qQA4j41amSaH0D2wUQ9APTA",
+      "path": "uHiDBNfyqbclAm-ieJfT1pb2qQA4j41amSaH0D2wUQ9APTA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00116": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCG9hu136Y-V53jYpwAuL5OeO9ZAxrk5aHuaZSu7FQpaA",
+      "path": "uHiCG9hu136Y-V53jYpwAuL5OeO9ZAxrk5aHuaZSu7FQpaA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00117": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCQUx3DSEdYorso7IQvqmXXlCc0Uc4q_KerATdJDD2yFg",
+      "path": "uHiCQUx3DSEdYorso7IQvqmXXlCc0Uc4q_KerATdJDD2yFg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00118": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDUDY8UcHka7v-plfNtrP2BVvEqFrn6CTqL1GtAX3Megw",
+      "path": "uHiDUDY8UcHka7v-plfNtrP2BVvEqFrn6CTqL1GtAX3Megw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00119": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDutatEZZ_VYh9mTQ2K6IsfkMt7Uno0wq0fhzQuTRlRcg",
+      "path": "uHiDutatEZZ_VYh9mTQ2K6IsfkMt7Uno0wq0fhzQuTRlRcg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00120": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBXs3j_83_gnsLPaOlLgXf5BCs2GxtdaVtxi477T1RbLg",
+      "path": "uHiBXs3j_83_gnsLPaOlLgXf5BCs2GxtdaVtxi477T1RbLg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00121": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCwOIVdoWBvG8-JZ2AnE1FsLvGak0JBtZ3zHL3XFzhLjw",
+      "path": "uHiCwOIVdoWBvG8-JZ2AnE1FsLvGak0JBtZ3zHL3XFzhLjw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00122": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBY6oS0Q-XAs_nhoD3NH7-IKGTLEVRs_rndcxBtHuv1GA",
+      "path": "uHiBY6oS0Q-XAs_nhoD3NH7-IKGTLEVRs_rndcxBtHuv1GA"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00123": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDZavM4dRIaMZyvp5UIHlGHLyyCTnG-ixtS1h6MKFZwMw",
+      "path": "uHiDZavM4dRIaMZyvp5UIHlGHLyyCTnG-ixtS1h6MKFZwMw"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00124": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB9zvda3jxW8mSUl_DFMLT1JaVUx4U7foL0EkriT3ixDg",
+      "path": "uHiB9zvda3jxW8mSUl_DFMLT1JaVUx4U7foL0EkriT3ixDg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00125": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDKKdnEImOqoEXYhmYuA-GiVSK9ybdt2r9y844_FHu7-g",
+      "path": "uHiDKKdnEImOqoEXYhmYuA-GiVSK9ybdt2r9y844_FHu7-g"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00126": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD0tupAVO_OwiX06F1c2_RlPTCOhJbssesKHtqloaLeAg",
+      "path": "uHiD0tupAVO_OwiX06F1c2_RlPTCOhJbssesKHtqloaLeAg"
+    },
+    "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00127": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCkhKzhEAgAgdVFxDsawA6Pmxc6m0bhV_r1NFPVsXYtWg",
+      "path": "uHiCkhKzhEAgAgdVFxDsawA6Pmxc6m0bhV_r1NFPVsXYtWg"
+    },
+    "jcs-extra-whitespace": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD68D3CormrA8GKyM5GA9Cl1XH7_IeWAcMUNDi8kDoeEQ",
+      "path": "uHiD68D3CormrA8GKyM5GA9Cl1XH7_IeWAcMUNDi8kDoeEQ"
+    },
+    "jcs-non-minimal-number": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBVpvAHtBZLlQPyEU0UsbEgWlsV3YF4o259xugSRdhQnQ",
+      "path": "uHiBVpvAHtBZLlQPyEU0UsbEgWlsV3YF4o259xugSRdhQnQ"
+    },
+    "jcs-reordered-fields": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA1-Qs_azMrN3H25Ux8QhR8YvZ56FZHhA7N6dolWr6C1Q",
+      "path": "uHiA1-Qs_azMrN3H25Ux8QhR8YvZ56FZHhA7N6dolWr6C1Q"
+    },
+    "jsonl-blank-lines": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBjmU6nwej2-WYXUTb8eTnbaysd2p4jegoL_XG5PkxLVA",
+      "path": "uHiBjmU6nwej2-WYXUTb8eTnbaysd2p4jegoL_XG5PkxLVA"
+    },
+    "jsonl-crlf-line-endings": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA75c3U0zVaxOV5cz4HdMhFTRBKlKSWNMmW3wkgnrRDCQ",
+      "path": "uHiA75c3U0zVaxOV5cz4HdMhFTRBKlKSWNMmW3wkgnrRDCQ"
+    },
+    "jsonl-duplicate-line": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDyG3smODBhtotgQCq472Tqa-TiHZZn39KLyU0pP-ImnA",
+      "path": "uHiDyG3smODBhtotgQCq472Tqa-TiHZZn39KLyU0pP-ImnA"
+    },
+    "jsonl-empty-file": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD6Cichzb0MgUN8pavd7KsGS-8qVuGlaj3bEtWROd2e_g",
+      "path": "uHiD6Cichzb0MgUN8pavd7KsGS-8qVuGlaj3bEtWROd2e_g"
+    },
+    "jsonl-non-json-trailing-line": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBUunCDe1gYFmT-XkGwuTLmloaJB5Ht33dXuAqyMdsDAQ",
+      "path": "uHiBUunCDe1gYFmT-XkGwuTLmloaJB5Ht33dXuAqyMdsDAQ"
+    },
+    "jsonl-valid-prefix-then-invalid-doc": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBmT4efBwfH3xvvUIurfuYe1npbt45dfMbmXghJiGisXg",
+      "path": "uHiBmT4efBwfH3xvvUIurfuYe1npbt45dfMbmXghJiGisXg"
+    },
+    "matrix-ed25519-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAYyXLo4ONKxq6KztSrTjJzQTmTrCRtc7wgg5zUVNJAPw",
+      "path": "uHiAYyXLo4ONKxq6KztSrTjJzQTmTrCRtc7wgg5zUVNJAPw"
+    },
+    "matrix-ed25519-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAcbMjE8liuxIgP3JeHelJaFwNPgXDdibDD5e2VGA",
+      "path": "ukyAcbMjE8liuxIgP3JeHelJaFwNPgXDdibDD5e2VGA"
+    },
+    "matrix-ed25519-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiCejGKNIn5QR5kWi981MAkPUx8SCsP1M_yd36EDPwi_PA",
+      "path": "uEiCejGKNIn5QR5kWi981MAkPUx8SCsP1M_yd36EDPwi_PA"
+    },
+    "matrix-ed25519-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxxmA6V3udM-bv7iw0DAldP0mOfJe1x-I5PrciqD",
+      "path": "uFxxmA6V3udM-bv7iw0DAldP0mOfJe1x-I5PrciqD"
+    },
+    "matrix-ed25519-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiBC7XZAsPkjz_pCBiMXk-Q8e451Mq7V6Xc5XUGdNmkkNA",
+      "path": "uFiBC7XZAsPkjz_pCBiMXk-Q8e451Mq7V6Xc5XUGdNmkkNA"
+    },
+    "matrix-ed25519-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTBA7M_pMkOavRThhE-ppyrOFWfbqWMfmmvNx-m3gamArZPV13OmpQVxU6HEw4mK_5g",
+      "path": "uFTBA7M_pMkOavRThhE-ppyrOFWfbqWMfmmvNx-m3gamArZPV13OmpQVxU6HEw4mK_5g"
+    },
+    "matrix-ed25519-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFEAajBTh2AaxQlT6sih6P3wuJGZPX34Pg4mQZ78X17e-jVad6NY4-II5iubggG_fJWmNlD1Lt_t6rizuLiSIcsHb",
+      "path": "uFEAajBTh2AaxQlT6sih6P3wuJGZPX34Pg4mQZ78X17e-jVad6NY4-II5iubggG_fJWmNlD1Lt_t6rizuLiSIcsHb"
+    },
+    "matrix-ed25519-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDD3QTMXiq1jLkFYd1Or3Zf-ZL8a78t_YjcZBsQpq7wQ_4nizXANxaKcGZLKCkzOe0c",
+      "path": "uIDD3QTMXiq1jLkFYd1Or3Zf-ZL8a78t_YjcZBsQpq7wQ_4nizXANxaKcGZLKCkzOe0c"
+    },
+    "matrix-ed25519-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0B3RxjwDT980zykhDeMgRz_MEBsA7lts4BRxKnuqmM9Rt-ygriCVYIok_Yydcbu6T3LGgMb9gdQjEPnn2oBllib",
+      "path": "uE0B3RxjwDT980zykhDeMgRz_MEBsA7lts4BRxKnuqmM9Rt-ygriCVYIok_Yydcbu6T3LGgMb9gdQjEPnn2oBllib"
+    },
+    "matrix-ed448-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7cuhNau8Q1HL3Z_oEnNebs5QHWN9U988TTwXZjyIDQA",
+      "path": "uHiB7cuhNau8Q1HL3Z_oEnNebs5QHWN9U988TTwXZjyIDQA"
+    },
+    "matrix-ed448-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAclx4SfQ1uIz8NgCQDYA35YOejANY6J5ynrTOVMw",
+      "path": "ukyAclx4SfQ1uIz8NgCQDYA35YOejANY6J5ynrTOVMw"
+    },
+    "matrix-ed448-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiBuNkYpqOQMFN7t3VMmdTS9YTo-rXkp48jb40DC_5SejQ",
+      "path": "uEiBuNkYpqOQMFN7t3VMmdTS9YTo-rXkp48jb40DC_5SejQ"
+    },
+    "matrix-ed448-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxz7KUlE5nh0ZbuKI3_9cAu5fkqtgn-9RNKiXdFD",
+      "path": "uFxz7KUlE5nh0ZbuKI3_9cAu5fkqtgn-9RNKiXdFD"
+    },
+    "matrix-ed448-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiDCUB1QedruvDMbQ6jTdOeOzQAkUA3qPjTvadWP3lBEuA",
+      "path": "uFiDCUB1QedruvDMbQ6jTdOeOzQAkUA3qPjTvadWP3lBEuA"
+    },
+    "matrix-ed448-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTBfAULZTj4PfDH1nvWWLEwKxInBAED6oTGba5Cjyh_Z--qXMQmr_7r2ZcTG6mHCfPg",
+      "path": "uFTBfAULZTj4PfDH1nvWWLEwKxInBAED6oTGba5Cjyh_Z--qXMQmr_7r2ZcTG6mHCfPg"
+    },
+    "matrix-ed448-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFED8ZASxEki4RrrGlOmqAV9M54dvEo6f4McWjsxGvaaCfAQIox2MwACvzXv4_lZh0TgnjjOiBSXiI05lNP0uKzeR",
+      "path": "uFED8ZASxEki4RrrGlOmqAV9M54dvEo6f4McWjsxGvaaCfAQIox2MwACvzXv4_lZh0TgnjjOiBSXiI05lNP0uKzeR"
+    },
+    "matrix-ed448-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDCHc71reK_CL-jWgrkRbUSEEDXr6bUrcXtzLa5p9lSO0jjUwD6sQcrK3QjyMm3qiCA",
+      "path": "uIDCHc71reK_CL-jWgrkRbUSEEDXr6bUrcXtzLa5p9lSO0jjUwD6sQcrK3QjyMm3qiCA"
+    },
+    "matrix-ed448-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0DGjU9NkpSvkYTUpW-6Hts9VuUbpx2SQi9GIivX4IKJxbUC4ekAI6_4Vh1RTiHAhU1hH7KsGZyf4uFbJB-djNxw",
+      "path": "uE0DGjU9NkpSvkYTUpW-6Hts9VuUbpx2SQi9GIivX4IKJxbUC4ekAI6_4Vh1RTiHAhU1hH7KsGZyf4uFbJB-djNxw"
+    },
+    "matrix-p256-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAERVh67Z1kT3ngibyJaM0pqajTH9worE1eFteuDoqsWQ",
+      "path": "uHiAERVh67Z1kT3ngibyJaM0pqajTH9worE1eFteuDoqsWQ"
+    },
+    "matrix-p256-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAcVtrD3XpB3toUpXy1W-pvuAy0bmfdbYyt1_mpXQ",
+      "path": "ukyAcVtrD3XpB3toUpXy1W-pvuAy0bmfdbYyt1_mpXQ"
+    },
+    "matrix-p256-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiD40oErVXmdjertqoI1Ms1taO9V5EhQ2BQd2fWHQJCezg",
+      "path": "uEiD40oErVXmdjertqoI1Ms1taO9V5EhQ2BQd2fWHQJCezg"
+    },
+    "matrix-p256-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxwtF591Cwe3NEE79VTDnSk2AYpdprVUde0d8BtN",
+      "path": "uFxwtF591Cwe3NEE79VTDnSk2AYpdprVUde0d8BtN"
+    },
+    "matrix-p256-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiAb2IzNGI9WnRDhShnQFwwiqXVkdCYwFy4IV0zRQv0fGA",
+      "path": "uFiAb2IzNGI9WnRDhShnQFwwiqXVkdCYwFy4IV0zRQv0fGA"
+    },
+    "matrix-p256-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTAuBjkEyiTSf-yRkpuFub4sdmlUzh59RlhwWi2yvRY8XYWgAGdeC8tHH20tLilqlUw",
+      "path": "uFTAuBjkEyiTSf-yRkpuFub4sdmlUzh59RlhwWi2yvRY8XYWgAGdeC8tHH20tLilqlUw"
+    },
+    "matrix-p256-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFEBsn3lBWqsM9hucGgtFSojHbvCag9kCUXEm4QYX7s3fteo8lgnJczjumVpDLtoCEBcgSGw3OYElzisqDzew3U7S",
+      "path": "uFEBsn3lBWqsM9hucGgtFSojHbvCag9kCUXEm4QYX7s3fteo8lgnJczjumVpDLtoCEBcgSGw3OYElzisqDzew3U7S"
+    },
+    "matrix-p256-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDCCfNaLx37E2xdXVkUZoH8uaUus5o4OMz0zdINJAHpKdBbjteWepqATKKTxyXZj45o",
+      "path": "uIDCCfNaLx37E2xdXVkUZoH8uaUus5o4OMz0zdINJAHpKdBbjteWepqATKKTxyXZj45o"
+    },
+    "matrix-p256-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0DDQ-SSvTHKwPq95iW47NsQWpsaTFRV7JRwALhLqUy_8rGozn4ezu_DVVHCvPtsNBASeZ-8iOyblSYGNmOKNCGW",
+      "path": "uE0DDQ-SSvTHKwPq95iW47NsQWpsaTFRV7JRwALhLqUy_8rGozn4ezu_DVVHCvPtsNBASeZ-8iOyblSYGNmOKNCGW"
+    },
+    "matrix-p384-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAUkTaqFGy0Yifo-Z0ljuZrGT0mjRyEqt38DIDuHdHzag",
+      "path": "uHiAUkTaqFGy0Yifo-Z0ljuZrGT0mjRyEqt38DIDuHdHzag"
+    },
+    "matrix-p384-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAcwpvMkgBjBjyhSJZCRTYoJXTOtoT7eC5flPyI7A",
+      "path": "ukyAcwpvMkgBjBjyhSJZCRTYoJXTOtoT7eC5flPyI7A"
+    },
+    "matrix-p384-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiDRWJYvMzyNT31OnnYLwGTUjQzI6Yyu8wqg6_JI2E68Nw",
+      "path": "uEiDRWJYvMzyNT31OnnYLwGTUjQzI6Yyu8wqg6_JI2E68Nw"
+    },
+    "matrix-p384-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxyJLHy7tf-Vh2M4U_2a60AYuhjslKFATGkwj-AR",
+      "path": "uFxyJLHy7tf-Vh2M4U_2a60AYuhjslKFATGkwj-AR"
+    },
+    "matrix-p384-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiA_9YuAPdvqnlAThMOYn-HoM3rEZmFSlu6d-483-bUufQ",
+      "path": "uFiA_9YuAPdvqnlAThMOYn-HoM3rEZmFSlu6d-483-bUufQ"
+    },
+    "matrix-p384-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTCeqqKIvSvLgeskusWtI5jmVGtsDFmeDXZv8n5k8uRdLxU6uL1uXzOqf0M-ARvCdM4",
+      "path": "uFTCeqqKIvSvLgeskusWtI5jmVGtsDFmeDXZv8n5k8uRdLxU6uL1uXzOqf0M-ARvCdM4"
+    },
+    "matrix-p384-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFEDuKsbFpFnjd-ItTKVKmhuohWEaDzmrDnCKGu4c9bcL1jRZKq-k9wtssaU9XZfHos4NE1ZJq5iuANCsxwRhYgCW",
+      "path": "uFEDuKsbFpFnjd-ItTKVKmhuohWEaDzmrDnCKGu4c9bcL1jRZKq-k9wtssaU9XZfHos4NE1ZJq5iuANCsxwRhYgCW"
+    },
+    "matrix-p384-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDDAYiWgqXtVMzb5-5YT0z0Z1sAwqfcLZB9GDIxjH6aDc291fY42XCY__v9-679TDMU",
+      "path": "uIDDAYiWgqXtVMzb5-5YT0z0Z1sAwqfcLZB9GDIxjH6aDc291fY42XCY__v9-679TDMU"
+    },
+    "matrix-p384-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0DiYiEq73R72uKG3Rkst9wLUQcaY6cGtdV2WSoqdL32U__wv49mu59LeXIOYtynoqQLBOinEhM5_SxrK3ymYswX",
+      "path": "uE0DiYiEq73R72uKG3Rkst9wLUQcaY6cGtdV2WSoqdL32U__wv49mu59LeXIOYtynoqQLBOinEhM5_SxrK3ymYswX"
+    },
+    "matrix-p521-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBgoUJjW4QYBqL6ckFXOhAvSNufmyCWd9lYXBtxguQh9w",
+      "path": "uHiBgoUJjW4QYBqL6ckFXOhAvSNufmyCWd9lYXBtxguQh9w"
+    },
+    "matrix-p521-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAcobGxjCojg9W6r3z_QMG0JvOI3lBwS810O55VEQ",
+      "path": "ukyAcobGxjCojg9W6r3z_QMG0JvOI3lBwS810O55VEQ"
+    },
+    "matrix-p521-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiBZQgpbUOGpI48IPV32rFSVkmisvGDFHwuhb8V1sW9R-A",
+      "path": "uEiBZQgpbUOGpI48IPV32rFSVkmisvGDFHwuhb8V1sW9R-A"
+    },
+    "matrix-p521-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxzxDVY5IoIohCU9u9Lmcp0A5Dq2HKndv06koW2l",
+      "path": "uFxzxDVY5IoIohCU9u9Lmcp0A5Dq2HKndv06koW2l"
+    },
+    "matrix-p521-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiB3NCA3KqXic1V_sJynaCP8o4A-cw1xhDpk4rGlv715XA",
+      "path": "uFiB3NCA3KqXic1V_sJynaCP8o4A-cw1xhDpk4rGlv715XA"
+    },
+    "matrix-p521-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTBXsinl_OmuaExYczXxuinJ7QeGjVJNZxRdzhDzWDkc0XKZ8NEZxzLjLTlyogqXeO8",
+      "path": "uFTBXsinl_OmuaExYczXxuinJ7QeGjVJNZxRdzhDzWDkc0XKZ8NEZxzLjLTlyogqXeO8"
+    },
+    "matrix-p521-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFECohUiLPSVWm7dtC_WyvurkTfMBVn5NjI7jQmAmvKS3ZbCWq3PQ3rGONEI0mH51Rrb0PTvOOiwN2t3pGi460578",
+      "path": "uFECohUiLPSVWm7dtC_WyvurkTfMBVn5NjI7jQmAmvKS3ZbCWq3PQ3rGONEI0mH51Rrb0PTvOOiwN2t3pGi460578"
+    },
+    "matrix-p521-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDCNAGeWW-8jRHVk1rWRQPhRj42nj5iEyFx2n-cRPl7D3RUgo_d7yuOT25sdOKWaO7A",
+      "path": "uIDCNAGeWW-8jRHVk1rWRQPhRj42nj5iEyFx2n-cRPl7D3RUgo_d7yuOT25sdOKWaO7A"
+    },
+    "matrix-p521-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0C6ljy7nvpKiMuYnkw6E1pQp9-T6RMAQlqmq0_1ctRuklk5_7XkN1M2cOaPvNTajqBw9BIfWYnb3GQGcla0M_89",
+      "path": "uE0C6ljy7nvpKiMuYnkw6E1pQp9-T6RMAQlqmq0_1ctRuklk5_7XkN1M2cOaPvNTajqBw9BIfWYnb3GQGcla0M_89"
+    },
+    "matrix-secp256k1-blake3": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC609ktjK5JUMi9sZj19verG2aQJaWmP-JWRHKhnvcnxg",
+      "path": "uHiC609ktjK5JUMi9sZj19verG2aQJaWmP-JWRHKhnvcnxg"
+    },
+    "matrix-secp256k1-sha224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:ukyAcp9BAwiM5vVvWGoU-Za7i2wXDUczgMZ1HmGco3g",
+      "path": "ukyAcp9BAwiM5vVvWGoU-Za7i2wXDUczgMZ1HmGco3g"
+    },
+    "matrix-secp256k1-sha256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uEiCMS1CZc4QxjmadUUCuBOwavY_niTxCM1uKpM9ua4MXGQ",
+      "path": "uEiCMS1CZc4QxjmadUUCuBOwavY_niTxCM1uKpM9ua4MXGQ"
+    },
+    "matrix-secp256k1-sha3-224": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFxwWCRRoV-Lkz9W60APxq9zdTuvRdksHEzx9i00D",
+      "path": "uFxwWCRRoV-Lkz9W60APxq9zdTuvRdksHEzx9i00D"
+    },
+    "matrix-secp256k1-sha3-256": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFiBWBKvsLuz0Sjh9npFffrwFfX8qyBDO1YJJ9WRxEIIbIg",
+      "path": "uFiBWBKvsLuz0Sjh9npFffrwFfX8qyBDO1YJJ9WRxEIIbIg"
+    },
+    "matrix-secp256k1-sha3-384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFTCy9nl_LOIioP7RgAsggAktPFX2kPCT7SKyX2e8TArKCjBdHXwZDQkIVbBKn1cweCU",
+      "path": "uFTCy9nl_LOIioP7RgAsggAktPFX2kPCT7SKyX2e8TArKCjBdHXwZDQkIVbBKn1cweCU"
+    },
+    "matrix-secp256k1-sha3-512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uFEA0ioM_SbRwI80DoWH0MWWkPCW3YN-apF7Anad9mjytzifMYX8D1USBS1nI26uFE822Pb6itZ8-p_5MIOMLhlCd",
+      "path": "uFEA0ioM_SbRwI80DoWH0MWWkPCW3YN-apF7Anad9mjytzifMYX8D1USBS1nI26uFE822Pb6itZ8-p_5MIOMLhlCd"
+    },
+    "matrix-secp256k1-sha384": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uIDDQbP796sE_-cLPMLrb5iSYMzBPXbWP8cpBT8xAOIaNx6drpSgYIbyVVjmqsGfXNkA",
+      "path": "uIDDQbP796sE_-cLPMLrb5iSYMzBPXbWP8cpBT8xAOIaNx6drpSgYIbyVVjmqsGfXNkA"
+    },
+    "matrix-secp256k1-sha512": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uE0AEDzzVJlajMRHgkkNnCpV5tGtyN0IlZvSMEbln2V5AfH4q1N1pyxdiwAfPi44HQT0yfl-_5WG8o-s2dW9lKmF7",
+      "path": "uE0AEDzzVJlajMRHgkkNnCpV5tGtyN0IlZvSMEbln2V5AfH4q1N1pyxdiwAfPi44HQT0yfl-_5WG8o-s2dW9lKmF7"
+    },
+    "mixed-base-history": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDlRqdiujLbM60HPquyS9sKCUnCpHkPlKCkPZZz1p8tqA",
+      "path": "uHiDlRqdiujLbM60HPquyS9sKCUnCpHkPlKCkPZZz1p8tqA"
+    },
+    "mixed-hash-history": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDcWgPFpjLXA00wIcmUYuaWVAnNUZoohl7OQzLNk4o-3w",
+      "path": "uHiDcWgPFpjLXA00wIcmUYuaWVAnNUZoohl7OQzLNk4o-3w"
+    },
+    "mixed-key-types-one-document": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCFzNgcwhOLAu66EKOdEUdkEi_xRveUaYrBTqOgbFQiTw",
+      "path": "uHiCFzNgcwhOLAu66EKOdEUdkEi_xRveUaYrBTqOgbFQiTw"
+    },
+    "non-root-id-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAVlpSTS6dgUbu1XEHQs1Cp9MiL597NDfP4PR3GiYlWdg",
+      "path": "uHiAVlpSTS6dgUbu1XEHQs1Cp9MiL597NDfP4PR3GiYlWdg"
+    },
+    "non-root-prev-self-hash-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAl_XlgfM23uGz87R-gNZ3mQ_atgt6wNx9oHROXAS-bgg",
+      "path": "uHiAl_XlgfM23uGz87R-gNZ3mQ_atgt6wNx9oHROXAS-bgg"
+    },
+    "non-root-valid-from-earlier": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAMyMsIcNQYPimo1Sg5DMYWaQ3_6BheUJSUju2i8VI2qA",
+      "path": "uHiAMyMsIcNQYPimo1Sg5DMYWaQ3_6BheUJSUju2i8VI2qA"
+    },
+    "non-root-valid-from-equal": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDrltR5C5IVYX73rFz2xwrFCxr6NzCYbgn01E5DZMWdkQ",
+      "path": "uHiDrltR5C5IVYX73rFz2xwrFCxr6NzCYbgn01E5DZMWdkQ"
+    },
+    "non-root-version-id-decrease": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDjl2tsdmh3lY-qZEKMw9vsgBkvdb7FAnCGvw_IShlxBQ",
+      "path": "uHiDjl2tsdmh3lY-qZEKMw9vsgBkvdb7FAnCGvw_IShlxBQ"
+    },
+    "non-root-version-id-gap": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBUrK1AZtB4Q_b_so6YDx91R-lZxRb3qAQJhVjsIkr9VA",
+      "path": "uHiBUrK1AZtB4Q_b_so6YDx91R-lZxRb3qAQJhVjsIkr9VA"
+    },
+    "non-root-version-id-repeat": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCXxPnvjCikusTeY_ENjXykiE8CvVdl5TAfJ3XRVsCvEQ",
+      "path": "uHiCXxPnvjCikusTeY_ENjXykiE8CvVdl5TAfJ3XRVsCvEQ"
+    },
+    "proof-invalid-signature": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDOAZetINy7fXc1z7zTiOU3bqkE7gEUdrIPCUqfuva9gg",
+      "path": "uHiDOAZetINy7fXc1z7zTiOU3bqkE7gEUdrIPCUqfuva9gg"
+    },
+    "proof-malformed-kid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAmfQjjkBjIGexBKDvUJSxNd5xcqeS_gKY6N9jb8K2L-g",
+      "path": "uHiAmfQjjkBjIGexBKDvUJSxNd5xcqeS_gKY6N9jb8K2L-g"
+    },
+    "proofs-extraneous-ignored": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7O7L5Vg9Kjw2S8jU5VzmuopWVuvcwvIqturrkB-jQ4Q",
+      "path": "uHiB7O7L5Vg9Kjw2S8jU5VzmuopWVuvcwvIqturrkB-jQ4Q"
+    },
+    "proofs-missing": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD6I_zW7gNx8b4hlJwTC3y7w24KW79tODq97p9eYF6iiQ",
+      "path": "uHiD6I_zW7gNx8b4hlJwTC3y7w24KW79tODq97p9eYF6iiQ"
+    },
+    "proofs-mixed-valid-invalid-any": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYzT1wzCFHlD4RRLwcx0d--L5uj6YR35d-fsh-boqQpQ",
+      "path": "uHiCYzT1wzCFHlD4RRLwcx0d--L5uj6YR35d-fsh-boqQpQ"
+    },
+    "proofs-mixed-valid-invalid-key": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiATQYbieCmHeDJAod4i3dlulXvULIX_BNtFIW1jXyN0tA",
+      "path": "uHiATQYbieCmHeDJAod4i3dlulXvULIX_BNtFIW1jXyN0tA"
+    },
+    "purpose-dangling-authentication-ref": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD1OXV1inholyhQyaY9-gXnqEPuXoy-XudOaNkkkj1cNA",
+      "path": "uHiD1OXV1inholyhQyaY9-gXnqEPuXoy-XudOaNkkkj1cNA"
+    },
+    "resolution-host-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDs4piqozGpukUZn55FKBDcEuzO5Ks0X-xlK64iifR1RA",
+      "path": "uHiDs4piqozGpukUZn55FKBDcEuzO5Ks0X-xlK64iifR1RA"
+    },
+    "resolution-path-content-has-extra": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDDE0aFXjF_v3y71qVtAUYZ3xk7rwIaznDtXoVI71qT1w",
+      "path": "uHiDDE0aFXjF_v3y71qVtAUYZ3xk7rwIaznDtXoVI71qT1w"
+    },
+    "resolution-path-url-has-extra": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:extra:uHiBaijtILonvLJSeBuULUf8Boi3tFmHuAt1VZmn7vl8OEw",
+      "path": "extra/uHiBaijtILonvLJSeBuULUf8Boi3tFmHuAt1VZmn7vl8OEw"
+    },
+    "resolution-port-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDFPBBDXf3k2M6hNdNsGS4cG4jnE0nvtWPpWTn49Cn9MA",
+      "path": "uHiDFPBBDXf3k2M6hNdNsGS4cG4jnE0nvtWPpWTn49Cn9MA"
+    },
+    "resolution-root-self-hash-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCjcagmzR9NrkfC1dIHc55dL9rG9rDAJ2QMbDWgccT_jg",
+      "path": "uHiCjcagmzR9NrkfC1dIHc55dL9rG9rDAJ2QMbDWgccT_jg"
+    },
+    "root-prev-self-hash-present": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDr_vUTEOlantq4qNmqrGdg8Pr6iY7UsAfcP3RJHWjaNw",
+      "path": "uHiDr_vUTEOlantq4qNmqrGdg8Pr6iY7UsAfcP3RJHWjaNw"
+    },
+    "root-version-id-nonzero": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDNBlo1rKw2asJW0ivK28Gb51Z4O0od0c_e1cPlFTWLJg",
+      "path": "uHiDNBlo1rKw2asJW0ivK28Gb51Z4O0od0c_e1cPlFTWLJg"
+    },
+    "root-with-invalid-proof": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCxR45z6PUIRvWyDY2VLIvFnUft5pnd0JRNqrCckgaLww",
+      "path": "uHiCxR45z6PUIRvWyDY2VLIvFnUft5pnd0JRNqrCckgaLww"
+    },
+    "root-with-proofs": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCI7LsjcX6P6QlCcF-uanf7-vJ0oYwFWUfzeIuGPM9JUg",
+      "path": "uHiCI7LsjcX6P6QlCcF-uanf7-vJ0oYwFWUfzeIuGPM9JUg"
+    },
+    "self-hash-inconsistent-slots": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiARqDFu1Tyy-OTXbpdELtnq3n_bAicEy5L-i1T5RpnOYw",
+      "path": "uHiARqDFu1Tyy-OTXbpdELtnq3n_bAicEy5L-i1T5RpnOYw"
+    },
+    "self-hash-wrong-field": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBjvfBZ5oVwoBuVwEbVQfyXvigxWeREyRDCW7L-e4xhkw",
+      "path": "uHiBjvfBZ5oVwoBuVwEbVQfyXvigxWeREyRDCW7L-e4xhkw"
+    },
+    "self-hash-wrong-root-did-suffix": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA5owogrlzCXvyzePEJfamy37OLLeqJMUIT8kXpkJizAg",
+      "path": "uHiA5owogrlzCXvyzePEJfamy37OLLeqJMUIT8kXpkJizAg"
+    },
+    "stress-deeply-nested-update-rules": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDnTUSSiiidimXXSiVTa61EY5-yrdGbyfN4SitQMhIz6w",
+      "path": "uHiDnTUSSiiidimXXSiVTa61EY5-yrdGbyfN4SitQMhIz6w"
+    },
+    "stress-large-document": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAfeH_7hdmJ16Paa0yAepX2ki9U0JCeHVB0m9ygBOpM5w",
+      "path": "uHiAfeH_7hdmJ16Paa0yAepX2ki9U0JCeHVB0m9ygBOpM5w"
+    },
+    "stress-long-did-path": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:path0000:path0001:path0002:path0003:path0004:path0005:path0006:path0007:path0008:path0009:path0010:path0011:path0012:path0013:path0014:path0015:path0016:path0017:path0018:path0019:path0020:path0021:path0022:path0023:path0024:path0025:path0026:path0027:path0028:path0029:path0030:path0031:uHiDjxpJ6fm6slulOKPC8tDK5mUk8quwDhm_QHDgv3ST7vQ",
+      "path": "path0000/path0001/path0002/path0003/path0004/path0005/path0006/path0007/path0008/path0009/path0010/path0011/path0012/path0013/path0014/path0015/path0016/path0017/path0018/path0019/path0020/path0021/path0022/path0023/path0024/path0025/path0026/path0027/path0028/path0029/path0030/path0031/uHiDjxpJ6fm6slulOKPC8tDK5mUk8quwDhm_QHDgv3ST7vQ"
+    },
+    "stress-many-proofs": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAXg7XN2emQsPq1sEE1yrtQB9ZJ-XynrktHU5yDESbuVw",
+      "path": "uHiAXg7XN2emQsPq1sEE1yrtQB9ZJ-XynrktHU5yDESbuVw"
+    },
+    "stress-many-versions-100": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7_df9pHfW4CVq-zrIPwe1eRELwD8_6zRHTNZa2Fb5CQ",
+      "path": "uHiB7_df9pHfW4CVq-zrIPwe1eRELwD8_6zRHTNZa2Fb5CQ"
+    },
+    "stress-many-versions-1000": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBJ9PnPN1kJyYe2YPq0Gqc94YeV9YQgnMWzwnZph5sPtw",
+      "path": "uHiBJ9PnPN1kJyYe2YPq0Gqc94YeV9YQgnMWzwnZph5sPtw"
+    },
+    "update-after-tombstone": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCRlJeed8kCCXYSl8zR0d57_gV06rwqTyq06pyaViSStQ",
+      "path": "uHiCRlJeed8kCCXYSl8zR0d57_gV06rwqTyq06pyaViSStQ"
+    },
+    "update-rules-all-missing-proof": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDAsO34-3FuWqXTv79P4EkByrlsvpoRpLRsOr45j_UhkQ",
+      "path": "uHiDAsO34-3FuWqXTv79P4EkByrlsvpoRpLRsOr45j_UhkQ"
+    },
+    "update-rules-all-valid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiC1waYfXuNYY-gZPjotgFpitTPp8RSQcoVnSoKnCMKq6w",
+      "path": "uHiC1waYfXuNYY-gZPjotgFpitTPp8RSQcoVnSoKnCMKq6w"
+    },
+    "update-rules-any-unsatisfied": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCwj1ytgzVd_Yp4lCsLm03ejZLKIDSX6sOX_kxgYlNJww",
+      "path": "uHiCwj1ytgzVd_Yp4lCsLm03ejZLKIDSX6sOX_kxgYlNJww"
+    },
+    "update-rules-any-valid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDz16tzLaAJ2mFpoB-UQGMpHj6Vy6N_xuC0H5_F9fHdcg",
+      "path": "uHiDz16tzLaAJ2mFpoB-UQGMpHj6Vy6N_xuC0H5_F9fHdcg"
+    },
+    "update-rules-at-least-weighted-at-threshold": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCdaXEMDobP1Hj-BG0OTm34Qj8VzFjXCeAS2LYzGos8SA",
+      "path": "uHiCdaXEMDobP1Hj-BG0OTm34Qj8VzFjXCeAS2LYzGos8SA"
+    },
+    "update-rules-at-least-weighted-below-threshold": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBCTTJCaiYqYWUohRiN5cgy8CPbAez-ErKz5MfBOuBdMA",
+      "path": "uHiBCTTJCaiYqYWUohRiN5cgy8CPbAez-ErKz5MfBOuBdMA"
+    },
+    "update-rules-hashed-key-unauthorized": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDdH8aSN1YQw0cp9nsCcru0rmXu_0eFBXXnX9L9LD-3uA",
+      "path": "uHiDdH8aSN1YQw0cp9nsCcru0rmXu_0eFBXXnX9L9LD-3uA"
+    },
+    "update-rules-hashed-key-valid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7yn_BD640cwEJleGDBDz8LA71CQEYWDvqYgltisiY6w",
+      "path": "uHiB7yn_BD640cwEJleGDBDz8LA71CQEYWDvqYgltisiY6w"
+    },
+    "update-rules-key-unauthorized": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCeNMv7R8ELY-YhdC3MZAIgxWDfIrZwpj_w5sP5uGmOTg",
+      "path": "uHiCeNMv7R8ELY-YhdC3MZAIgxWDfIrZwpj_w5sP5uGmOTg"
+    },
+    "update-rules-key-valid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDtUbarcBm98POjKzQ5Wrk7WmNT2dQ1K_MhCGzPw4-rsA",
+      "path": "uHiDtUbarcBm98POjKzQ5Wrk7WmNT2dQ1K_MhCGzPw4-rsA"
+    },
+    "valid-from-equivalent-hundred-milliseconds": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDpy0gvsbvDdQGABEJ0i-I3j-kQGaiTA7uDSDrd0RxfKA",
+      "path": "uHiDpy0gvsbvDdQGABEJ0i-I3j-kQGaiTA7uDSDrd0RxfKA"
+    },
+    "valid-from-equivalent-no-fraction": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCheUjdrkw8qXbdqMI9GewSskB0N9NTHTwYjSvIHye81w",
+      "path": "uHiCheUjdrkw8qXbdqMI9GewSskB0N9NTHTwYjSvIHye81w"
+    },
+    "valid-from-equivalent-tenth": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA4QqngGsBDGS3wT-S6punGYff3JC4ougYzQedX2vu_JQ",
+      "path": "uHiA4QqngGsBDGS3wT-S6punGYff3JC4ougYzQedX2vu_JQ"
+    },
+    "valid-from-lowercase-t-z": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCvS2bPEKioHFyzVhkIu1q0TuxxNAMmdvRN_zU-pQRX-w",
+      "path": "uHiCvS2bPEKioHFyzVhkIu1q0TuxxNAMmdvRN_zU-pQRX-w"
+    },
+    "valid-from-microsecond-precision": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBvrwp6sde12YKQNHj11S3pw4qCiUzGjTL0V7vZvJAkUw",
+      "path": "uHiBvrwp6sde12YKQNHj11S3pw4qCiUzGjTL0V7vZvJAkUw"
+    },
+    "valid-from-pre-epoch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiANJ5xe_al0Q-Q3lHod2rgGgAksBW383bLDqPIzv5234w",
+      "path": "uHiANJ5xe_al0Q-Q3lHod2rgGgAksBW383bLDqPIzv5234w"
+    },
+    "valid-from-unparseable-calendar": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB7I-_SjbGXvEkjyULvxGSatt1qXwEWFaPu9wrbFkYcow",
+      "path": "uHiB7I-_SjbGXvEkjyULvxGSatt1qXwEWFaPu9wrbFkYcow"
+    },
+    "vm-id-controller-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBRuTcm-N6EyN4jaEevhtVTun8hhTw3dLWSCvQMkOg4dg",
+      "path": "uHiBRuTcm-N6EyN4jaEevhtVTun8hhTw3dLWSCvQMkOg4dg"
+    },
+    "vm-id-missing-fragment": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD7UOBSJlM9fN_AQw_Kkh1NZ8VvfD5IMuW1ZI0r1Q9kSQ",
+      "path": "uHiD7UOBSJlM9fN_AQw_Kkh1NZ8VvfD5IMuW1ZI0r1Q9kSQ"
+    },
+    "vm-id-missing-self-hash-param": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAJHlGtCPsOL5gjCtktR01TKAuHM1o4bpO4nfH7tmJO3w",
+      "path": "uHiAJHlGtCPsOL5gjCtktR01TKAuHM1o4bpO4nfH7tmJO3w"
+    },
+    "vm-id-missing-version-id-param": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBzn1lbD7qsKVubYi-3ByB8hDe6MBi9RlzoHLGag8KCtA",
+      "path": "uHiBzn1lbD7qsKVubYi-3ByB8hDe6MBi9RlzoHLGag8KCtA"
+    },
+    "vm-id-query-param-order": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBpYndDVjAwKCCS_LV_jaYIds7XA2IAq0OkPbwlpmu2jg",
+      "path": "uHiBpYndDVjAwKCCS_LV_jaYIds7XA2IAq0OkPbwlpmu2jg"
+    },
+    "vm-id-self-hash-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD-3J_jxjiGBrpo6GQTP8uC_RMqZJE9thYUqlcSk2qjvQ",
+      "path": "uHiD-3J_jxjiGBrpo6GQTP8uC_RMqZJE9thYUqlcSk2qjvQ"
+    },
+    "vm-id-version-id-mismatch": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA4-F46rwfaaXYBlxmfXPf82jGgHHIEqJN_KWgaX_qgBA",
+      "path": "uHiA4-F46rwfaaXYBlxmfXPf82jGgHHIEqJN_KWgaX_qgBA"
+    },
+    "vm-missing-jwk-kid": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAxlWiXQupZBjF7-9qO--G0Fx_npoP5mHY6VTdj3SJNtw",
+      "path": "uHiAxlWiXQupZBjF7-9qO--G0Fx_npoP5mHY6VTdj3SJNtw"
+    }
+  },
+  "groups": {
+    "conformance": [
+      "baseline-valid-root",
+      "baseline-valid-update",
+      "data-model-malformed-id",
+      "data-model-missing-required-field",
+      "data-model-version-id-string",
+      "jcs-extra-whitespace",
+      "jcs-non-minimal-number",
+      "jcs-reordered-fields",
+      "non-root-id-mismatch",
+      "non-root-prev-self-hash-mismatch",
+      "non-root-valid-from-earlier",
+      "non-root-valid-from-equal",
+      "non-root-version-id-decrease",
+      "non-root-version-id-gap",
+      "non-root-version-id-repeat",
+      "proof-invalid-signature",
+      "proof-malformed-kid",
+      "proofs-extraneous-ignored",
+      "proofs-missing",
+      "proofs-mixed-valid-invalid-any",
+      "proofs-mixed-valid-invalid-key",
+      "purpose-dangling-authentication-ref",
+      "root-prev-self-hash-present",
+      "root-version-id-nonzero",
+      "root-with-invalid-proof",
+      "root-with-proofs",
+      "self-hash-inconsistent-slots",
+      "self-hash-wrong-field",
+      "self-hash-wrong-root-did-suffix",
+      "update-after-tombstone",
+      "update-rules-all-missing-proof",
+      "update-rules-all-valid",
+      "update-rules-any-unsatisfied",
+      "update-rules-any-valid",
+      "update-rules-at-least-weighted-at-threshold",
+      "update-rules-at-least-weighted-below-threshold",
+      "update-rules-hashed-key-unauthorized",
+      "update-rules-hashed-key-valid",
+      "update-rules-key-unauthorized",
+      "update-rules-key-valid",
+      "valid-from-equivalent-hundred-milliseconds",
+      "valid-from-equivalent-no-fraction",
+      "valid-from-equivalent-tenth",
+      "valid-from-lowercase-t-z",
+      "valid-from-microsecond-precision",
+      "valid-from-pre-epoch",
+      "valid-from-unparseable-calendar",
+      "vm-id-controller-mismatch",
+      "vm-id-missing-fragment",
+      "vm-id-missing-self-hash-param",
+      "vm-id-missing-version-id-param",
+      "vm-id-query-param-order",
+      "vm-id-self-hash-mismatch",
+      "vm-id-version-id-mismatch",
+      "vm-missing-jwk-kid"
+    ],
+    "coverage-matrix": [
+      "base-base58btc",
+      "did-multi-path-components",
+      "matrix-ed25519-blake3",
+      "matrix-ed25519-sha224",
+      "matrix-ed25519-sha256",
+      "matrix-ed25519-sha3-224",
+      "matrix-ed25519-sha3-256",
+      "matrix-ed25519-sha3-384",
+      "matrix-ed25519-sha3-512",
+      "matrix-ed25519-sha384",
+      "matrix-ed25519-sha512",
+      "matrix-ed448-blake3",
+      "matrix-ed448-sha224",
+      "matrix-ed448-sha256",
+      "matrix-ed448-sha3-224",
+      "matrix-ed448-sha3-256",
+      "matrix-ed448-sha3-384",
+      "matrix-ed448-sha3-512",
+      "matrix-ed448-sha384",
+      "matrix-ed448-sha512",
+      "matrix-p256-blake3",
+      "matrix-p256-sha224",
+      "matrix-p256-sha256",
+      "matrix-p256-sha3-224",
+      "matrix-p256-sha3-256",
+      "matrix-p256-sha3-384",
+      "matrix-p256-sha3-512",
+      "matrix-p256-sha384",
+      "matrix-p256-sha512",
+      "matrix-p384-blake3",
+      "matrix-p384-sha224",
+      "matrix-p384-sha256",
+      "matrix-p384-sha3-224",
+      "matrix-p384-sha3-256",
+      "matrix-p384-sha3-384",
+      "matrix-p384-sha3-512",
+      "matrix-p384-sha384",
+      "matrix-p384-sha512",
+      "matrix-p521-blake3",
+      "matrix-p521-sha224",
+      "matrix-p521-sha256",
+      "matrix-p521-sha3-224",
+      "matrix-p521-sha3-256",
+      "matrix-p521-sha3-384",
+      "matrix-p521-sha3-512",
+      "matrix-p521-sha384",
+      "matrix-p521-sha512",
+      "matrix-secp256k1-blake3",
+      "matrix-secp256k1-sha224",
+      "matrix-secp256k1-sha256",
+      "matrix-secp256k1-sha3-224",
+      "matrix-secp256k1-sha3-256",
+      "matrix-secp256k1-sha3-384",
+      "matrix-secp256k1-sha3-512",
+      "matrix-secp256k1-sha384",
+      "matrix-secp256k1-sha512",
+      "mixed-base-history",
+      "mixed-hash-history",
+      "mixed-key-types-one-document"
+    ],
+    "fuzz-lite": [
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00000",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00001",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00002",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00003",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00004",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00005",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00006",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00007",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00008",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00009",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00010",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00011",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00012",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00013",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00014",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00015",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00016",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00017",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00018",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00019",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00020",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00021",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00022",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00023",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00024",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00025",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00026",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00027",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00028",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00029",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00030",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00031",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00032",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00033",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00034",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00035",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00036",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00037",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00038",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00039",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00040",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00041",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00042",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00043",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00044",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00045",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00046",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00047",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00048",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00049",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00050",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00051",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00052",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00053",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00054",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00055",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00056",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00057",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00058",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00059",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00060",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00061",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00062",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00063",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00064",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00065",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00066",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00067",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00068",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00069",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00070",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00071",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00072",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00073",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00074",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00075",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00076",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00077",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00078",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00079",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00080",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00081",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00082",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00083",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00084",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00085",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00086",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00087",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00088",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00089",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00090",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00091",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00092",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00093",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00094",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00095",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00096",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00097",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00098",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00099",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00100",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00101",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00102",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00103",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00104",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00105",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00106",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00107",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00108",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00109",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00110",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00111",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00112",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00113",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00114",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00115",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00116",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00117",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00118",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00119",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00120",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00121",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00122",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00123",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00124",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00125",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00126",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00127"
+    ],
+    "jsonl-structural": [
+      "jsonl-blank-lines",
+      "jsonl-crlf-line-endings",
+      "jsonl-duplicate-line",
+      "jsonl-empty-file",
+      "jsonl-non-json-trailing-line",
+      "jsonl-valid-prefix-then-invalid-doc"
+    ],
+    "negative": [
+      "data-model-malformed-id",
+      "data-model-missing-required-field",
+      "data-model-version-id-string",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00000",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00001",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00002",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00003",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00004",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00005",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00006",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00007",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00008",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00009",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00010",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00011",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00012",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00013",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00014",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00015",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00016",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00017",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00018",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00019",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00020",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00021",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00022",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00023",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00024",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00025",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00026",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00027",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00028",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00029",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00030",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00031",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00032",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00033",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00034",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00035",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00036",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00037",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00038",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00039",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00040",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00041",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00042",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00043",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00044",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00045",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00046",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00047",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00048",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00049",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00050",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00051",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00052",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00053",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00054",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00055",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00056",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00057",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00058",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00059",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00060",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00061",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00062",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00063",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00064",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00065",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00066",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00067",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00068",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00069",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00070",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00071",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00072",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00073",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00074",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00075",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00076",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00077",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00078",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00079",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00080",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00081",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00082",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00083",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00084",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00085",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00086",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00087",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00088",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00089",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00090",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00091",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00092",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00093",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00094",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00095",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00096",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00097",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00098",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00099",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00100",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00101",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00102",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00103",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00104",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00105",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00106",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00107",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00108",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00109",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00110",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00111",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00112",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00113",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00114",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00115",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00116",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00117",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00118",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00119",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00120",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00121",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00122",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00123",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00124",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00125",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00126",
+      "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00127",
+      "jcs-extra-whitespace",
+      "jcs-non-minimal-number",
+      "jcs-reordered-fields",
+      "jsonl-blank-lines",
+      "jsonl-crlf-line-endings",
+      "jsonl-duplicate-line",
+      "jsonl-non-json-trailing-line",
+      "jsonl-valid-prefix-then-invalid-doc",
+      "non-root-id-mismatch",
+      "non-root-prev-self-hash-mismatch",
+      "non-root-valid-from-earlier",
+      "non-root-valid-from-equal",
+      "non-root-version-id-decrease",
+      "non-root-version-id-gap",
+      "non-root-version-id-repeat",
+      "proof-invalid-signature",
+      "proof-malformed-kid",
+      "proofs-missing",
+      "proofs-mixed-valid-invalid-any",
+      "proofs-mixed-valid-invalid-key",
+      "purpose-dangling-authentication-ref",
+      "resolution-host-mismatch",
+      "resolution-path-content-has-extra",
+      "resolution-path-url-has-extra",
+      "resolution-port-mismatch",
+      "resolution-root-self-hash-mismatch",
+      "root-prev-self-hash-present",
+      "root-version-id-nonzero",
+      "root-with-invalid-proof",
+      "self-hash-inconsistent-slots",
+      "self-hash-wrong-field",
+      "self-hash-wrong-root-did-suffix",
+      "update-after-tombstone",
+      "update-rules-all-missing-proof",
+      "update-rules-any-unsatisfied",
+      "update-rules-at-least-weighted-below-threshold",
+      "update-rules-hashed-key-unauthorized",
+      "update-rules-key-unauthorized",
+      "valid-from-lowercase-t-z",
+      "valid-from-microsecond-precision",
+      "valid-from-pre-epoch",
+      "valid-from-unparseable-calendar",
+      "vm-id-controller-mismatch",
+      "vm-id-missing-fragment",
+      "vm-id-missing-self-hash-param",
+      "vm-id-missing-version-id-param",
+      "vm-id-query-param-order",
+      "vm-id-self-hash-mismatch",
+      "vm-id-version-id-mismatch",
+      "vm-missing-jwk-kid"
+    ],
+    "positive": [
+      "base-base58btc",
+      "baseline-valid-root",
+      "baseline-valid-update",
+      "did-multi-path-components",
+      "jsonl-empty-file",
+      "matrix-ed25519-blake3",
+      "matrix-ed25519-sha224",
+      "matrix-ed25519-sha256",
+      "matrix-ed25519-sha3-224",
+      "matrix-ed25519-sha3-256",
+      "matrix-ed25519-sha3-384",
+      "matrix-ed25519-sha3-512",
+      "matrix-ed25519-sha384",
+      "matrix-ed25519-sha512",
+      "matrix-ed448-blake3",
+      "matrix-ed448-sha224",
+      "matrix-ed448-sha256",
+      "matrix-ed448-sha3-224",
+      "matrix-ed448-sha3-256",
+      "matrix-ed448-sha3-384",
+      "matrix-ed448-sha3-512",
+      "matrix-ed448-sha384",
+      "matrix-ed448-sha512",
+      "matrix-p256-blake3",
+      "matrix-p256-sha224",
+      "matrix-p256-sha256",
+      "matrix-p256-sha3-224",
+      "matrix-p256-sha3-256",
+      "matrix-p256-sha3-384",
+      "matrix-p256-sha3-512",
+      "matrix-p256-sha384",
+      "matrix-p256-sha512",
+      "matrix-p384-blake3",
+      "matrix-p384-sha224",
+      "matrix-p384-sha256",
+      "matrix-p384-sha3-224",
+      "matrix-p384-sha3-256",
+      "matrix-p384-sha3-384",
+      "matrix-p384-sha3-512",
+      "matrix-p384-sha384",
+      "matrix-p384-sha512",
+      "matrix-p521-blake3",
+      "matrix-p521-sha224",
+      "matrix-p521-sha256",
+      "matrix-p521-sha3-224",
+      "matrix-p521-sha3-256",
+      "matrix-p521-sha3-384",
+      "matrix-p521-sha3-512",
+      "matrix-p521-sha384",
+      "matrix-p521-sha512",
+      "matrix-secp256k1-blake3",
+      "matrix-secp256k1-sha224",
+      "matrix-secp256k1-sha256",
+      "matrix-secp256k1-sha3-224",
+      "matrix-secp256k1-sha3-256",
+      "matrix-secp256k1-sha3-384",
+      "matrix-secp256k1-sha3-512",
+      "matrix-secp256k1-sha384",
+      "matrix-secp256k1-sha512",
+      "mixed-base-history",
+      "mixed-hash-history",
+      "mixed-key-types-one-document",
+      "proofs-extraneous-ignored",
+      "root-with-proofs",
+      "stress-deeply-nested-update-rules",
+      "stress-large-document",
+      "stress-long-did-path",
+      "stress-many-proofs",
+      "stress-many-versions-100",
+      "stress-many-versions-1000",
+      "update-rules-all-valid",
+      "update-rules-any-valid",
+      "update-rules-at-least-weighted-at-threshold",
+      "update-rules-hashed-key-valid",
+      "update-rules-key-valid",
+      "valid-from-equivalent-hundred-milliseconds",
+      "valid-from-equivalent-no-fraction",
+      "valid-from-equivalent-tenth"
+    ],
+    "resolution": [
+      "resolution-host-mismatch",
+      "resolution-path-content-has-extra",
+      "resolution-path-url-has-extra",
+      "resolution-port-mismatch",
+      "resolution-root-self-hash-mismatch"
+    ],
+    "stress": [
+      "stress-deeply-nested-update-rules",
+      "stress-large-document",
+      "stress-long-did-path",
+      "stress-many-proofs",
+      "stress-many-versions-100",
+      "stress-many-versions-1000"
+    ]
+  }
+}

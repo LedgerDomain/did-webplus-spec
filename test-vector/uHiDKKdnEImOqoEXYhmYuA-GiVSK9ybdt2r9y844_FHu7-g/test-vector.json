@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDKKdnEImOqoEXYhmYuA-GiVSK9ybdt2r9y844_FHu7-g",
+  "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00125",
+  "category": "fuzz-lite",
+  "description": "Fuzz-lite single-field structured mutation: vm-id-query-param-order.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "vm-id-query-param-order",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

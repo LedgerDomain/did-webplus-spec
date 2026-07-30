@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCzeMlsAQhKm0JneSd04jCy7utp5f5vWd1lDYovrJBN0w",
+  "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00044",
+  "category": "fuzz-lite",
+  "description": "Fuzz-lite single-field structured mutation: non-root-version-id-gap.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "version-id-not-incremented",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}
