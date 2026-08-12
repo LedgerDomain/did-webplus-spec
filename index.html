@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.6</p>
+<p><strong>Specification Status:</strong> Draft v0.7</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -244,6 +244,7 @@ sequenceDiagram
 <li>Resolve the latest DID document.  This corresponds to a query of the DID itself (in the above example, <code>did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA</code>).  In order to do this, the DID Resolver must fetch any new updates from the VDR, and then serve the last DID document in that DID’s microledger.  The query</li>
 <li>Resolve a specific DID document, identified by <code>selfHash</code> and/or <code>versionId</code> query parameters (using the DID in the above example, <code>did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?selfHash=uHiC6qUSqrRAoQnfHjurPindtTxx7T7HNqP79FNW9YQVOYA</code>, or <code>did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?versionId=3</code>, or providing both query parameters).  If the requested DID document is already present in the DID Resolver’s <a href="#did-document-store" >DID Document Store</a> and is not the latest DID document present in that <a href="#did-document-store" >DID Document Store</a>, then it can be returned without contacting the VDR.  Otherwise, updates must be fetched from the VDR in order to retrieve the appropriate DID Document and to be able to produce the <a href="#did-document-metadata" >DID Document Metadata</a> and <a href="#did-resolution-metadata" >DID Resolution Metadata</a>.</li>
 </ul>
+<p>Note that an empty <code>did-documents.jsonl</code> file MUST cause the DID resolution to fail – this is because the root self-hash of the DID is a commitment to the root DID document, and therefore if there is no root DID document (i.e. empty <code>did-documents.jsonl</code> file), then this relationship can’t be verified.</p>
 <p>To illustrate, Bob resolves a DID to obtain the latest version of its DID document.  This is done simply via HTTP GET to the <a href="#did-to-url-mapping" >resolution URL for the DID</a>, and is precisely analogous to the process for <code>did:web</code>.</p>
 <div class="mermaid">
 sequenceDiagram
@@ -319,6 +320,7 @@ sequenceDiagram
 </ul>
 </li>
 <li>Each newly fetched DID document MUST be validated inductively against its predecessor per <a href="#validation-of-did-documents" >Validation of DID Documents</a>, starting from the latest archived DID document in the DID Document Store (or as a root DID document if none have been archived), and MUST be archived in the DID Document Store only if validation succeeds.</li>
+<li>An empty <code>did-documents.jsonl</code> file MUST cause the DID resolution process to fail with error.  This is because the root self-hash in the DID must be identical to the self-hash of the root DID document, and if there is no root DID document, then this relationship can’t be verified.</li>
 </ul>
 <h4 id="thin-did-resolver"><a class="toc-anchor" href="#thin-did-resolver" >§</a> Thin DID Resolver</h4>
 <p>The “Thin” DID Resolver does not need to keep its own copy of the microledger for each DID it resolves.  Instead, it uses a trusted VDG to resolve a DID, thereby outsourcing the work of fetching, verifying, and archiving DID documents to the VDG.  It simply issues a resolution request to the VDG, and the VDG returns the appropriate, pre-verified DID document (noting that the VDG fetches, verifies, and archives any DID documents it doesn’t yet have).</p>

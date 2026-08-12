@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.6
+**Specification Status:** Draft v0.7
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -261,6 +261,8 @@ A DID Resolver is used to fetch the appropriate data, perform the appropriate va
 -   Resolve the latest DID document.  This corresponds to a query of the DID itself (in the above example, `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA`).  In order to do this, the DID Resolver must fetch any new updates from the VDR, and then serve the last DID document in that DID's microledger.  The query
 -   Resolve a specific DID document, identified by `selfHash` and/or `versionId` query parameters (using the DID in the above example, `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?selfHash=uHiC6qUSqrRAoQnfHjurPindtTxx7T7HNqP79FNW9YQVOYA`, or `did:webplus:example.com:uHiBKHZUE3HHlYcyVIF-vPm0Xg71vqJla2L1OGXHMSK4NEA?versionId=3`, or providing both query parameters).  If the requested DID document is already present in the DID Resolver's [DID Document Store](#did-document-store) and is not the latest DID document present in that [DID Document Store](#did-document-store), then it can be returned without contacting the VDR.  Otherwise, updates must be fetched from the VDR in order to retrieve the appropriate DID Document and to be able to produce the [DID Document Metadata](#did-document-metadata) and [DID Resolution Metadata](#did-resolution-metadata).
 
+Note that an empty `did-documents.jsonl` file MUST cause the DID resolution to fail -- this is because the root self-hash of the DID is a commitment to the root DID document, and therefore if there is no root DID document (i.e. empty `did-documents.jsonl` file), then this relationship can't be verified.
+
 To illustrate, Bob resolves a DID to obtain the latest version of its DID document.  This is done simply via HTTP GET to the [resolution URL for the DID](#did-to-url-mapping), and is precisely analogous to the process for `did:web`.
 
 ```mermaid
@@ -347,6 +349,7 @@ An implementation of a Full DID Resolver MUST meet the following criteria:
 -   When resolution requires DID documents not yet archived in the DID Document Store (for example, when resolving the latest DID document, or when the requested DID document is not yet present), the Full DID Resolver MUST fetch the unfetched portion of that DID's microledger (`did-documents.jsonl`) using an HTTP Range-Based GET request.
     -   The HTTP Range-Based GET request MUST use a byte range starting at 0 if the DID Document Store has no archived documents for that DID (equivalent to an ordinary, non-range-based HTTP GET); otherwise it MUST start immediately after the JCS serialization of the last archived DID document for that DID (i.e. after that document's final `}`).  This ensures that `did-documents.jsonl` files that lack a trailing newline are accepted.
 -   Each newly fetched DID document MUST be validated inductively against its predecessor per [Validation of DID Documents](#validation-of-did-documents), starting from the latest archived DID document in the DID Document Store (or as a root DID document if none have been archived), and MUST be archived in the DID Document Store only if validation succeeds.
+-   An empty `did-documents.jsonl` file MUST cause the DID resolution process to fail with error.  This is because the root self-hash in the DID must be identical to the self-hash of the root DID document, and if there is no root DID document, then this relationship can't be verified.
 
 #### Thin DID Resolver
 
