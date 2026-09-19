@@ -1121,9 +1121,9 @@ In `did:webplus`, the DID document MUST be represented as the [JSON Canonicaliza
 
 -   `id`: MUST be a valid `did:webplus` DID with no query parameters or fragment.
 -   `selfHash`: MUST be a valid self-hash in [MBHash](#mbhash-values) format.  See [Self-Hashed Data](#self-hashed-data) for specifics on the self-hash generation and verification process.
--   `prevDIDDocumentSelfHash`: MUST be `null` or a valid self-hash in [MBHash](#mbhash-values) format.
+-   `prevDIDDocumentSelfHash`: MUST either be omitted OR if present MUST a valid self-hash in [MBHash](#mbhash-values) format.
 -   `updateRules`: MUST be a valid [UpdateRules](#update-rules).
--   `proofs`: MUST be `null` or an array of JWS proofs as described in [Self-Hashed Signed Data](#self-hashed-signed-data).
+-   `proofs`: MUST either be omitted (which is understood to mean "no proofs") OR if present MUST be an array of JWS proofs as described in [Self-Hashed Signed Data](#self-hashed-signed-data).
 -   `validFrom`: MUST be a valid [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339)-formatted timestamp string with the additional requirements:
     -   Its precision MUST be no greater than milliseconds.  Trailing zeros in the fractional part are optional (e.g. `"2000-01-01T12:34:56.1Z"` and `"2000-01-01T12:34:56.10Z"`, which are both valid representations of the same timestamp), and if the fractional part is zero, then the period and trailing zeros may be omitted entirely (e.g. `"2000-01-01T12:34:56Z"` and `"2000-01-01T12:34:56.0Z"`, which are both valid representations of the same timestamp).
     -   It MUST use the upper case `T` and `Z` signifiers; `T` to separate the date from the time, and `Z` to indicate a UTC offset of `00:00`.
@@ -1143,7 +1143,7 @@ There are additional constraints that depend on if a DID document is a root DID 
 ##### Root DID Document
 
 A root DID document is the first DID document in a DID's microledger.  It has the following additional constraints:
--   `prevDIDDocumentSelfHash` MUST be `null`.
+-   `prevDIDDocumentSelfHash` MUST be omitted.
 -   `versionId` MUST be 0.
 
 ##### Non-Root DID Documents
@@ -1200,7 +1200,7 @@ Root DID document (`versionId` 0):
 }
 ```
 
-Note that the `proofs` field is omitted since no proofs are required for the root DID document.  However, they MAY be present.
+Note that the `prevDIDDocumentSelfHash` field is omitted, indicating that this DID document has no predecessor.  Note that the `proofs` field is omitted since no proofs are required for the root DID document.  However, they MAY be present.
 
 Next DID Document (`versionId` 1), in particular having new `updateRules`:
 
