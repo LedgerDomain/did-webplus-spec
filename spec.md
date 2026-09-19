@@ -47,12 +47,19 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Implementations
 
-Rust implementation, licensed under the [MIT License](https://github.com/LedgerDomain/did-webplus/blob/main/LICENSE) by LedgerDomain:
+### Rust Implementation
+
+The reference implementation, written in Rust, licensed under the [MIT License](https://github.com/LedgerDomain/did-webplus/blob/main/LICENSE) by LedgerDomain:
 -   [`did:webplus` Verifiable Data Registry (VDR) service (reference implementation)](https://github.com/LedgerDomain/did-webplus/tree/main/did-webplus/vdr)
 -   [`did:webplus` Verifiable Data Gateway (VDG) service (reference implementation)](https://github.com/LedgerDomain/did-webplus/tree/main/did-webplus/vdg)
 -   [`did-webplus` CLI tool (reference implementation for DID Controller, DID Resolver, and Verifying Party operations)](https://github.com/LedgerDomain/did-webplus/tree/main/did-webplus/cli)
 
 More information, as well as all source code, is available at <https://github.com/LedgerDomain/did-webplus>.
+
+### TypeScript Implementation
+
+The first TypeScript-native and community-produced implementation, licensed under the [Apache 2.0](https://github.com/Zkred/did-methods/blob/main/LICENSE), by [Sumit Vekariya](https://github.com/sumitvekariya) under [Zkred](https://github.com/Zkred):
+-   [`did:webplus` DID resolver (Full and Thin) and controller](https://github.com/Zkred/did-methods/); published on npm as https://www.npmjs.com/package/@zkred/did-webplus
 
 ## Overview
 
