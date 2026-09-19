@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDzcD3eWE4OWPH912oSAnKH39r7coVtT_4E30siBX1gtw",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00104",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: vm-id-query-param-order.",
+  "description": "Fuzz-lite single-field structured mutation: wrong-root-did-suffix.",
   "specRef": [
     "#validation-of-did-documents"
   ],
@@ -11,7 +11,7 @@
   "expected": {
     "validDidDocumentCount": 0,
     "valid": false,
-    "errorCode": "vm-id-query-param-order",
+    "errorCode": "self-hash-mismatch",
     "errorVersionId": 0
   },
   "keyTypes": [

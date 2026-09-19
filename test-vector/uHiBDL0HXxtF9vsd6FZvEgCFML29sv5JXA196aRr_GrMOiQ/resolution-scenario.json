@@ -1,0 +1,38 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "request-creation-cold",
+  "description": "Cold plain-DID resolve with requestCreate fetches and populates creation metadata.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBDL0HXxtF9vsd6FZvEgCFML29sv5JXA196aRr_GrMOiQ",
+  "steps": [
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBDL0HXxtF9vsd6FZvEgCFML29sv5JXA196aRr_GrMOiQ",
+      "resolutionOptions": {
+        "requestCreate": true,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiBFKILcsHMOnH57wsTqfSjREOzhOQWlpA2hXdR0Kb3ZAg",
+        "didDocumentMetadata": {
+          "created": "2025-01-01T00:00:00Z",
+          "createdMilliseconds": "2025-01-01T00:00:00.001Z"
+        },
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": false
+        },
+        "vdrRequestCount": 1
+      }
+    }
+  ]
+}

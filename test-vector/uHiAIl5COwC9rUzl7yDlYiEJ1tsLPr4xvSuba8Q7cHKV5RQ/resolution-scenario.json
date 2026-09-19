@@ -1,0 +1,59 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "warm-self-hash",
+  "description": "After a cold fetch, selfHash query resolves locally with zero VDR requests.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAIl5COwC9rUzl7yDlYiEJ1tsLPr4xvSuba8Q7cHKV5RQ",
+  "steps": [
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAIl5COwC9rUzl7yDlYiEJ1tsLPr4xvSuba8Q7cHKV5RQ",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiA-UJsuj75sKJE3QlTm5Ze9JEzDqPqIKlrjYZij3vB55Q",
+        "didDocumentMetadata": {},
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 1
+      }
+    },
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAIl5COwC9rUzl7yDlYiEJ1tsLPr4xvSuba8Q7cHKV5RQ?selfHash=uHiD5nG16OfWVVQfp7GJuHPguZSYT5OX_V88HL6gp9XqrpA",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 2,
+        "didDocumentSelfHash": "uHiD5nG16OfWVVQfp7GJuHPguZSYT5OX_V88HL6gp9XqrpA",
+        "didDocumentMetadata": {},
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": false,
+          "didDocumentResolvedLocally": true,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 0
+      }
+    }
+  ]
+}

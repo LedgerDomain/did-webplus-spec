@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBKKpEYb7DcGHA-54wKZD-R5ieups0rDAYtFd6qN-uRXQ",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00073",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: inconsistent-self-hash-slots.",
+  "description": "Fuzz-lite single-field structured mutation: vm-id-missing-version-id.",
   "specRef": [
     "#validation-of-did-documents"
   ],
@@ -11,7 +11,7 @@
   "expected": {
     "validDidDocumentCount": 0,
     "valid": false,
-    "errorCode": "self-hash-slot-mismatch",
+    "errorCode": "vm-id-missing-query-params",
     "errorVersionId": 0
   },
   "keyTypes": [

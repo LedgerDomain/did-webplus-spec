@@ -3,16 +3,16 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDKKdnEImOqoEXYhmYuA-GiVSK9ybdt2r9y844_FHu7-g",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00125",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: vm-id-query-param-order.",
+  "description": "Fuzz-lite single-field structured mutation: non-root-valid-from-equal.",
   "specRef": [
     "#validation-of-did-documents"
   ],
-  "didDocumentCount": 1,
+  "didDocumentCount": 2,
   "expected": {
-    "validDidDocumentCount": 0,
+    "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "vm-id-query-param-order",
-    "errorVersionId": 0
+    "errorCode": "valid-from-not-strictly-increasing",
+    "errorVersionId": 1
   },
   "keyTypes": [
     "Ed25519"

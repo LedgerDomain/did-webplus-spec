@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiD6I_zW7gNx8b4hlJwTC3y7w24KW79tODq97p9eYF6iiQ",
   "name": "proofs-missing",
   "category": "conformance",
-  "description": "Reject an update with no proofs.",
+  "description": "Reject an update that omits the proofs field.",
   "specRef": [
     "#validation-of-did-documents",
     "#update-rules"

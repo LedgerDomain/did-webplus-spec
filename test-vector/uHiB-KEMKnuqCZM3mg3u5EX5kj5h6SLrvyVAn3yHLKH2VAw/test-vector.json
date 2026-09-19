@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB-KEMKnuqCZM3mg3u5EX5kj5h6SLrvyVAn3yHLKH2VAw",
+  "name": "non-root-vm-id-query-param-order",
+  "category": "conformance",
+  "description": "Reject a non-root VM id whose query parameters are in the wrong order.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "vm-id-query-param-order",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDO-royQXVag8DUpO8D8YdsTcjCOa0DbCUbGyy9m1jYWw",
+  "name": "request-next-with-local-next",
+  "category": "resolution-scenario",
+  "description": "Warm versionId resolve with requestNext when the next version is already local.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

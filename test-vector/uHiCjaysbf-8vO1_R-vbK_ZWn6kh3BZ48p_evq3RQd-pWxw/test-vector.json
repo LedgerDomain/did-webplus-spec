@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCjaysbf-8vO1_R-vbK_ZWn6kh3BZ48p_evq3RQd-pWxw",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00013",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: vm-id-self-hash-mismatch.",
+  "description": "Fuzz-lite single-field structured mutation: vm-id-missing-fragment.",
   "specRef": [
     "#validation-of-did-documents"
   ],
@@ -11,7 +11,7 @@
   "expected": {
     "validDidDocumentCount": 0,
     "valid": false,
-    "errorCode": "vm-id-selfhash-mismatch",
+    "errorCode": "vm-id-missing-fragment",
     "errorVersionId": 0
   },
   "keyTypes": [

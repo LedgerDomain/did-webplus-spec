@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBnA0XU6DnBv_i83Ub9YYw5pM2kwm_IELbVEPwxe2HyBA",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00026",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: non-root-valid-from-earlier.",
+  "description": "Fuzz-lite single-field structured mutation: non-root-prev-self-hash-omitted.",
   "specRef": [
     "#validation-of-did-documents"
   ],
@@ -11,7 +11,7 @@
   "expected": {
     "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "valid-from-not-strictly-increasing",
+    "errorCode": "non-root-prev-did-document-self-hash-missing",
     "errorVersionId": 1
   },
   "keyTypes": [

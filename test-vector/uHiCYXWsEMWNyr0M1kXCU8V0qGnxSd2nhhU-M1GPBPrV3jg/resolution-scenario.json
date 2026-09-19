@@ -1,0 +1,33 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "version-beyond-served",
+  "description": "Query for a versionId the VDR has not yet served: one fetch then error.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg",
+  "steps": [
+    {
+      "servedDidDocumentCount": 2,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg?versionId=3",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": false,
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "error": "DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg?versionId=3 failed",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 1
+      }
+    }
+  ]
+}

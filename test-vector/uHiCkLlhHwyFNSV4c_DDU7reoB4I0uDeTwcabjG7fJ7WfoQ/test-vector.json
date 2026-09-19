@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCkLlhHwyFNSV4c_DDU7reoB4I0uDeTwcabjG7fJ7WfoQ",
+  "name": "plain-did-always-fetches",
+  "category": "resolution-scenario",
+  "description": "Warm plain-DID resolve still fetches from the VDR when the latest-known doc is not deactivated.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

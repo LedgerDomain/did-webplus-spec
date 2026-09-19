@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDPtRwQVydHca13KsBeeAQqbwO0zurm-tU7JUJ6m3FC9g",
+  "name": "non-root-vm-id-missing-self-hash-param",
+  "category": "conformance",
+  "description": "Reject a non-root VM id missing selfHash.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "vm-id-missing-query-params",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

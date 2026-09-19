@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg",
+  "name": "version-beyond-served",
+  "category": "resolution-scenario",
+  "description": "Query for a versionId the VDR has not yet served: one fetch then error.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

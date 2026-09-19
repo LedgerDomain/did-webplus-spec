@@ -3,16 +3,16 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB-mkEiVT0e4XlXJe0DcRz_vwOjkIppCY4vcQOTJmdYgg",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00027",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: vm-id-self-hash-mismatch.",
+  "description": "Fuzz-lite single-field structured mutation: non-root-version-id-gap.",
   "specRef": [
     "#validation-of-did-documents"
   ],
-  "didDocumentCount": 1,
+  "didDocumentCount": 2,
   "expected": {
-    "validDidDocumentCount": 0,
+    "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "vm-id-selfhash-mismatch",
-    "errorVersionId": 0
+    "errorCode": "version-id-not-incremented",
+    "errorVersionId": 1
   },
   "keyTypes": [
     "Ed25519"

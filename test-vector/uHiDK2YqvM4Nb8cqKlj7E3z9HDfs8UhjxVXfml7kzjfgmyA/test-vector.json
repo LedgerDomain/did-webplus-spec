@@ -3,16 +3,16 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiDK2YqvM4Nb8cqKlj7E3z9HDfs8UhjxVXfml7kzjfgmyA",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00011",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: vm-id-version-id-mismatch.",
+  "description": "Fuzz-lite single-field structured mutation: proofs-array-contains-null.",
   "specRef": [
     "#validation-of-did-documents"
   ],
-  "didDocumentCount": 1,
+  "didDocumentCount": 2,
   "expected": {
-    "validDidDocumentCount": 0,
+    "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "vm-id-version-id-mismatch",
-    "errorVersionId": 0
+    "errorCode": "malformed-proofs",
+    "errorVersionId": 1
   },
   "keyTypes": [
     "Ed25519"

@@ -3,16 +3,16 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAiemHN2Us2_ryLz1JLbYZLFLyUp0rN6V7IxfGP9NepcQ",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00040",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: jcs-extra-whitespace.",
+  "description": "Fuzz-lite single-field structured mutation: non-root-valid-from-earlier.",
   "specRef": [
     "#validation-of-did-documents"
   ],
-  "didDocumentCount": 1,
+  "didDocumentCount": 2,
   "expected": {
-    "validDidDocumentCount": 0,
+    "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "not-jcs-canonical",
-    "errorVersionId": 0
+    "errorCode": "valid-from-not-strictly-increasing",
+    "errorVersionId": 1
   },
   "keyTypes": [
     "Ed25519"

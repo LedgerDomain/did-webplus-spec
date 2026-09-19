@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiB4ihV2s_MKE448i6ct9VGfTNQV3h6lynU1Bv5Y0KA7zg",
+  "name": "non-root-prev-self-hash-omitted",
+  "category": "conformance",
+  "description": "Reject a non-root that omits prevDIDDocumentSelfHash.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 2,
+  "expected": {
+    "validDidDocumentCount": 1,
+    "valid": false,
+    "errorCode": "non-root-prev-did-document-self-hash-missing",
+    "errorVersionId": 1
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

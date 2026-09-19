@@ -3,7 +3,7 @@
   "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiA5kOq5FQW8FRFp7gcPVDaUVDOh31a8TrLNT2V7mU0FeA",
   "name": "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00105",
   "category": "fuzz-lite",
-  "description": "Fuzz-lite single-field structured mutation: non-root-version-id-repeat.",
+  "description": "Fuzz-lite single-field structured mutation: proofs-array-contains-null.",
   "specRef": [
     "#validation-of-did-documents"
   ],
@@ -11,7 +11,7 @@
   "expected": {
     "validDidDocumentCount": 1,
     "valid": false,
-    "errorCode": "version-id-not-incremented",
+    "errorCode": "malformed-proofs",
     "errorVersionId": 1
   },
   "keyTypes": [

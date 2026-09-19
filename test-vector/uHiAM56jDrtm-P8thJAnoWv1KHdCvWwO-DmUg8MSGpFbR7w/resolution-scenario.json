@@ -1,0 +1,59 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "request-next-at-latest",
+  "description": "Warm resolve of the latest version with requestNext requires a fetch to confirm next is absent.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAM56jDrtm-P8thJAnoWv1KHdCvWwO-DmUg8MSGpFbR7w",
+  "steps": [
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAM56jDrtm-P8thJAnoWv1KHdCvWwO-DmUg8MSGpFbR7w",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiDyoAqgpXe8spMW2UYMthKv_ojbHrBMSleuRiErla-UpA",
+        "didDocumentMetadata": {},
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 1
+      }
+    },
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAM56jDrtm-P8thJAnoWv1KHdCvWwO-DmUg8MSGpFbR7w?versionId=3",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": true,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiDyoAqgpXe8spMW2UYMthKv_ojbHrBMSleuRiErla-UpA",
+        "didDocumentMetadata": {},
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": true,
+          "didDocumentMetadataResolvedLocally": false
+        },
+        "vdrRequestCount": 1
+      }
+    }
+  ]
+}

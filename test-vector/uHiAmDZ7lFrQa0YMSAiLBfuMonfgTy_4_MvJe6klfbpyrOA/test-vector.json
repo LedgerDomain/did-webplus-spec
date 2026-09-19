@@ -1,0 +1,28 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAmDZ7lFrQa0YMSAiLBfuMonfgTy_4_MvJe6klfbpyrOA",
+  "name": "root-prev-self-hash-wrong-type",
+  "category": "conformance",
+  "description": "Reject a root whose prevDIDDocumentSelfHash is a JSON number.",
+  "specRef": [
+    "#validation-of-did-documents"
+  ],
+  "didDocumentCount": 1,
+  "expected": {
+    "validDidDocumentCount": 0,
+    "valid": false,
+    "errorCode": "malformed-prev-did-document-self-hash",
+    "errorVersionId": 0
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.1.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}
