@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.7
+**Specification Status:** Draft v0.8
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -58,7 +58,7 @@ More information, as well as all source code, is available at <https://github.co
 
 ### TypeScript Implementation
 
-The first TypeScript-native and community-produced implementation, licensed under the [Apache 2.0](https://github.com/Zkred/did-methods/blob/main/LICENSE), by [Sumit Vekariya](https://github.com/sumitvekariya) under [Zkred](https://github.com/Zkred):
+The first TypeScript-native and first community-produced implementation, licensed under the [Apache 2.0](https://github.com/Zkred/did-methods/blob/main/LICENSE), by [Sumit Vekariya](https://github.com/sumitvekariya) under [Zkred](https://github.com/Zkred):
 -   [`did:webplus` DID resolver (Full and Thin) and controller](https://github.com/Zkred/did-methods/); published on npm as https://www.npmjs.com/package/@zkred/did-webplus
 
 ## Overview
