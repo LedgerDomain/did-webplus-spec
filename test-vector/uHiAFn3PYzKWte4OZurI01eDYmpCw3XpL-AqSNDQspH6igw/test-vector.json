@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw",
+  "name": "conflict-via-local-self-hash",
+  "category": "resolution-scenario",
+  "description": "After a cold fetch, disagreeing versionId (missing) and local selfHash conflict without a VDR fetch.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.6.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

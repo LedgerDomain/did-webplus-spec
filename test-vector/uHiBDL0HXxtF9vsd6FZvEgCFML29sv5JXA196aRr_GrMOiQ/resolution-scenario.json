@@ -22,6 +22,9 @@
         "didDocumentVersionId": 3,
         "didDocumentSelfHash": "uHiBFKILcsHMOnH57wsTqfSjREOzhOQWlpA2hXdR0Kb3ZAg",
         "didDocumentMetadata": {
+          "versionId": "3",
+          "updated": "2025-01-01T00:00:03Z",
+          "updatedMilliseconds": "2025-01-01T00:00:03.875Z",
           "created": "2025-01-01T00:00:00Z",
           "createdMilliseconds": "2025-01-01T00:00:00.001Z"
         },

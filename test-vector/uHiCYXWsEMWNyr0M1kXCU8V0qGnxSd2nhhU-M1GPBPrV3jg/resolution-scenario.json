@@ -20,8 +20,11 @@
       "expected": {
         "success": false,
         "didResolutionMetadata": {
-          "contentType": "application/did+json",
-          "error": "DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg?versionId=3 failed",
+          "error": {
+            "type": "https://www.w3.org/ns/did#NOT_FOUND",
+            "title": "Not Found",
+            "detail": "DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCYXWsEMWNyr0M1kXCU8V0qGnxSd2nhhU-M1GPBPrV3jg?versionId=3 failed"
+          },
           "fetchedUpdatesFromVDR": true,
           "didDocumentResolvedLocally": false,
           "didDocumentMetadataResolvedLocally": true

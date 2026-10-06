@@ -21,7 +21,11 @@
         "success": true,
         "didDocumentVersionId": 3,
         "didDocumentSelfHash": "uHiAtY7yTlaqdAG-cxSdVRpDQyPaH8NY8_24M-hjy2dlICg",
-        "didDocumentMetadata": {},
+        "didDocumentMetadata": {
+          "versionId": "3",
+          "updated": "2025-01-01T00:00:03Z",
+          "updatedMilliseconds": "2025-01-01T00:00:03.875Z"
+        },
         "didResolutionMetadata": {
           "contentType": "application/did+json",
           "fetchedUpdatesFromVDR": true,
@@ -44,8 +48,11 @@
       "expected": {
         "success": false,
         "didResolutionMetadata": {
-          "contentType": "application/did+json",
-          "error": "conflicting versionId 1 and selfHash query params",
+          "error": {
+            "type": "https://www.w3.org/ns/did#INVALID_DID_URL",
+            "title": "Invalid DID URL",
+            "detail": "conflicting versionId 1 and selfHash query params"
+          },
           "fetchedUpdatesFromVDR": false,
           "didDocumentResolvedLocally": false,
           "didDocumentMetadataResolvedLocally": true

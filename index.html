@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.8</p>
+<p><strong>Specification Status:</strong> Draft v0.9</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -346,6 +346,7 @@ sequenceDiagram
 <p>An implementation of a Thin DID Resolver MUST meet the following criteria:</p>
 <ul>
 <li>It MUST use a VDG to perform DID resolution.</li>
+<li>It MUST return the VDG’s <a href="#did-resolution-metadata" >DID Resolution Metadata</a> booleans unchanged (i.e. they describe the VDG’s locality determination).</li>
 </ul>
 <h4 id="did-resolver-operations"><a class="toc-anchor" href="#did-resolver-operations" >§</a> DID Resolver Operations</h4>
 <p>See the <a href="#did-resolution-mechanics-and-did-query-parameters" >DID Resolution Mechanics and DID Query Parameters</a> section for the mechanics of DID resolution.</p>
@@ -560,6 +561,46 @@ sequenceDiagram
 <li><code>X-DID-Request-Deactivated-Metadata</code>: If true, attempt to populate the “Deactivated” field of the <a href="#did-document-metadata" >DID Document Metadata</a>, subject to the value of the <code>X-DID-Local-Resolution-Only</code> header.  MAY be omitted.  If omitted, defaults to <code>false</code>.</li>
 <li><code>X-DID-Local-Resolution-Only</code>: If true, enable <a href="#local-only-resolution-mode" >Local-Only Resolution Mode</a> for this resolution.  MAY be omitted.  If omitted, defaults to <code>false</code> (i.e. network requests will be allowed).</li>
 </ul>
+<p>These headers correspond to the <a href="#did-resolution-options" >DID Resolution Options</a> as follows:</p>
+<table>
+<thead>
+<tr>
+<th>DID Resolution Option</th>
+<th>HTTP header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>requestCreate</code></td>
+<td><code>X-DID-Request-Creation-Metadata</code></td>
+</tr>
+<tr>
+<td><code>requestNext</code></td>
+<td><code>X-DID-Request-Next-Metadata</code></td>
+</tr>
+<tr>
+<td><code>requestLatest</code></td>
+<td><code>X-DID-Request-Latest-Metadata</code></td>
+</tr>
+<tr>
+<td><code>requestDeactivated</code></td>
+<td><code>X-DID-Request-Deactivated-Metadata</code></td>
+</tr>
+<tr>
+<td><code>localResolutionOnly</code></td>
+<td><code>X-DID-Local-Resolution-Only</code></td>
+</tr>
+</tbody>
+</table>
+<p>Boolean header values MUST be exactly <code>true</code> or <code>false</code> (lower case); any other value MUST produce HTTP 400 with <code>error</code> <code>invalidOptions</code>.</p>
+<p>The <code>resolve</code> endpoints correspond to the <code>resolveRepresentation</code> function of DID resolution.  A successful response is HTTP 200, where:</p>
+<ul>
+<li>The body is the JCS serialization of the resolved DID document.</li>
+<li>The <code>X-DID-Document-Metadata</code> header is the JSON-serialized <a href="#did-document-metadata" >DID Document Metadata</a>.</li>
+<li>The <code>X-DID-Resolution-Metadata</code> header is the JSON-serialized <a href="#did-resolution-metadata" >DID Resolution Metadata</a>, with <code>contentType</code> <code>application/did+json</code>.</li>
+<li>The <code>ETag</code> header is the <code>selfHash</code> of the resolved DID document, and the <code>Last-Modified</code> header is its <code>validFrom</code>.</li>
+</ul>
+<p>A failed resolution is a non-2xx response whose body is the JSON-serialized <a href="#did-resolution-metadata" >DID Resolution Metadata</a> (including <code>error</code>).</p>
 <p>DID Update for <a href="#verifiable-data-registry" >VDRs</a> to notify of DID updates.</p>
 <ul>
 <li><code>POST /webplus/v1/update/{did}</code>: This is used by a VDR upon DID Update to notify VDG(s) that the specified DID has been updated, and that the VDG SHOULD pre-emptively fetch, verify, and store the updates.  There should be no body in this HTTP POST request.  This process serves two purposes:
@@ -648,13 +689,14 @@ sequenceDiagram
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Note that the <code>updateRules</code> field is what defines update authorization for this DID document.</p>
-<p>The associated DID document metadata (at the time of DID creation) is:</p>
+<p>The associated DID document metadata (at the time of DID creation, with all metadata requested: <code>requestCreate</code>, <code>requestNext</code>, <code>requestLatest</code>, <code>requestDeactivated</code>) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -748,26 +790,30 @@ sequenceDiagram
   <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"DlqKjcvzBqMk8fE0AMqOr1Lnj6NgiMTv6iZMFWxHHWYLRz2KFVs9uTCVUfRrEBS2FAqLWY2u2lve8TNopSUkBA"</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>The associated DID document metadata (at the time of DID update) is:</p>
+<p>The associated DID document metadata (at the time of DID update, with all metadata requested) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>However, the DID document metadata associated with the root DID document has now become:</p>
+<p>However, the DID document metadata associated with the root DID document (with all metadata requested) has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -877,17 +923,20 @@ sequenceDiagram
   <span class="token property">"signature"</span><span class="token operator">:</span> <span class="token string">"SjRoWc9NlZrjqHu_eECRaqk57VVVeenk6YQgo7FYtBrO66O9_YOdKYJAo2dHOhSLDpht92YmUfC0HsWMrOH1BQ"</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>The associated DID document metadata (at the time of DID update) is:</p>
+<p>The associated DID document metadata (at the time of DID update, with all metadata requested) is:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
   <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Similarly, the DID document metadata associated with the previous DID document has now become:</p>
+<p>Similarly, the DID document metadata associated with the previous DID document (with all metadata requested) has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
@@ -895,21 +944,25 @@ sequenceDiagram
   <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
   <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>However, the DID document metadata associated with the root DID document has now become:</p>
+<p>However, the DID document metadata associated with the root DID document (with all metadata requested) has now become:</p>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"created"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"createdMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.699Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.715Z"</span><span class="token punctuation">,</span>
   <span class="token property">"nextVersionId"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
-  <span class="token property">"updated"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"updatedMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
-  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+  <span class="token property">"versionId"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdate"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestUpdateMilliseconds"</span><span class="token operator">:</span> <span class="token string">"2025-11-19T01:21:47.766Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"latestVersionId"</span><span class="token operator">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
   <span class="token property">"deactivated"</span><span class="token operator">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -1237,27 +1290,48 @@ graph TD
 </ol>
 <p>Note that extraneous proofs – not directly used in the <code>updateRules</code> validation – are allowed and are simply ignored for the purposes of DID document validation.  They can be used for other purposes beyond the scope of this specification.</p>
 <h4 id="did-document-metadata"><a class="toc-anchor" href="#did-document-metadata" >§</a> DID Document Metadata</h4>
-<p>DID Document Metadata is a JSON object, conforming to the <a path-0="www.w3.org"path-1="TR"path-2="did-1.0"path-3="#did-document-metadata"href="https://www.w3.org/TR/did-1.0/#did-document-metadata" >DID spec</a>, that contains the following fields.  For purposes of <code>did:webplus</code> resolution mechanics, they are logically grouped into the following sections:</p>
-<p>Creation Metadata</p>
+<p>DID Document Metadata is a JSON object, conforming to the <a path-0="www.w3.org"path-1="TR"path-2="did-1.0"path-3="#did-document-metadata"href="https://www.w3.org/TR/did-1.0/#did-document-metadata" >DID spec</a>, that contains the following fields.  For purposes of <code>did:webplus</code> resolution mechanics, they are logically grouped into the following sections.</p>
+<p>The Resolved Document Metadata fields MUST be present on every successful resolution (except as noted below for the root DID document).  The fields of each other group MUST be present iff that group was requested (see <a href="#did-resolution-options" >DID Resolution Options</a>), resolution succeeded, and the value exists; otherwise they MUST be omitted.  On failure, <code>didDocumentMetadata</code> MUST be <code>{}</code>.  All timestamps follow <a href="#timestamp-formats" >Timestamp Formats</a>.</p>
+<p>Resolved Document Metadata</p>
 <ul>
-<li><code>created</code>: DID document metadata SHOULD include a <code>created</code> property to indicate the timestamp of the Create operation. The value of the property MUST be a string formatted as an XML Datetime normalized to UTC 00:00:00 and without sub-second decimal precision. For example: <code>2020-12-20T19:17:47Z</code>.  This timestamp MUST be the result of truncating the <code>createdMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value).</li>
-<li><code>createdMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>created</code> timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the <code>validFrom</code> field of the DID document (using only the <code>created</code> field would give inaccurate results due to lack of precision).</li>
+<li><code>versionId</code>: DID document metadata MUST include a <code>versionId</code> property to indicate the version of the last Update operation for the document version which was resolved, i.e. the <code>versionId</code> field of the resolved DID document. The value of the property MUST be an ASCII string.</li>
+<li><code>updated</code>: DID document metadata MUST include an <code>updated</code> property to indicate the timestamp of the last Update operation for the document version which was resolved, i.e. the <code>validFrom</code> field of the resolved DID document. This timestamp MUST be the result of truncating the <code>updatedMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value). The <code>updated</code> property MUST be omitted if the resolved DID document is the root DID document (i.e. no Update operation has been performed for it).</li>
+<li><code>updatedMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>updated</code> timestamp with milliseconds precision, so that it can be used in relation with the <code>validFrom</code> field of other DID documents.  Present iff <code>updated</code> is present.</li>
 </ul>
-<p>Next Update Metadata</p>
+<p><code>versionId</code> describes only the resolved DID document.  Whether the resolved DID document is the latest MUST be determined by comparing it against <code>latestVersionId</code>, which requires <code>requestLatest</code>.</p>
+<p>Creation Metadata (<code>requestCreate</code>)</p>
 <ul>
-<li><code>nextUpdate</code>: DID document metadata MAY include a <code>nextUpdate</code> property if the resolved document version is not the latest version of the document. It indicates the timestamp of the next Update operation. The value of the property MUST follow the same formatting rules as the <code>created</code> property.  This timestamp MUST be the result of truncating the <code>nextUpdateMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value).</li>
-<li><code>nextUpdateMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>nextUpdate</code> timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the <code>validFrom</code> field of the DID document (using only the <code>nextUpdate</code> field would give inaccurate results due to lack of precision).</li>
-<li><code>nextVersionId</code>: DID document metadata MUST include a <code>nextVersionId</code> property if the resolved document version is not the latest version of the document. It indicates the version of the next Update operation. The value of the property MUST be an ASCII string.</li>
+<li><code>created</code>: If <code>requestCreate</code> is true, DID document metadata MUST include a <code>created</code> property to indicate the timestamp of the Create operation, i.e. the <code>validFrom</code> field of the root DID document. For example: <code>2020-12-20T19:17:47Z</code>.  This timestamp MUST be the result of truncating the <code>createdMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value).</li>
+<li><code>createdMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>created</code> timestamp with milliseconds precision.  If <code>requestCreate</code> is true, this field MUST be present, so that it can be used in relation with the <code>validFrom</code> field of the DID document (using only the <code>created</code> field would give inaccurate results due to lack of precision).</li>
 </ul>
-<p>Latest Update Metadata</p>
+<p>Next Update Metadata (<code>requestNext</code>)</p>
+<p>If <code>requestNext</code> is true, these fields MUST be present iff the resolved DID document has a successor, and are either all present or all absent.</p>
 <ul>
-<li><code>updated</code>: DID document metadata SHOULD include an <code>updated</code> property to indicate the timestamp of the last Update operation for the document version which was resolved. This timestamp MUST be the result of truncating the <code>updatedMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value). The value of the property MUST follow the same formatting rules as the <code>created</code> property. The <code>updated</code> property is omitted if an Update operation has never been performed on the DID document. If an <code>updated</code> property exists, it can be the same value as the <code>created</code> property when the difference between the two timestamps is less than one second.</li>
-<li><code>updatedMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>updated</code> timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the <code>validFrom</code> field of the DID document (using only the <code>updated</code> field would give inaccurate results due to lack of precision).</li>
-<li><code>versionId</code>: DID document metadata MUST include a versionId property to indicate the version of the last Update operation for the document version which was resolved. The value of the property MUST be an ASCII string.</li>
+<li><code>nextUpdate</code>: If <code>requestNext</code> is true, DID document metadata MUST include a <code>nextUpdate</code> property if the resolved document version is not the latest version of the document. It indicates the timestamp of the next Update operation, i.e. the <code>validFrom</code> field of the successor DID document.  This timestamp MUST be the result of truncating the <code>nextUpdateMilliseconds</code> timestamp to whole seconds (i.e. taking the floor of the seconds value).</li>
+<li><code>nextUpdateMilliseconds</code>: <code>did:webplus</code>-specific extension which represents the <code>nextUpdate</code> timestamp with milliseconds precision.  Present iff <code>nextUpdate</code> is present, so that it can be used in relation with the <code>validFrom</code> field of the DID document (using only the <code>nextUpdate</code> field would give inaccurate results due to lack of precision).</li>
+<li><code>nextVersionId</code>: If <code>requestNext</code> is true, DID document metadata MUST include a <code>nextVersionId</code> property if the resolved document version is not the latest version of the document. It indicates the version of the next Update operation, i.e. the <code>versionId</code> field of the successor DID document. The value of the property MUST be an ASCII string.</li>
 </ul>
-<p>Deactivated Metadata</p>
+<p>Latest Update Metadata (<code>requestLatest</code>)</p>
+<p>These <code>did:webplus</code>-specific fields describe the latest DID document in the DID’s microledger (which may be the root DID document).  If <code>requestLatest</code> is true, all of these fields MUST be present.</p>
 <ul>
-<li><code>deactivated</code>: If a DID has been deactivated, DID document metadata MUST include this property with the boolean value true. If a DID has not been deactivated, this property is OPTIONAL and is understood to mean <code>false</code>, but if this property is included in this case, it MUST have the boolean value <code>false</code>.</li>
+<li><code>latestUpdate</code>: The <code>validFrom</code> field of the latest DID document, truncated to whole seconds (i.e. taking the floor of the seconds value).</li>
+<li><code>latestUpdateMilliseconds</code>: The <code>latestUpdate</code> timestamp with milliseconds precision.</li>
+<li><code>latestVersionId</code>: The <code>versionId</code> field of the latest DID document, as an ASCII string.</li>
+</ul>
+<p>Deactivated Metadata (<code>requestDeactivated</code>)</p>
+<ul>
+<li><code>deactivated</code>: On a successful resolution, <code>deactivated: true</code> MUST be present when the resolver already knows the DID is deactivated (regardless of whether <code>requestDeactivated</code> is set).  <code>deactivated: false</code> MUST be present only when <code>requestDeactivated</code> is true and the DID is not deactivated; otherwise the field MUST be omitted.</li>
+</ul>
+<h5 id="timestamp-formats"><a class="toc-anchor" href="#timestamp-formats" >§</a> Timestamp Formats</h5>
+<ul>
+<li>Seconds-precision fields (<code>created</code>, <code>nextUpdate</code>, <code>updated</code>, <code>latestUpdate</code>) MUST be formatted as <code>YYYY-MM-DDTHH:MM:SSZ</code>, in UTC, using the <code>Z</code> suffix and without sub-second precision.</li>
+<li>Milliseconds-precision fields (<code>*Milliseconds</code>) MUST be valid RFC 3339 timestamps in UTC, using upper case <code>T</code> and <code>Z</code>, with a fractional part of at most 3 digits.  For example, <code>2020-12-20T19:17:47.723Z</code>, <code>2020-12-20T19:18:50.8Z</code> and <code>2020-12-20T20:13:27Z</code>.</li>
+</ul>
+<h5 id="deviations-from-did-core"><a class="toc-anchor" href="#deviations-from-did-core" >§</a> Deviations from DID Core</h5>
+<ul>
+<li><code>deactivated: true</code> MUST be present on success when the resolver already knows the DID is deactivated; <code>deactivated: false</code> is present only when <code>requestDeactivated</code> is set.  A deactivated <code>did:webplus</code> DID still resolves to its final DID document (the DID Resolution Candidate Recommendation’s null document and HTTP 410 are not used).</li>
+<li><code>versionId</code>, <code>updated</code>, <code>created</code>, <code>nextUpdate</code> and <code>nextVersionId</code> are MUST (subject to the presence rules above) rather than SHOULD or MAY.</li>
+<li>The Latest Update Metadata fields are <code>did:webplus</code>-specific extensions.</li>
 </ul>
 <h4 id="metadata-locality-conditions"><a class="toc-anchor" href="#metadata-locality-conditions" >§</a> Metadata Locality Conditions</h4>
 <p>This section defines when a Full DID Resolver may satisfy a resolution request from <a href="#did-document-store" >locally-known data</a> alone, and when a VDR fetch is required.  These determinations are made <strong>before</strong> any VDR fetch for the current resolution.  An implementation MUST attempt to satisfy needs from locally-known data first and MUST NOT fetch when every needed document / determination is already locally satisfiable.</p>
@@ -1294,7 +1368,8 @@ graph TD
 <h5 id="local-satisfiability-of-the-requested-document"><a class="toc-anchor" href="#local-satisfiability-of-the-requested-document" >§</a> Local Satisfiability of the Requested Document</h5>
 <ul>
 <li>A query-param-addressed document (<code>selfHash</code> and/or <code>versionId</code>) is locally satisfiable iff that document is present in the locally-known prefix.</li>
-<li>Conflicting <code>selfHash</code> and <code>versionId</code> (both present, addressed version found locally, hashes disagree) is an error and MUST NOT trigger a VDR fetch.</li>
+<li><strong>Conflicting query params:</strong> if both <code>selfHash</code> and <code>versionId</code> are present and either one identifies a locally-known document that the other disagrees with, resolution MUST fail with error and MUST NOT trigger a VDR fetch.  If neither identifies a locally-known document, the resolver fetches and then applies the same check.  On a conflict, <code>didDocumentResolvedLocally</code> MUST be <code>false</code>.</li>
+<li><strong>Locally-known absence:</strong> if the latest-known local document is deactivated, then a <code>versionId</code> beyond it, or a <code>selfHash</code> not in the locally-known prefix, is known not to exist, and resolution MUST fail with error type <code>https://www.w3.org/ns/did#NOT_FOUND</code> without a VDR fetch.</li>
 <li><strong>Plain-DID-requires-fetch rule:</strong> a plain DID (no query params; “resolve latest”) is never locally satisfiable unless the latest-known local document is deactivated.  If it is deactivated, that document IS the latest, there is no next, and the plain-DID request resolves to it without a fetch.</li>
 </ul>
 <h5 id="local-satisfiability-of-metadata-groups"><a class="toc-anchor" href="#local-satisfiability-of-metadata-groups" >§</a> Local Satisfiability of Metadata Groups</h5>
@@ -1308,9 +1383,10 @@ graph TD
 <li>Locally determined iff either:
 <ol>
 <li>the next version after the requested document is present in the locally-known prefix, or</li>
-<li>deactivation implies there is no next (known absence): the requested document is deactivated, or the latest-known local document is deactivated and applies as above.</li>
+<li>the requested document is deactivated (so there is known to be no next).</li>
 </ol>
 </li>
+<li>If the requested document is not locally satisfiable, Next is not locally determined either.</li>
 <li>If the requested document is present and is the latest-known local document but is not deactivated, “no next” is not locally known – a fetch is required to confirm absence or retrieve a successor.</li>
 </ul>
 <p><strong>Latest</strong> / <strong>Deactivated</strong> (<code>requestLatest</code> / <code>requestDeactivated</code>):</p>
@@ -1346,7 +1422,7 @@ graph TD
 <ol>
 <li>MUST make <strong>zero</strong> network requests (including zero HTTP requests to the VDR or any VDG) for that resolution.</li>
 <li>MUST succeed whenever every needed document / metadata determination per <a href="#metadata-locality-conditions" >Metadata locality conditions</a> is locally satisfiable.</li>
-<li>MUST fail with an error when any needed document / determination is not locally satisfiable.</li>
+<li>MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE</code> when any needed document / determination is not locally satisfiable.</li>
 <li>On both success and failure, MUST still return <a href="#did-resolution-metadata" >DID Resolution Metadata</a> with the three <code>did:webplus</code>-specific booleans set from the <strong>pre-fetch</strong> determination (<code>fetchedUpdatesFromVDR</code> MUST be <code>false</code>).</li>
 <li>All Full DID Resolver implementations MUST implement this mode.</li>
 </ol>
@@ -1355,9 +1431,37 @@ graph TD
 <p>DID Resolution Metadata is a JSON object, conforming to the <a path-0="www.w3.org"path-1="TR"path-2="did-1.0"path-3="#did-resolution-metadata"href="https://www.w3.org/TR/did-1.0/#did-resolution-metadata" >DID spec</a>, that contains the following fields.</p>
 <ul>
 <li><code>contentType</code>: The Media Type of the returned didDocumentStream. This property is REQUIRED if resolution is successful and if the resolveRepresentation function was called. This property MUST NOT be present if the resolve function was called. The value of this property MUST be an ASCII string that is the Media Type of the conformant representations. The caller of the resolveRepresentation function MUST use this value when determining how to parse and process the didDocumentStream returned by this function into the data model.</li>
-<li><code>error</code>: The error code from the resolution process. This property is REQUIRED when there is an error in the resolution process. The value of this property MUST be a single keyword ASCII string. The possible property values of this field SHOULD be registered in the <a path-0="www.w3.org"path-1="TR"path-2="did-spec-registries"path-3=""href="https://www.w3.org/TR/did-spec-registries/" >DID Specification Registries</a>.</li>
+<li><code>error</code>: REQUIRED when there is an error in the resolution process, and MUST NOT be present otherwise.  The value MUST be an <a path-0="www.rfc-editor.org"path-1="rfc"path-2="rfc9457"href="https://www.rfc-editor.org/rfc/rfc9457" >RFC 9457</a> problem details object with the following fields:
+<ul>
+<li><code>type</code>: A URI identifying the error.  This is the normative conformance signal.</li>
+<li><code>title</code>: A short, human-readable summary of the problem type.  Advisory only.</li>
+<li><code>detail</code>: A human-readable explanation specific to this occurrence.  Advisory only.</li>
 </ul>
-<p><code>did:webplus</code>-specific fields:</p>
+</li>
+</ul>
+<p><code>error.type</code> MUST be one of the following URIs.</p>
+<p>W3C DID error types:</p>
+<ul>
+<li><code>https://www.w3.org/ns/did#INVALID_DID</code>: the DID is malformed.</li>
+<li><code>https://www.w3.org/ns/did#INVALID_DID_URL</code>: the DID query is malformed, or the <code>selfHash</code> and <code>versionId</code> query parameters conflict.</li>
+<li><code>https://www.w3.org/ns/did#INVALID_OPTIONS</code>: the DID Resolution Options are invalid.</li>
+<li><code>https://www.w3.org/ns/did#NOT_FOUND</code>: the requested DID document is absent, or the VDR’s <code>did-documents.jsonl</code> is absent or empty.</li>
+<li><code>https://www.w3.org/ns/did#INVALID_DID_DOCUMENT</code>: a fetched DID document failed validation.</li>
+<li><code>https://www.w3.org/ns/did#INTERNAL_ERROR</code>: an unexpected failure occurred during resolution.</li>
+</ul>
+<p><code>did:webplus</code>-specific error types:</p>
+<p><a id="LOCAL_RESOLUTION_NOT_POSSIBLE"></a></p>
+<h5 id="local_resolution_not_possible"><a class="toc-anchor" href="#local_resolution_not_possible" >§</a> <code>LOCAL_RESOLUTION_NOT_POSSIBLE</code></h5>
+<ul>
+<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE</code></li>
+<li>Used when <code>localResolutionOnly</code> is true and any needed document or metadata determination is not locally satisfiable.</li>
+</ul>
+<p><a id="VDR_FETCH_FAILED"></a></p>
+<h5 id="vdr_fetch_failed"><a class="toc-anchor" href="#vdr_fetch_failed" >§</a> <code>VDR_FETCH_FAILED</code></h5>
+<ul>
+<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED</code></li>
+<li>Used when the Full DID Resolver’s fetch of the DID’s <code>did-documents.jsonl</code> from its VDR fails (including a fetch made through a configured VDG).  This is not the Thin DID Resolver’s resolve call.</li>
+</ul>
 <p>The three booleans below are determined before any VDR fetch for the current resolution.  Their values MUST NOT be revised after a fetch (they describe the pre-fetch locality determination, not post-fetch completeness).</p>
 <ul>
 <li><code>didDocumentResolvedLocally</code>: <code>true</code> iff the requested DID document was already present in locally-known data before any fetch; otherwise <code>false</code>.
@@ -1370,9 +1474,10 @@ graph TD
 <li><strong>Vacuous true:</strong> when no metadata is requested (<code>requestCreate</code>, <code>requestNext</code>, <code>requestLatest</code>, and <code>requestDeactivated</code> are all false), this MUST be <code>true</code>.</li>
 </ul>
 </li>
-<li><code>fetchedUpdatesFromVDR</code>: <code>true</code> iff this resolution performed a VDR fetch; otherwise <code>false</code>.  Even a fetch that returns zero new bytes counts as <code>true</code>.</li>
+<li><code>fetchedUpdatesFromVDR</code>: <code>true</code> iff this resolution attempted a VDR fetch; otherwise <code>false</code>.  Even a fetch that fails or returns zero new bytes counts as <code>true</code>.  Here, a “VDR fetch” means fetching the DID’s <code>did-documents.jsonl</code> from its VDR or through a configured VDG.</li>
 </ul>
-<p><strong>Error responses:</strong> whenever resolution fails, the resolver MUST still return DID Resolution Metadata including these three booleans (and MAY include <code>error</code>).  Error message text is only advisory for conformance, but the boolean values and presence of <code>error</code> are definitive.</p>
+<p>If the requested DID document is locally-known but requested metadata forces a VDR fetch and that fetch fails, resolution MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED</code> (with <code>didDocumentResolvedLocally</code> and <code>fetchedUpdatesFromVDR</code> both <code>true</code>).</p>
+<p><strong>Error responses:</strong> whenever resolution fails, the resolver MUST return <code>didDocument</code> as <code>null</code>, <code>didDocumentMetadata</code> as <code>{}</code>, and DID Resolution Metadata including <code>error</code> and these three booleans.  If the failure occurs before the locality determination (e.g. malformed DID, DID query, or DID Resolution Options), all three booleans MUST be <code>false</code>.  <code>title</code> and <code>detail</code> are advisory only; <code>error.type</code> and the three boolean values are definitive for conformance.</p>
 <h4 id="summary"><a class="toc-anchor" href="#summary" >§</a> Summary</h4>
 <ul>
 <li>A DID’s entire history is represented by its microledger – the ordered sequence of its DID documents.</li>

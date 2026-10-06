@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ",
+  "name": "fetch-failed-with-local-document",
+  "category": "resolution-scenario",
+  "description": "Warm local document with requestLatest: VDR fetch fails; pre-fetch booleans preserved; fetchedUpdatesFromVDR true.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.6.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

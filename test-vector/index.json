@@ -17,6 +17,10 @@
       "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBvLacITzOgdmMPGiPdEPHUXfCJOe12IkEbhvhmGbFCYA",
       "path": "uHiBvLacITzOgdmMPGiPdEPHUXfCJOe12IkEbhvhmGbFCYA"
     },
+    "conflict-via-local-self-hash": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw",
+      "path": "uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw"
+    },
     "conflicting-query-params": {
       "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCeSbpenwfSv33DjqGfDAI6PeBP4Ggz8PmVpT6fFkOOkw",
       "path": "uHiCeSbpenwfSv33DjqGfDAI6PeBP4Ggz8PmVpT6fFkOOkw"
@@ -37,9 +41,17 @@
       "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCuINQSmRZYYIRf6kL5-4AlX7Wq7nJyyjbGNNSeCkepyQ",
       "path": "uHiCuINQSmRZYYIRf6kL5-4AlX7Wq7nJyyjbGNNSeCkepyQ"
     },
+    "deactivated-known-absence": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCGBzHsJwmDNzY5nD2ptG3DPt5-WQpsb1CQU6PfLAnrNQ",
+      "path": "uHiCGBzHsJwmDNzY5nD2ptG3DPt5-WQpsb1CQU6PfLAnrNQ"
+    },
     "did-multi-path-components": {
       "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:teams:identity:alice:uHiDxgZZ5FBs-O_5XyK4vDdzqtnfQF4QhyplHs7_hNLEeGA",
       "path": "teams/identity/alice/uHiDxgZZ5FBs-O_5XyK4vDdzqtnfQF4QhyplHs7_hNLEeGA"
+    },
+    "fetch-failed-with-local-document": {
+      "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ",
+      "path": "uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ"
     },
     "fuzz-lite-6469642d776562706c75732d746573742d766563746f722d7631-00000": {
       "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCfBC_-fzyMm1tgQzsl9tuN5XK07khgILSa56rM1FUB7g",
@@ -1691,9 +1703,12 @@
       "baseline-valid-root",
       "baseline-valid-update",
       "cold-plain-did-no-metadata",
+      "conflict-via-local-self-hash",
       "conflicting-query-params",
       "deactivated-all-local",
+      "deactivated-known-absence",
       "did-multi-path-components",
+      "fetch-failed-with-local-document",
       "incremental-range-fetch",
       "local-only-matrix",
       "matrix-ed25519-blake3",
@@ -1791,8 +1806,11 @@
     ],
     "resolution-scenario": [
       "cold-plain-did-no-metadata",
+      "conflict-via-local-self-hash",
       "conflicting-query-params",
       "deactivated-all-local",
+      "deactivated-known-absence",
+      "fetch-failed-with-local-document",
       "incremental-range-fetch",
       "local-only-matrix",
       "plain-did-always-fetches",

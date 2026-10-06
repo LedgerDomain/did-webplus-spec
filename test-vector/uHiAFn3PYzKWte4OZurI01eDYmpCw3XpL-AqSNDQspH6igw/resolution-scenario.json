@@ -1,0 +1,64 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "conflict-via-local-self-hash",
+  "description": "After a cold fetch, disagreeing versionId (missing) and local selfHash conflict without a VDR fetch.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw",
+  "steps": [
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiD--P_PL077FPKtMajH215ddqst8mO1-dqdjgeZwPRdOQ",
+        "didDocumentMetadata": {
+          "versionId": "3",
+          "updated": "2025-01-01T00:00:03Z",
+          "updatedMilliseconds": "2025-01-01T00:00:03.875Z"
+        },
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 1
+      }
+    },
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiAFn3PYzKWte4OZurI01eDYmpCw3XpL-AqSNDQspH6igw?selfHash=uHiBvFo6SokL2LxMy8fsNtGNXILFBB2GIqeNcCZEycSyT6w&versionId=99",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": false,
+        "didResolutionMetadata": {
+          "error": {
+            "type": "https://www.w3.org/ns/did#INVALID_DID_URL",
+            "title": "Invalid DID URL",
+            "detail": "conflicting versionId 99 and selfHash query params"
+          },
+          "fetchedUpdatesFromVDR": false,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 0
+      }
+    }
+  ]
+}

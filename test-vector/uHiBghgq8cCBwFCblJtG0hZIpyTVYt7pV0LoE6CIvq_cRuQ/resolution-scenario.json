@@ -1,0 +1,65 @@
+{
+  "format": "did-webplus-resolution-scenario/1",
+  "name": "fetch-failed-with-local-document",
+  "description": "Warm local document with requestLatest: VDR fetch fails; pre-fetch booleans preserved; fetchedUpdatesFromVDR true.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ",
+  "steps": [
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": false,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "expected": {
+        "success": true,
+        "didDocumentVersionId": 3,
+        "didDocumentSelfHash": "uHiBF4zN-4IlJKdaaMvG1dTsbAuPd9E0sjeFP_7ktIhfUdw",
+        "didDocumentMetadata": {
+          "versionId": "3",
+          "updated": "2025-01-01T00:00:03Z",
+          "updatedMilliseconds": "2025-01-01T00:00:03.875Z"
+        },
+        "didResolutionMetadata": {
+          "contentType": "application/did+json",
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": false,
+          "didDocumentMetadataResolvedLocally": true
+        },
+        "vdrRequestCount": 1
+      }
+    },
+    {
+      "servedDidDocumentCount": 4,
+      "didQuery": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ?versionId=1",
+      "resolutionOptions": {
+        "requestCreate": false,
+        "requestNext": false,
+        "requestLatest": true,
+        "requestDeactivated": false,
+        "localResolutionOnly": false
+      },
+      "vdrFails": true,
+      "expected": {
+        "success": false,
+        "didResolutionMetadata": {
+          "error": {
+            "type": "https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED",
+            "title": "VDR Fetch Failed",
+            "detail": "VDR fetch failed for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ?versionId=1"
+          },
+          "fetchedUpdatesFromVDR": true,
+          "didDocumentResolvedLocally": true,
+          "didDocumentMetadataResolvedLocally": false
+        },
+        "vdrRequestCount": 1
+      }
+    }
+  ]
+}

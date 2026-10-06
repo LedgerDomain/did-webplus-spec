@@ -21,7 +21,11 @@
         "success": true,
         "didDocumentVersionId": 3,
         "didDocumentSelfHash": "uHiBjhQyz0cpuB-c_k7gEfRGPwMtolNaGYDIASCIWx0Z2zQ",
-        "didDocumentMetadata": {},
+        "didDocumentMetadata": {
+          "versionId": "3",
+          "updated": "2025-01-01T00:00:03Z",
+          "updatedMilliseconds": "2025-01-01T00:00:03.875Z"
+        },
         "didResolutionMetadata": {
           "contentType": "application/did+json",
           "fetchedUpdatesFromVDR": true,
@@ -46,6 +50,9 @@
         "didDocumentVersionId": 2,
         "didDocumentSelfHash": "uHiDHbAn943U7-1dMAU7KFAUeojeMm92kasjvrO5PnjL4Eg",
         "didDocumentMetadata": {
+          "versionId": "2",
+          "updated": "2025-01-01T00:00:02Z",
+          "updatedMilliseconds": "2025-01-01T00:00:02.242Z",
           "created": "2025-01-01T00:00:00Z",
           "createdMilliseconds": "2025-01-01T00:00:00.001Z"
         },

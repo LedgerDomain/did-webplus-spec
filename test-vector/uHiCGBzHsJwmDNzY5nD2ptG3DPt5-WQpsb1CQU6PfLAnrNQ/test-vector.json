@@ -1,0 +1,26 @@
+{
+  "format": "did-webplus-test-vector/1",
+  "did": "did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCGBzHsJwmDNzY5nD2ptG3DPt5-WQpsb1CQU6PfLAnrNQ",
+  "name": "deactivated-known-absence",
+  "category": "resolution-scenario",
+  "description": "After a deactivated tombstone is known, a missing versionId is known absence: NOT_FOUND without a VDR fetch.",
+  "specRef": [
+    "#did-resolution-metadata"
+  ],
+  "didDocumentCount": 4,
+  "expected": {
+    "validDidDocumentCount": 4,
+    "valid": true
+  },
+  "keyTypes": [
+    "Ed25519"
+  ],
+  "hashFunctions": [
+    "BLAKE3"
+  ],
+  "generator": {
+    "name": "did-webplus-test-vector",
+    "version": "0.6.0",
+    "seed": "did-webplus-test-vector-v1"
+  }
+}

@@ -1,7 +1,7 @@
 `did:webplus` Method Specification
 ==================
 
-**Specification Status:** Draft v0.8
+**Specification Status:** Draft v0.9
 
 **Latest Draft:**
   [https://ledgerdomain.github.io/did-webplus-spec/](https://ledgerdomain.github.io/did-webplus-spec/)
@@ -375,6 +375,7 @@ Disadvantages of the Thin DID Resolver:
 
 An implementation of a Thin DID Resolver MUST meet the following criteria:
 -   It MUST use a VDG to perform DID resolution.
+-   It MUST return the VDG's [DID Resolution Metadata](#did-resolution-metadata) booleans unchanged (i.e. they describe the VDG's locality determination).
 
 #### DID Resolver Operations
 
@@ -638,6 +639,26 @@ Both of the `resolve` endpoints MUST accept HTTP headers indicating the desired 
 -   `X-DID-Request-Deactivated-Metadata`: If true, attempt to populate the "Deactivated" field of the [DID Document Metadata](#did-document-metadata), subject to the value of the `X-DID-Local-Resolution-Only` header.  MAY be omitted.  If omitted, defaults to `false`.
 -   `X-DID-Local-Resolution-Only`: If true, enable [Local-Only Resolution Mode](#local-only-resolution-mode) for this resolution.  MAY be omitted.  If omitted, defaults to `false` (i.e. network requests will be allowed).
 
+These headers correspond to the [DID Resolution Options](#did-resolution-options) as follows:
+
+| DID Resolution Option | HTTP header |
+|------|------|
+| `requestCreate` | `X-DID-Request-Creation-Metadata` |
+| `requestNext` | `X-DID-Request-Next-Metadata` |
+| `requestLatest` | `X-DID-Request-Latest-Metadata` |
+| `requestDeactivated` | `X-DID-Request-Deactivated-Metadata` |
+| `localResolutionOnly` | `X-DID-Local-Resolution-Only` |
+
+Boolean header values MUST be exactly `true` or `false` (lower case); any other value MUST produce HTTP 400 with `error` `invalidOptions`.
+
+The `resolve` endpoints correspond to the `resolveRepresentation` function of DID resolution.  A successful response is HTTP 200, where:
+-   The body is the JCS serialization of the resolved DID document.
+-   The `X-DID-Document-Metadata` header is the JSON-serialized [DID Document Metadata](#did-document-metadata).
+-   The `X-DID-Resolution-Metadata` header is the JSON-serialized [DID Resolution Metadata](#did-resolution-metadata), with `contentType` `application/did+json`.
+-   The `ETag` header is the `selfHash` of the resolved DID document, and the `Last-Modified` header is its `validFrom`.
+
+A failed resolution is a non-2xx response whose body is the JSON-serialized [DID Resolution Metadata](#did-resolution-metadata) (including `error`).
+
 DID Update for [VDRs](#verifiable-data-registry) to notify of DID updates.
 -   `POST /webplus/v1/update/{did}`: This is used by a VDR upon DID Update to notify VDG(s) that the specified DID has been updated, and that the VDG SHOULD pre-emptively fetch, verify, and store the updates.  There should be no body in this HTTP POST request.  This process serves two purposes:
     -   It allows the VDG to pre-emptively fetch, verify, and store the updates, so that when a DID resolution or did-documents.jsonl fetch request is made, the VDG can return the appropriate data immediately.  This is what allows the Thin DID Resolver to operate in constant time.
@@ -744,15 +765,16 @@ Creating a DID produces the root DID document (represented in 'pretty' JSON for 
 
 Note that the `updateRules` field is what defines update authorization for this DID document.
 
-The associated DID document metadata (at the time of DID creation) is:
+The associated DID document metadata (at the time of DID creation, with all metadata requested: `requestCreate`, `requestNext`, `requestLatest`, `requestDeactivated`) is:
 
 ```json
 {
   "created": "2025-11-19T01:21:47Z",
   "createdMilliseconds": "2025-11-19T01:21:47.699Z",
-  "updated": "2025-11-19T01:21:47Z",
-  "updatedMilliseconds": "2025-11-19T01:21:47.699Z",
   "versionId": "0",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.699Z",
+  "latestVersionId": "0",
   "deactivated": false
 }
 ```
@@ -863,7 +885,7 @@ Note that the `proofs` field contains signatures (in JWS format) that are to be 
 }
 ```
 
-The associated DID document metadata (at the time of DID update) is:
+The associated DID document metadata (at the time of DID update, with all metadata requested) is:
 
 ```json
 {
@@ -872,11 +894,14 @@ The associated DID document metadata (at the time of DID update) is:
   "updated": "2025-11-19T01:21:47Z",
   "updatedMilliseconds": "2025-11-19T01:21:47.715Z",
   "versionId": "1",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.715Z",
+  "latestVersionId": "1",
   "deactivated": false
 }
 ```
 
-However, the DID document metadata associated with the root DID document has now become:
+However, the DID document metadata associated with the root DID document (with all metadata requested) has now become:
 
 ```json
 {
@@ -885,9 +910,10 @@ However, the DID document metadata associated with the root DID document has now
   "nextUpdate": "2025-11-19T01:21:47Z",
   "nextUpdateMilliseconds": "2025-11-19T01:21:47.715Z",
   "nextVersionId": "1",
-  "updated": "2025-11-19T01:21:47Z",
-  "updatedMilliseconds": "2025-11-19T01:21:47.715Z",
-  "versionId": "1",
+  "versionId": "0",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.715Z",
+  "latestVersionId": "1",
   "deactivated": false
 }
 ```
@@ -1013,7 +1039,7 @@ Note that the `proofs` field contains signatures (in JWS format) that are to be 
 }
 ```
 
-The associated DID document metadata (at the time of DID update) is:
+The associated DID document metadata (at the time of DID update, with all metadata requested) is:
 
 ```json
 {
@@ -1022,11 +1048,14 @@ The associated DID document metadata (at the time of DID update) is:
   "updated": "2025-11-19T01:21:47Z",
   "updatedMilliseconds": "2025-11-19T01:21:47.766Z",
   "versionId": "2",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.766Z",
+  "latestVersionId": "2",
   "deactivated": false
 }
 ```
 
-Similarly, the DID document metadata associated with the previous DID document has now become:
+Similarly, the DID document metadata associated with the previous DID document (with all metadata requested) has now become:
 
 ```json
 {
@@ -1036,13 +1065,16 @@ Similarly, the DID document metadata associated with the previous DID document h
   "nextUpdateMilliseconds": "2025-11-19T01:21:47.766Z",
   "nextVersionId": "2",
   "updated": "2025-11-19T01:21:47Z",
-  "updatedMilliseconds": "2025-11-19T01:21:47.766Z",
-  "versionId": "2",
+  "updatedMilliseconds": "2025-11-19T01:21:47.715Z",
+  "versionId": "1",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.766Z",
+  "latestVersionId": "2",
   "deactivated": false
 }
 ```
 
-However, the DID document metadata associated with the root DID document has now become:
+However, the DID document metadata associated with the root DID document (with all metadata requested) has now become:
 
 ```json
 {
@@ -1051,9 +1083,10 @@ However, the DID document metadata associated with the root DID document has now
   "nextUpdate": "2025-11-19T01:21:47Z",
   "nextUpdateMilliseconds": "2025-11-19T01:21:47.715Z",
   "nextVersionId": "1",
-  "updated": "2025-11-19T01:21:47Z",
-  "updatedMilliseconds": "2025-11-19T01:21:47.766Z",
-  "versionId": "2",
+  "versionId": "0",
+  "latestUpdate": "2025-11-19T01:21:47Z",
+  "latestUpdateMilliseconds": "2025-11-19T01:21:47.766Z",
+  "latestVersionId": "2",
   "deactivated": false
 }
 ```
@@ -1381,24 +1414,48 @@ Note that extraneous proofs -- not directly used in the `updateRules` validation
 
 #### DID Document Metadata
 
-DID Document Metadata is a JSON object, conforming to the [DID spec](https://www.w3.org/TR/did-1.0/#did-document-metadata), that contains the following fields.  For purposes of `did:webplus` resolution mechanics, they are logically grouped into the following sections:
+DID Document Metadata is a JSON object, conforming to the [DID spec](https://www.w3.org/TR/did-1.0/#did-document-metadata), that contains the following fields.  For purposes of `did:webplus` resolution mechanics, they are logically grouped into the following sections.
 
-Creation Metadata
--   `created`: DID document metadata SHOULD include a `created` property to indicate the timestamp of the Create operation. The value of the property MUST be a string formatted as an XML Datetime normalized to UTC 00:00:00 and without sub-second decimal precision. For example: `2020-12-20T19:17:47Z`.  This timestamp MUST be the result of truncating the `createdMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value).
--   `createdMilliseconds`: `did:webplus`-specific extension which represents the `created` timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the `validFrom` field of the DID document (using only the `created` field would give inaccurate results due to lack of precision).
+The Resolved Document Metadata fields MUST be present on every successful resolution (except as noted below for the root DID document).  The fields of each other group MUST be present iff that group was requested (see [DID Resolution Options](#did-resolution-options)), resolution succeeded, and the value exists; otherwise they MUST be omitted.  On failure, `didDocumentMetadata` MUST be `{}`.  All timestamps follow [Timestamp Formats](#timestamp-formats).
 
-Next Update Metadata
--   `nextUpdate`: DID document metadata MAY include a `nextUpdate` property if the resolved document version is not the latest version of the document. It indicates the timestamp of the next Update operation. The value of the property MUST follow the same formatting rules as the `created` property.  This timestamp MUST be the result of truncating the `nextUpdateMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value).
--   `nextUpdateMilliseconds`: `did:webplus`-specific extension which represents the `nextUpdate` timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the `validFrom` field of the DID document (using only the `nextUpdate` field would give inaccurate results due to lack of precision).
--   `nextVersionId`: DID document metadata MUST include a `nextVersionId` property if the resolved document version is not the latest version of the document. It indicates the version of the next Update operation. The value of the property MUST be an ASCII string.
+Resolved Document Metadata
+-   `versionId`: DID document metadata MUST include a `versionId` property to indicate the version of the last Update operation for the document version which was resolved, i.e. the `versionId` field of the resolved DID document. The value of the property MUST be an ASCII string.
+-   `updated`: DID document metadata MUST include an `updated` property to indicate the timestamp of the last Update operation for the document version which was resolved, i.e. the `validFrom` field of the resolved DID document. This timestamp MUST be the result of truncating the `updatedMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value). The `updated` property MUST be omitted if the resolved DID document is the root DID document (i.e. no Update operation has been performed for it).
+-   `updatedMilliseconds`: `did:webplus`-specific extension which represents the `updated` timestamp with milliseconds precision, so that it can be used in relation with the `validFrom` field of other DID documents.  Present iff `updated` is present.
 
-Latest Update Metadata
--   `updated`: DID document metadata SHOULD include an `updated` property to indicate the timestamp of the last Update operation for the document version which was resolved. This timestamp MUST be the result of truncating the `updatedMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value). The value of the property MUST follow the same formatting rules as the `created` property. The `updated` property is omitted if an Update operation has never been performed on the DID document. If an `updated` property exists, it can be the same value as the `created` property when the difference between the two timestamps is less than one second.
--   `updatedMilliseconds`: `did:webplus`-specific extension which represents the `updated` timestamp with milliseconds precision.  This field MUST be present so that it can be used in relation with the `validFrom` field of the DID document (using only the `updated` field would give inaccurate results due to lack of precision).
--   `versionId`: DID document metadata MUST include a versionId property to indicate the version of the last Update operation for the document version which was resolved. The value of the property MUST be an ASCII string.
+`versionId` describes only the resolved DID document.  Whether the resolved DID document is the latest MUST be determined by comparing it against `latestVersionId`, which requires `requestLatest`.
 
-Deactivated Metadata
--   `deactivated`: If a DID has been deactivated, DID document metadata MUST include this property with the boolean value true. If a DID has not been deactivated, this property is OPTIONAL and is understood to mean `false`, but if this property is included in this case, it MUST have the boolean value `false`.
+Creation Metadata (`requestCreate`)
+-   `created`: If `requestCreate` is true, DID document metadata MUST include a `created` property to indicate the timestamp of the Create operation, i.e. the `validFrom` field of the root DID document. For example: `2020-12-20T19:17:47Z`.  This timestamp MUST be the result of truncating the `createdMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value).
+-   `createdMilliseconds`: `did:webplus`-specific extension which represents the `created` timestamp with milliseconds precision.  If `requestCreate` is true, this field MUST be present, so that it can be used in relation with the `validFrom` field of the DID document (using only the `created` field would give inaccurate results due to lack of precision).
+
+Next Update Metadata (`requestNext`)
+
+If `requestNext` is true, these fields MUST be present iff the resolved DID document has a successor, and are either all present or all absent.
+-   `nextUpdate`: If `requestNext` is true, DID document metadata MUST include a `nextUpdate` property if the resolved document version is not the latest version of the document. It indicates the timestamp of the next Update operation, i.e. the `validFrom` field of the successor DID document.  This timestamp MUST be the result of truncating the `nextUpdateMilliseconds` timestamp to whole seconds (i.e. taking the floor of the seconds value).
+-   `nextUpdateMilliseconds`: `did:webplus`-specific extension which represents the `nextUpdate` timestamp with milliseconds precision.  Present iff `nextUpdate` is present, so that it can be used in relation with the `validFrom` field of the DID document (using only the `nextUpdate` field would give inaccurate results due to lack of precision).
+-   `nextVersionId`: If `requestNext` is true, DID document metadata MUST include a `nextVersionId` property if the resolved document version is not the latest version of the document. It indicates the version of the next Update operation, i.e. the `versionId` field of the successor DID document. The value of the property MUST be an ASCII string.
+
+Latest Update Metadata (`requestLatest`)
+
+These `did:webplus`-specific fields describe the latest DID document in the DID's microledger (which may be the root DID document).  If `requestLatest` is true, all of these fields MUST be present.
+-   `latestUpdate`: The `validFrom` field of the latest DID document, truncated to whole seconds (i.e. taking the floor of the seconds value).
+-   `latestUpdateMilliseconds`: The `latestUpdate` timestamp with milliseconds precision.
+-   `latestVersionId`: The `versionId` field of the latest DID document, as an ASCII string.
+
+Deactivated Metadata (`requestDeactivated`)
+-   `deactivated`: On a successful resolution, `deactivated: true` MUST be present when the resolver already knows the DID is deactivated (regardless of whether `requestDeactivated` is set).  `deactivated: false` MUST be present only when `requestDeactivated` is true and the DID is not deactivated; otherwise the field MUST be omitted.
+
+##### Timestamp Formats
+
+-   Seconds-precision fields (`created`, `nextUpdate`, `updated`, `latestUpdate`) MUST be formatted as `YYYY-MM-DDTHH:MM:SSZ`, in UTC, using the `Z` suffix and without sub-second precision.
+-   Milliseconds-precision fields (`*Milliseconds`) MUST be valid RFC 3339 timestamps in UTC, using upper case `T` and `Z`, with a fractional part of at most 3 digits.  For example, `2020-12-20T19:17:47.723Z`, `2020-12-20T19:18:50.8Z` and `2020-12-20T20:13:27Z`.
+
+##### Deviations from DID Core
+
+-   `deactivated: true` MUST be present on success when the resolver already knows the DID is deactivated; `deactivated: false` is present only when `requestDeactivated` is set.  A deactivated `did:webplus` DID still resolves to its final DID document (the DID Resolution Candidate Recommendation's null document and HTTP 410 are not used).
+-   `versionId`, `updated`, `created`, `nextUpdate` and `nextVersionId` are MUST (subject to the presence rules above) rather than SHOULD or MAY.
+-   The Latest Update Metadata fields are `did:webplus`-specific extensions.
 
 #### Metadata Locality Conditions
 
@@ -1422,7 +1479,8 @@ Given [DID Resolution Options](#did-resolution-options):
 ##### Local Satisfiability of the Requested Document
 
 -   A query-param-addressed document (`selfHash` and/or `versionId`) is locally satisfiable iff that document is present in the locally-known prefix.
--   Conflicting `selfHash` and `versionId` (both present, addressed version found locally, hashes disagree) is an error and MUST NOT trigger a VDR fetch.
+-   **Conflicting query params:** if both `selfHash` and `versionId` are present and either one identifies a locally-known document that the other disagrees with, resolution MUST fail with error and MUST NOT trigger a VDR fetch.  If neither identifies a locally-known document, the resolver fetches and then applies the same check.  On a conflict, `didDocumentResolvedLocally` MUST be `false`.
+-   **Locally-known absence:** if the latest-known local document is deactivated, then a `versionId` beyond it, or a `selfHash` not in the locally-known prefix, is known not to exist, and resolution MUST fail with error type `https://www.w3.org/ns/did#NOT_FOUND` without a VDR fetch.
 -   **Plain-DID-requires-fetch rule:** a plain DID (no query params; "resolve latest") is never locally satisfiable unless the latest-known local document is deactivated.  If it is deactivated, that document IS the latest, there is no next, and the plain-DID request resolves to it without a fetch.
 
 ##### Local Satisfiability of Metadata Groups
@@ -1437,7 +1495,8 @@ It is NOT RECOMMENDED to request metadata that isn't actually needed, as supplyi
 
 -   Locally determined iff either:
     1.  the next version after the requested document is present in the locally-known prefix, or
-    2.  deactivation implies there is no next (known absence): the requested document is deactivated, or the latest-known local document is deactivated and applies as above.
+    2.  the requested document is deactivated (so there is known to be no next).
+-   If the requested document is not locally satisfiable, Next is not locally determined either.
 -   If the requested document is present and is the latest-known local document but is not deactivated, "no next" is not locally known -- a fetch is required to confirm absence or retrieve a successor.
 
 **Latest** / **Deactivated** (`requestLatest` / `requestDeactivated`):
@@ -1476,7 +1535,7 @@ When `localResolutionOnly` is `true`, a conforming Full DID Resolver:
 
 1.  MUST make **zero** network requests (including zero HTTP requests to the VDR or any VDG) for that resolution.
 2.  MUST succeed whenever every needed document / metadata determination per [Metadata locality conditions](#metadata-locality-conditions) is locally satisfiable.
-3.  MUST fail with an error when any needed document / determination is not locally satisfiable.
+3.  MUST fail with error type `https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE` when any needed document / determination is not locally satisfiable.
 4.  On both success and failure, MUST still return [DID Resolution Metadata](#did-resolution-metadata) with the three `did:webplus`-specific booleans set from the **pre-fetch** determination (`fetchedUpdatesFromVDR` MUST be `false`).
 5.  All Full DID Resolver implementations MUST implement this mode.
 
@@ -1486,9 +1545,35 @@ Default when omitted: `false` (network requests allowed).
 
 DID Resolution Metadata is a JSON object, conforming to the [DID spec](https://www.w3.org/TR/did-1.0/#did-resolution-metadata), that contains the following fields.
 -   `contentType`: The Media Type of the returned didDocumentStream. This property is REQUIRED if resolution is successful and if the resolveRepresentation function was called. This property MUST NOT be present if the resolve function was called. The value of this property MUST be an ASCII string that is the Media Type of the conformant representations. The caller of the resolveRepresentation function MUST use this value when determining how to parse and process the didDocumentStream returned by this function into the data model.
--   `error`: The error code from the resolution process. This property is REQUIRED when there is an error in the resolution process. The value of this property MUST be a single keyword ASCII string. The possible property values of this field SHOULD be registered in the [DID Specification Registries](https://www.w3.org/TR/did-spec-registries/).
+-   `error`: REQUIRED when there is an error in the resolution process, and MUST NOT be present otherwise.  The value MUST be an [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) problem details object with the following fields:
+    -   `type`: A URI identifying the error.  This is the normative conformance signal.
+    -   `title`: A short, human-readable summary of the problem type.  Advisory only.
+    -   `detail`: A human-readable explanation specific to this occurrence.  Advisory only.
 
-`did:webplus`-specific fields:
+`error.type` MUST be one of the following URIs.
+
+W3C DID error types:
+
+-   `https://www.w3.org/ns/did#INVALID_DID`: the DID is malformed.
+-   `https://www.w3.org/ns/did#INVALID_DID_URL`: the DID query is malformed, or the `selfHash` and `versionId` query parameters conflict.
+-   `https://www.w3.org/ns/did#INVALID_OPTIONS`: the DID Resolution Options are invalid.
+-   `https://www.w3.org/ns/did#NOT_FOUND`: the requested DID document is absent, or the VDR's `did-documents.jsonl` is absent or empty.
+-   `https://www.w3.org/ns/did#INVALID_DID_DOCUMENT`: a fetched DID document failed validation.
+-   `https://www.w3.org/ns/did#INTERNAL_ERROR`: an unexpected failure occurred during resolution.
+
+`did:webplus`-specific error types:
+
+<a id="LOCAL_RESOLUTION_NOT_POSSIBLE"></a>
+##### `LOCAL_RESOLUTION_NOT_POSSIBLE`
+
+-   `type`: `https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE`
+-   Used when `localResolutionOnly` is true and any needed document or metadata determination is not locally satisfiable.
+
+<a id="VDR_FETCH_FAILED"></a>
+##### `VDR_FETCH_FAILED`
+
+-   `type`: `https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED`
+-   Used when the Full DID Resolver's fetch of the DID's `did-documents.jsonl` from its VDR fails (including a fetch made through a configured VDG).  This is not the Thin DID Resolver's resolve call.
 
 The three booleans below are determined before any VDR fetch for the current resolution.  Their values MUST NOT be revised after a fetch (they describe the pre-fetch locality determination, not post-fetch completeness).
 
@@ -1496,9 +1581,11 @@ The three booleans below are determined before any VDR fetch for the current res
     -   Can be `true` while `fetchedUpdatesFromVDR` is also `true` when the document was local but requested metadata forced a fetch.
 -   `didDocumentMetadataResolvedLocally`: `true` iff every *requested* metadata group (creation / next / latest-or-deactivated) was locally satisfiable before any fetch; otherwise `false`.
     -   **Vacuous true:** when no metadata is requested (`requestCreate`, `requestNext`, `requestLatest`, and `requestDeactivated` are all false), this MUST be `true`.
--   `fetchedUpdatesFromVDR`: `true` iff this resolution performed a VDR fetch; otherwise `false`.  Even a fetch that returns zero new bytes counts as `true`.
+-   `fetchedUpdatesFromVDR`: `true` iff this resolution attempted a VDR fetch; otherwise `false`.  Even a fetch that fails or returns zero new bytes counts as `true`.  Here, a "VDR fetch" means fetching the DID's `did-documents.jsonl` from its VDR or through a configured VDG.
 
-**Error responses:** whenever resolution fails, the resolver MUST still return DID Resolution Metadata including these three booleans (and MAY include `error`).  Error message text is only advisory for conformance, but the boolean values and presence of `error` are definitive.
+If the requested DID document is locally-known but requested metadata forces a VDR fetch and that fetch fails, resolution MUST fail with error type `https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED` (with `didDocumentResolvedLocally` and `fetchedUpdatesFromVDR` both `true`).
+
+**Error responses:** whenever resolution fails, the resolver MUST return `didDocument` as `null`, `didDocumentMetadata` as `{}`, and DID Resolution Metadata including `error` and these three booleans.  If the failure occurs before the locality determination (e.g. malformed DID, DID query, or DID Resolution Options), all three booleans MUST be `false`.  `title` and `detail` are advisory only; `error.type` and the three boolean values are definitive for conformance.
 
 #### Summary
 
