@@ -48,7 +48,7 @@ customElements.define("slide-panels",class extends HTMLElement{static get observ
       
                     <article id="content">
                       <h1 id="didwebplus-method-specification"><a class="toc-anchor" href="#didwebplus-method-specification" >§</a> <code>did:webplus</code> Method Specification</h1>
-<p><strong>Specification Status:</strong> Draft v0.9</p>
+<p><strong>Specification Status:</strong> Draft v0.10</p>
 <p><strong>Latest Draft:</strong>
 <a path-0="ledgerdomain.github.io"path-1="did-webplus-spec"path-2=""href="https://ledgerdomain.github.io/did-webplus-spec/" >https://ledgerdomain.github.io/did-webplus-spec/</a></p>
 <p>Authors:</p>
@@ -1422,7 +1422,7 @@ graph TD
 <ol>
 <li>MUST make <strong>zero</strong> network requests (including zero HTTP requests to the VDR or any VDG) for that resolution.</li>
 <li>MUST succeed whenever every needed document / metadata determination per <a href="#metadata-locality-conditions" >Metadata locality conditions</a> is locally satisfiable.</li>
-<li>MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE</code> when any needed document / determination is not locally satisfiable.</li>
+<li>MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec#LOCAL_RESOLUTION_NOT_POSSIBLE</code> when any needed document / determination is not locally satisfiable.</li>
 <li>On both success and failure, MUST still return <a href="#did-resolution-metadata" >DID Resolution Metadata</a> with the three <code>did:webplus</code>-specific booleans set from the <strong>pre-fetch</strong> determination (<code>fetchedUpdatesFromVDR</code> MUST be <code>false</code>).</li>
 <li>All Full DID Resolver implementations MUST implement this mode.</li>
 </ol>
@@ -1453,13 +1453,13 @@ graph TD
 <p><a id="LOCAL_RESOLUTION_NOT_POSSIBLE"></a></p>
 <h5 id="local_resolution_not_possible"><a class="toc-anchor" href="#local_resolution_not_possible" >§</a> <code>LOCAL_RESOLUTION_NOT_POSSIBLE</code></h5>
 <ul>
-<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE</code></li>
+<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec#LOCAL_RESOLUTION_NOT_POSSIBLE</code></li>
 <li>Used when <code>localResolutionOnly</code> is true and any needed document or metadata determination is not locally satisfiable.</li>
 </ul>
 <p><a id="VDR_FETCH_FAILED"></a></p>
 <h5 id="vdr_fetch_failed"><a class="toc-anchor" href="#vdr_fetch_failed" >§</a> <code>VDR_FETCH_FAILED</code></h5>
 <ul>
-<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED</code></li>
+<li><code>type</code>: <code>https://ledgerdomain.github.io/did-webplus-spec#VDR_FETCH_FAILED</code></li>
 <li>Used when the Full DID Resolver’s fetch of the DID’s <code>did-documents.jsonl</code> from its VDR fails (including a fetch made through a configured VDG).  This is not the Thin DID Resolver’s resolve call.</li>
 </ul>
 <p>The three booleans below are determined before any VDR fetch for the current resolution.  Their values MUST NOT be revised after a fetch (they describe the pre-fetch locality determination, not post-fetch completeness).</p>
@@ -1476,7 +1476,7 @@ graph TD
 </li>
 <li><code>fetchedUpdatesFromVDR</code>: <code>true</code> iff this resolution attempted a VDR fetch; otherwise <code>false</code>.  Even a fetch that fails or returns zero new bytes counts as <code>true</code>.  Here, a “VDR fetch” means fetching the DID’s <code>did-documents.jsonl</code> from its VDR or through a configured VDG.</li>
 </ul>
-<p>If the requested DID document is locally-known but requested metadata forces a VDR fetch and that fetch fails, resolution MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED</code> (with <code>didDocumentResolvedLocally</code> and <code>fetchedUpdatesFromVDR</code> both <code>true</code>).</p>
+<p>If the requested DID document is locally-known but requested metadata forces a VDR fetch and that fetch fails, resolution MUST fail with error type <code>https://ledgerdomain.github.io/did-webplus-spec#VDR_FETCH_FAILED</code> (with <code>didDocumentResolvedLocally</code> and <code>fetchedUpdatesFromVDR</code> both <code>true</code>).</p>
 <p><strong>Error responses:</strong> whenever resolution fails, the resolver MUST return <code>didDocument</code> as <code>null</code>, <code>didDocumentMetadata</code> as <code>{}</code>, and DID Resolution Metadata including <code>error</code> and these three booleans.  If the failure occurs before the locality determination (e.g. malformed DID, DID query, or DID Resolution Options), all three booleans MUST be <code>false</code>.  <code>title</code> and <code>detail</code> are advisory only; <code>error.type</code> and the three boolean values are definitive for conformance.</p>
 <h4 id="summary"><a class="toc-anchor" href="#summary" >§</a> Summary</h4>
 <ul>

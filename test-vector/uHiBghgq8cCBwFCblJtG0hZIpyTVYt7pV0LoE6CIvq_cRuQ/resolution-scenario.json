@@ -50,7 +50,7 @@
         "success": false,
         "didResolutionMetadata": {
           "error": {
-            "type": "https://ledgerdomain.github.io/did-webplus-spec/#VDR_FETCH_FAILED",
+            "type": "https://ledgerdomain.github.io/did-webplus-spec#VDR_FETCH_FAILED",
             "title": "VDR Fetch Failed",
             "detail": "VDR fetch failed for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiBghgq8cCBwFCblJtG0hZIpyTVYt7pV0LoE6CIvq_cRuQ?versionId=1"
           },

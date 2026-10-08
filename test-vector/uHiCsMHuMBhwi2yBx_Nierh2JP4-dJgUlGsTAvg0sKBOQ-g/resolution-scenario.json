@@ -21,7 +21,7 @@
         "success": false,
         "didResolutionMetadata": {
           "error": {
-            "type": "https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE",
+            "type": "https://ledgerdomain.github.io/did-webplus-spec#LOCAL_RESOLUTION_NOT_POSSIBLE",
             "title": "Local Resolution Not Possible",
             "detail": "local-only DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCsMHuMBhwi2yBx_Nierh2JP4-dJgUlGsTAvg0sKBOQ-g was not able to complete"
           },
@@ -102,7 +102,7 @@
         "success": false,
         "didResolutionMetadata": {
           "error": {
-            "type": "https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE",
+            "type": "https://ledgerdomain.github.io/did-webplus-spec#LOCAL_RESOLUTION_NOT_POSSIBLE",
             "title": "Local Resolution Not Possible",
             "detail": "local-only DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCsMHuMBhwi2yBx_Nierh2JP4-dJgUlGsTAvg0sKBOQ-g was not able to complete"
           },
@@ -127,7 +127,7 @@
         "success": false,
         "didResolutionMetadata": {
           "error": {
-            "type": "https://ledgerdomain.github.io/did-webplus-spec/#LOCAL_RESOLUTION_NOT_POSSIBLE",
+            "type": "https://ledgerdomain.github.io/did-webplus-spec#LOCAL_RESOLUTION_NOT_POSSIBLE",
             "title": "Local Resolution Not Possible",
             "detail": "local-only DID resolution for did:webplus:ledgerdomain.github.io:did-webplus-spec:test-vector:uHiCsMHuMBhwi2yBx_Nierh2JP4-dJgUlGsTAvg0sKBOQ-g?versionId=1 was not able to complete"
           },
